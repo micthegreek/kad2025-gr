@@ -7,6 +7,9 @@ import { getNace21ForKad } from "@/lib/nace21";
 import { notFound } from "next/navigation";
 import kadDataRaw from "@/public/data/kad.json";
 import ssgCodesRaw from "@/public/data/ssg_codes.json";
+import kadEnrichmentRaw from "@/public/data/kad_enrichment.json";
+type EnrichmentMap = Record<string, { description: string }>;
+const kadEnrichment = kadEnrichmentRaw as EnrichmentMap;
 
 interface KadRecord {
   kad2008: string;
@@ -484,7 +487,7 @@ export default async function KadDetailPage({
           📋 Πληροφορίες για τον ΚΑΔ {r.kad2008}
         </h2>
         <p style={{ fontSize: "0.9rem", lineHeight: 1.8, color: "var(--text)" }}>
-          {uniqueDesc}
+          {kadEnrichment[r.kad2008]?.description ?? uniqueDesc}
         </p>
       </div>
 

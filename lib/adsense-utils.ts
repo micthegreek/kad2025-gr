@@ -76,6 +76,11 @@ export function kadRobots(code: string): { index: boolean; follow: boolean } {
  * Sub-codes (e.g. 10111100) get noindex to avoid near-duplicate thin pages.
  */
 export function isIndexableKadPage(code: string): boolean {
+  // v88: Only top-level category pages (ending in "0000") are indexable.
+  // Sub-category pages remain accessible but noindex to improve AdSense content quality signal.
   const padded = code.replace(/\./g, "").padStart(8, "0");
-  return padded.endsWith("00");
+  if (!padded.endsWith("0000")) return false;
+  // Exclude "ΕΛΛΕΙΨΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑΣ" placeholder codes (10000, 20000, 30000, 40000)
+  const placeholders = ["00010000", "00020000", "00030000", "00040000"];
+  return !placeholders.includes(padded);
 }
