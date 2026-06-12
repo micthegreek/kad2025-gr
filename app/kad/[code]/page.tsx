@@ -11,6 +11,14 @@ import kadEnrichmentRaw from "@/public/data/kad_enrichment.json";
 import kadProgramsRaw from "@/public/data/kad_programs_lookup.json";
 import professionsRaw from "@/public/data/professions.json";
 import { RecentKadTracker } from "@/components/RecentKad";
+import similarRaw from "@/public/data/similar_kads.json";
+
+const SIMILAR = similarRaw as Record<string, string[]>;
+const PROGRAM_SLUG: Record<string, string> = {
+  x: "espa-xekino-epixeirimatika", e: "espa-paragoume-stin-ellada",
+  m: "anaptyxiakos-metapoiisi", p: "anaptyxiakos-periohes-eidikis-enishysis",
+  g: "anaptyxiakos-megales-ependyseis",
+};
 
 interface ProfCode { c: string; d08: string; n: string; d25: string; ch: boolean; idx: boolean }
 interface ProfessionEntry { slug: string; name: string; emoji: string; intro: string; codes: ProfCode[] }
@@ -468,6 +476,26 @@ export default async function KadDetailPage({
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "DefinedTermSet",
+        "@id": "https://www.kad2025.gr/#kadset2025",
+        name: "ΚΑΔ 2025 — Κωδικοί Αριθμοί Δραστηριότητας (NACE Rev.2.1)",
+        url: "https://www.kad2025.gr",
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": `${canonicalUrl}#term2008`,
+        termCode: r.kad2008,
+        name: r.desc2008,
+        inDefinedTermSet: { "@type": "DefinedTermSet", "@id": "https://www.kad2025.gr/#kadset2008", name: "ΚΑΔ 2008 (NACE Rev.2)" },
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": `${canonicalUrl}#term2025`,
+        termCode: r.kad2025,
+        name: r.desc2025,
+        inDefinedTermSet: { "@id": "https://www.kad2025.gr/#kadset2025" },
+      },
+      {
         "@type": "WebPage",
         "@id": canonicalUrl,
         url: canonicalUrl,
@@ -679,6 +707,18 @@ export default async function KadDetailPage({
           <h2 style={{ fontSize: "1rem", marginBottom: "0.5rem", color: "var(--success-strong)" }}>
             💶 Επιλέξιμος ΚΑΔ για {eligiblePrograms.length === 1 ? "πρόγραμμα επιδότησης" : `${eligiblePrograms.length} προγράμματα επιδότησης`}
           </h2>
+          <div style={{ display: "flex", gap: "0.45rem", flexWrap: "wrap", margin: "0.5rem 0 0.75rem" }}>
+            {eligiblePrograms.map((pk) => {
+              const slug = PROGRAM_SLUG[pk];
+              const meta = PROGRAM_META[pk];
+              if (!slug || !meta) return null;
+              return (
+                <Link key={pk} href={`/programma/${slug}`} style={{ textDecoration: "none" }}>
+                  <span className="chip" style={{ fontSize: "0.78rem" }}>{meta.emoji} {meta.label.length > 34 ? meta.label.slice(0, 32) + "…" : meta.label}</span>
+                </Link>
+              );
+            })}
+          </div>
           <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "0.75rem", lineHeight: 1.6 }}>
             Ο νέος ΚΑΔ {r.kad2025} περιλαμβάνεται στις λίστες επιλέξιμων κωδικών των παρακάτω ενεργών προγραμμάτων:
           </p>
@@ -843,6 +883,18 @@ export default async function KadDetailPage({
       {/* ===== ΣΧΕΤΙΚΕΣ ΑΝΑΖΗΤΗΣΕΙΣ — v97: internal links σε επαγγέλματα/εργαλεία ===== */}
       <div className="card" style={{ marginTop: "1.5rem" }}>
         <h2 style={{ fontSize: "1rem", marginBottom: "0.65rem" }}>🔎 Σχετικές αναζητήσεις</h2>
+        {(SIMILAR[r.kad2008] ?? []).length >= 2 && (
+          <div style={{ display: "flex", gap: "0.45rem", flexWrap: "wrap", alignItems: "center", marginBottom: "0.7rem", paddingBottom: "0.7rem", borderBottom: "1px dashed var(--border)" }}>
+            <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--text-muted)" }}>🧭 Παρόμοιες δραστηριότητες:</span>
+            {(SIMILAR[r.kad2008] ?? []).map((sc) => {
+              return (
+                <Link key={sc} href={`/kad/${sc}`} style={{ textDecoration: "none" }} title={sc}>
+                  <span className="chip" style={{ fontFamily: "monospace", fontWeight: 700, fontSize: "0.78rem" }}>{sc}</span>
+                </Link>
+              );
+            })}
+          </div>
+        )}
         <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
           {(PROF_BY_CODE.get(r.kad2008) ?? []).slice(0, 3).map((p) => (
             <Link key={p.slug} href={`/epaggelma/${p.slug}`} style={{ textDecoration: "none" }}>

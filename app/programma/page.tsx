@@ -1,0 +1,74 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import programsRaw from "@/public/data/programs_pages.json";
+
+interface Program { slug: string; label: string; emoji: string; family: string; total: number; sectionsCount: number }
+const PROGRAMS = programsRaw as Program[];
+
+export const metadata: Metadata = {
+  title: "Επιλέξιμοι ΚΑΔ ανά Πρόγραμμα Επιδότησης (ΕΣΠΑ & Αναπτυξιακός)",
+  description:
+    "Δείτε τους επιλέξιμους ΚΑΔ 2025 για κάθε ενεργό πρόγραμμα: ΕΣΠΑ «Ξεκινώ Επιχειρηματικά», «Παράγουμε στην Ελλάδα» και τα καθεστώτα του Αναπτυξιακού Νόμου — με ανάλυση ανά τομέα.",
+  alternates: { canonical: "https://www.kad2025.gr/programma" },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.kad2025.gr/programma",
+  url: "https://www.kad2025.gr/programma",
+  name: "Επιλέξιμοι ΚΑΔ ανά Πρόγραμμα",
+  inLanguage: "el-GR",
+  dateModified: "2026-06-11",
+  isPartOf: { "@id": "https://www.kad2025.gr/#website" },
+};
+
+export default function ProgrammaIndexPage() {
+  return (
+    <div style={{ maxWidth: 860, margin: "0 auto", padding: "2rem 1rem" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <nav style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "1.5rem" }}>
+        <Link href="/" style={{ color: "var(--primary)", textDecoration: "none" }}>Αρχική</Link>
+        {" → "}
+        <span>Προγράμματα</span>
+      </nav>
+      <h1 style={{ marginBottom: "0.5rem", fontSize: "clamp(1.4rem, 3vw, 2rem)" }}>
+        Επιλέξιμοι ΚΑΔ ανά Πρόγραμμα Επιδότησης
+      </h1>
+      <p style={{ fontSize: "0.95rem", lineHeight: 1.8, color: "var(--text-muted)", marginBottom: "1.5rem" }}>
+        Κάθε προκήρυξη ΕΣΠΑ και κάθε καθεστώς του Αναπτυξιακού Νόμου ορίζει κλειστή λίστα
+        επιλέξιμων ΚΑΔ 2025. Επιλέξτε πρόγραμμα για να δείτε πόσοι και ποιοι κωδικοί
+        περιλαμβάνονται, με ανάλυση ανά τομέα δραστηριότητας — ή ελέγξτε απευθείας τον δικό σας.
+      </p>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
+        {PROGRAMS.map((p) => (
+          <Link key={p.slug} href={"/programma/" + p.slug} className="tool-card" style={{ padding: "1rem 1.15rem" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
+              <div>
+                <div style={{ fontSize: "1rem", fontWeight: 700, color: "var(--text)" }}>{p.emoji} {p.label}</div>
+                <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", marginTop: "0.2rem" }}>{p.family}</div>
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <div style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary)" }}>{p.total.toLocaleString("el-GR")}</div>
+                <div style={{ fontSize: "0.72rem", color: "var(--text-muted)" }}>ΚΑΔ σε {p.sectionsCount} τομείς</div>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      <div className="card">
+        <h2 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>Δεν ξέρετε από πού να ξεκινήσετε;</h2>
+        <p style={{ fontSize: "0.88rem", color: "var(--text-muted)", lineHeight: 1.7, marginBottom: "0.75rem" }}>
+          Βάλτε τον ΚΑΔ σας στο εργαλείο ελέγχου και δείτε με μία κίνηση σε ποια από τα
+          παραπάνω προγράμματα είναι επιλέξιμος.
+        </p>
+        <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+          <Link href="/kad-epidotisi-espa" className="btn btn-primary" style={{ fontSize: "0.85rem" }}>💶 Έλεγχος του ΚΑΔ μου</Link>
+          <Link href="/epaggelma" className="btn btn-ghost" style={{ fontSize: "0.85rem" }}>👥 ΚΑΔ ανά επάγγελμα</Link>
+        </div>
+      </div>
+    </div>
+  );
+}

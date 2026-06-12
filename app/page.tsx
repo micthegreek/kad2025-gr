@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "ΚΑΔ 2025: Αντιστοίχιση, Αναζήτηση & Δωρεάν Excel",
   description: "Βρείτε τον νέο ΚΑΔ 2025 άμεσα. Πλήρης αντιστοίχιση ΚΑΔ 2008→2025 βάσει ΑΑΔΕ Α.1004/2026. Εργαλεία, Excel εξαγωγή, AI εύρεση ΚΑΔ.",
   keywords: ["καδ", "καδ 2025", "καδ 2026", "νέοι καδ", "νέοι καδ 2025", "νέοι καδ 2026", "αντιστοίχιση καδ", "λίστα καδ", "ευρετήριο καδ", "καδ 2025 excel", "καδ 2026 excel", "καδ 2025 ααδε", "καδ 2026 ααδε", "κωδικοί δραστηριότητας 2025"],
-  alternates: { canonical: "https://www.kad2025.gr/" },
+  alternates: { canonical: "https://www.kad2025.gr/", languages: { el: "https://www.kad2025.gr/", en: "https://www.kad2025.gr/en", "x-default": "https://www.kad2025.gr/" } },
 };
 
 const tools = [
@@ -41,7 +41,11 @@ const faqs = [
 
 export default function HomePage() {
   return (
-    <div>
+    <>
+      <link rel="alternate" hrefLang="el" href="https://www.kad2025.gr/" />
+      <link rel="alternate" hrefLang="en" href="https://www.kad2025.gr/en" />
+      <link rel="alternate" hrefLang="x-default" href="https://www.kad2025.gr/" />
+      <div>
       {/* Hero */}
       <section style={{ background: "linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%)", color: "white", padding: "3rem 1rem", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
@@ -237,5 +241,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </>
   );
 }
