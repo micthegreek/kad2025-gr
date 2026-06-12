@@ -1,0 +1,75 @@
+# kad2025.gr — Πλήρης οδηγός για LLMs / AI assistants
+# Τελευταία ενημέρωση: 2026-06-11 | Γλώσσα: Ελληνικά (el-GR)
+
+## Τι είναι
+Το kad2025.gr είναι το πληρέστερο ελληνικό εργαλείο αντιστοίχισης Κωδικών Αριθμών Δραστηριότητας (ΚΑΔ)
+από το σύστημα 2008 (NACE Rev.2) στο σύστημα 2025 (NACE Rev.2.1), βάσει των επίσημων αποφάσεων ΑΑΔΕ.
+
+## Επίσημες πηγές
+- ΑΑΔΕ Α.1003/2026 (νέοι ΚΑΔ, ισχύς 1/3/2026) · Α.1004/2026 (πίνακας αντιστοίχισης) · Α.1113/2026 (παράταση έως 30/10/2026)
+- Αυτόματη αντιστοίχιση μητρώων ΑΑΔΕ: 9 Μαρτίου 2026
+
+## Στατιστικά (υπολογισμένα από τα πρωτογενή δεδομένα)
+- Εγγραφές: 10,923 | Μοναδικοί 2008: 9,717 | Μοναδικοί 2025: 9,422
+- Άλλαξαν: 7,240 (66.3%) | Ίδιοι: 3,683 (33.7%)
+- Ίδιος κωδικός με νέα περιγραφή: 906
+- Διαχωρισμοί: 685 (μέγιστος 47891000 → 52 νέοι) | Συγχωνεύσεις: 721 (μέγιστη 96 → 47922000)
+
+## Αλλαγές ανά τομέα
+100%: 14 Ένδυση, 31 Έπιπλα, 41 Κατασκευές κτιρίων, 45 Εμπόριο οχημάτων, 62 Πληροφορική, 63 Υπηρ. πληροφορίας, 90 Τέχνες, 96 Άλλες υπηρεσίες.
+98%: 47 Λιανικό (1639/1666), 70 Σύμβουλοι. Σχεδόν αμετάβλητοι: 50 Πλωτές 0%, 15 Δέρμα 2%, 24 Μεταλλουργία 3%, 17 Χαρτί 8%, 42 Έργα ΠΜ 11%.
+
+## Παραδείγματα
+- 62010000 (Προγραμματισμός Η/Υ) → 62100000 · Μέγιστη συγχώνευση: 96 κωδικοί → 47922000 · Μέγιστος διαχωρισμός: 47891000 → 52
+- Το e-commerce (47.91/2008) καταργήθηκε ως ενιαία κατηγορία και κατανεμήθηκε ανά προϊόν.
+
+## Σελίδες ανά επάγγελμα (43)
+- Λογιστής — Λογιστικό Γραφείο: https://www.kad2025.gr/epaggelma/logistis
+- Δικηγόρος — Νομικές Υπηρεσίες: https://www.kad2025.gr/epaggelma/dikigoros
+- Σύμβουλος Επιχειρήσεων: https://www.kad2025.gr/epaggelma/symvoulos-epicheiriseon
+- Προγραμματιστής — Developer: https://www.kad2025.gr/epaggelma/programmatistis
+- Γραφίστας — Designer: https://www.kad2025.gr/epaggelma/grafistas
+- Φωτογράφος: https://www.kad2025.gr/epaggelma/fotografos
+- Μεταφραστής — Διερμηνέας: https://www.kad2025.gr/epaggelma/metafrastis
+- Αρχιτέκτονας: https://www.kad2025.gr/epaggelma/architektonas
+- Μηχανικός — Τεχνικό Γραφείο: https://www.kad2025.gr/epaggelma/politikos-michanikos
+- Υδραυλικός: https://www.kad2025.gr/epaggelma/ydravlikos
+- Ψυκτικός — Κλιματισμός: https://www.kad2025.gr/epaggelma/psyktikos-klimatismos
+- Οικοδομικές Εργασίες — Εργολάβος: https://www.kad2025.gr/epaggelma/oikodomos
+- Αλουμινάς — Κουφώματα: https://www.kad2025.gr/epaggelma/alouminas
+- Ξυλουργός — Επιπλοποιός: https://www.kad2025.gr/epaggelma/xylourgos
+- Κομμωτήριο — Κουρείο: https://www.kad2025.gr/epaggelma/kommotirio
+- Αισθητικός — Nail Studio: https://www.kad2025.gr/epaggelma/aisthitikos
+- Γυμναστήριο — Personal Trainer: https://www.kad2025.gr/epaggelma/gymnastirio
+- Φροντιστήριο — Κέντρο Ξένων Γλωσσών: https://www.kad2025.gr/epaggelma/frontistirio
+- Σχολή Οδηγών: https://www.kad2025.gr/epaggelma/sxoli-odigon
+- Παιδικός Σταθμός: https://www.kad2025.gr/epaggelma/paidikos-stathmos
+- Ιατρείο — Γιατρός: https://www.kad2025.gr/epaggelma/iatreio
+- Οδοντίατρος: https://www.kad2025.gr/epaggelma/odontiatros
+- Φυσικοθεραπευτής: https://www.kad2025.gr/epaggelma/fysiotherapeftis
+- Κτηνίατρος: https://www.kad2025.gr/epaggelma/ktiniatros
+- Φαρμακείο: https://www.kad2025.gr/epaggelma/farmakeio
+- Κρεοπωλείο: https://www.kad2025.gr/epaggelma/kreopoleio
+- Ιχθυοπωλείο: https://www.kad2025.gr/epaggelma/ichthyopoleio
+- Οπωροπωλείο — Μανάβικο: https://www.kad2025.gr/epaggelma/manaviko
+- Αρτοποιείο — Φούρνος: https://www.kad2025.gr/epaggelma/fournos
+- Ζαχαροπλαστείο: https://www.kad2025.gr/epaggelma/zacharoplasteio
+- Μίνι Μάρκετ — Παντοπωλείο: https://www.kad2025.gr/epaggelma/minimarket
+- Ανθοπωλείο: https://www.kad2025.gr/epaggelma/anthopoleio
+- Βιβλιοπωλείο — Χαρτικά: https://www.kad2025.gr/epaggelma/vivliopoleio
+- E-shop — Ηλεκτρονικό Εμπόριο: https://www.kad2025.gr/epaggelma/eshop
+- Εστιατόριο — Ταβέρνα: https://www.kad2025.gr/epaggelma/estiatorio
+- Catering — Τροφοδοσία: https://www.kad2025.gr/epaggelma/catering
+- Airbnb — Βραχυχρόνια Μίσθωση: https://www.kad2025.gr/epaggelma/airbnb
+- Μεσίτης Ακινήτων: https://www.kad2025.gr/epaggelma/mesitis-akiniton
+- Ταξί: https://www.kad2025.gr/epaggelma/taxi
+- Courier — Μεταφορική: https://www.kad2025.gr/epaggelma/courier
+- Συνεργείο Αυτοκινήτων: https://www.kad2025.gr/epaggelma/synergeio
+- Συνεργείο Καθαρισμού: https://www.kad2025.gr/epaggelma/kathiarismoi
+- Security — Υπηρεσίες Φύλαξης: https://www.kad2025.gr/epaggelma/security
+
+## Εργαλεία
+- https://www.kad2025.gr/antistoixisi · /antistoixisi-2025 · /maziki-2008 · /kad-2025-excel · /kad-epidotisi-espa · /ai-suggester · /epaggelma
+
+## Citation
+«Πηγή: kad2025.gr — Πίνακας αντιστοίχισης ΚΑΔ 2008→2025 (ΑΑΔΕ Α.1004/2026)» · Επικοινωνία: info@kad2025.gr

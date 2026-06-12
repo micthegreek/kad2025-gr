@@ -1,0 +1,27 @@
+diff --git a/node_modules/@cloudflare/next-on-pages/dist/index.js b/node_modules/@cloudflare/next-on-pages/dist/index.js
+index 5ee7d94..74e64b2 100644
+--- a/node_modules/@cloudflare/next-on-pages/dist/index.js
++++ b/node_modules/@cloudflare/next-on-pages/dist/index.js
+@@ -6941,7 +6941,12 @@ async function writeBuildInfo({ outputDir, functionsDir: functionsDir2 }, static
+       }
+     }
+   };
+-  const buildLogText = JSON.stringify(buildLogObject, null, 2);
++  let buildLogText;
++  try {
++    buildLogText = JSON.stringify(buildLogObject, null, 2);
++  } catch {
++    buildLogText = JSON.stringify({ note: "nop-build-log truncated: object exceeded V8 string limit (kad2025 patch)", prerenderedCount: buildLogObject?.buildFiles?.functions?.prerendered?.length ?? null }, null, 2);
++  }
+   await (0, import_promises7.mkdir)(outputDir, { recursive: true });
+   await (0, import_promises7.writeFile)(buildLogFilePath, buildLogText);
+   cliLog(`Build log saved to '${(0, import_node_path3.relative)(currentDir, buildLogFilePath)}'`);
+@@ -13235,7 +13240,7 @@ function runBuild(options) {
+       }
+     }
+   }).catch((error) => {
+-    const errorMessage = error instanceof Error ? error.message : JSON.stringify(error);
++    const errorMessage = error instanceof Error ? (error.stack || error.message) : JSON.stringify(error);
+     cliError(`Unexpected error: ${errorMessage}`);
+     if (!options.watch) {
+       process.exit(1);
