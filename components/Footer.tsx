@@ -29,7 +29,7 @@ export default function Footer() {
             <div style={{ fontWeight: 700, color: "white", marginBottom: "0.5rem" }}>Εργαλεία</div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem" }}>
               {[
-                ["/kad-2008", "Αναζήτηση ΚΑΔ 2008"],
+                ["/kad-2008", "Παλιοί ΚΑΔ 2008 (Αναζήτηση)"],
                 ["/kad-2025", "Αναζήτηση ΚΑΔ 2025"],
                 ["/antistoixisi", "Αντιστοίχιση 2008 → 2025"],
                 ["/antistoixisi-2025", "Αντιστοίχιση 2025 → 2008"],
@@ -52,6 +52,8 @@ export default function Footer() {
                 ["/blog/kad-kai-logistes", "Οδηγός για Λογιστές"],
                 ["/blog/kad-gia-nea-epixeirisi", "ΚΑΔ για Νέα Επιχείρηση"],
                 ["/statistika", "Στατιστικά Αντιστοίχισης"],
+                ["/kad-2026", "Νέοι ΚΑΔ 2026 — Τι Αλλάζει"],
+                ["/programma", "Επιλέξιμοι ΚΑΔ ανά Πρόγραμμα Επιδότησης"],
                 ["/klados", "Κατηγορίες ανά Κλάδο"],
                 ["/faq", "Συχνές Ερωτήσεις ΑΑΔΕ"],
               ].map(([href, label]) => (

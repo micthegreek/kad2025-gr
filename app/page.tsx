@@ -23,6 +23,7 @@ const tools = [
   { href: "/wizard", icon: "🧭", title: "Wizard — Βρες τον ΚΑΔ σου", desc: "3 εύκολα βήματα για να βρείτε τον κατάλληλο ΚΑΔ για νέα επιχείρηση", color: "var(--acc-green)", badge: "Οδηγός", highlight: false },
   { href: "/sygkrisi", icon: "⚖️", title: "Σύγκριση ΚΑΔ", desc: "Συγκρίνετε δύο ΚΑΔ δίπλα-δίπλα για να δείτε τις διαφορές τους", color: "var(--acc-cyan)", badge: "Εργαλείο", highlight: false },
   { href: "/kad-epidotisi-espa", icon: "💰", title: "Επιλεξιμότητα Επιδοτήσεων", desc: "Ελέγξτε αν ο ΚΑΔ σας είναι επιλέξιμος σε Αναπτυξιακό Νόμο & ΕΣΠΑ", color: "var(--acc-red)", badge: "Επιδοτήσεις", highlight: false },
+  { href: "/programma", icon: "💶", title: "Επιλέξιμοι ΚΑΔ ανά Πρόγραμμα", desc: "Ξεκινώ Επιχειρηματικά, Αναπτυξιακός, Παράγουμε στην Ελλάδα — δείτε ποιοι ΚΑΔ εντάσσονται", color: "var(--acc-green)", badge: "Νέο", highlight: false },
 ];
 
 const stats = [

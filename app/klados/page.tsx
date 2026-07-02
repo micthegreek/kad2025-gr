@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getKadData } from "@/lib/kadData";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ 2025 ανά Κλάδο | Πλήρης Κατάλογος",
+  title: "Ευρετήριο ΚΑΔ 2025 ανά Κλάδο — Πλήρης Κατάλογος 28 Τομέων",
   description:
     "Πλήρης κατάλογος ΚΑΔ 2025 ανά κλάδο: Γεωργία, Εμπόριο, Εστίαση, Κατασκευές, Υγεία, Πληροφορική και άλλοι. Επίσημα δεδομένα ΑΑΔΕ Α.1003/2026.",
   alternates: { canonical: "https://www.kad2025.gr/klados" },
@@ -66,7 +66,7 @@ export default function KladosPage() {
         <span>Κλάδοι Δραστηριότητας</span>
       </nav>
 
-      <h1 style={{ marginBottom: "0.5rem" }}>📂 ΚΑΔ 2025 ανά Κλάδο Δραστηριότητας</h1>
+      <h1 style={{ marginBottom: "0.5rem" }}>📂 Ευρετήριο ΚΑΔ 2025 ανά Κλάδο Δραστηριότητας</h1>
       <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", marginBottom: "2rem", lineHeight: 1.6 }}>
         Πλήρης κατάλογος κωδικών δραστηριότητας ανά οικονομικό κλάδο.
         Κάντε κλικ σε έναν κλάδο για να δείτε όλους τους ΚΑΔ και την αντιστοίχησή τους.

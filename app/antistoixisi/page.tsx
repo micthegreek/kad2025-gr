@@ -6,7 +6,7 @@ import { RecentKadChips } from "@/components/RecentKad";
 import TrackPageTool from "@/components/TrackPageTool";
 
 export const metadata: Metadata = {
-  title: "Αντιστοίχιση ΚΑΔ 2008 με 2025 | Βρείτε τον Νέο ΚΑΔ",
+  title: "Αντιστοίχιση ΚΑΔ 2008 με 2025 — Εύρεση & Αναζήτηση Νέου Κωδικού",
   description:
     "Αντιστοίχιση ΚΑΔ 2008→2025. Βρείτε ποιος νέος ΚΑΔ αντικαθιστά τον παλιό σας. 10.923 κωδικοί, εξαγωγή Excel & CSV.",
   keywords: ["αντιστοίχιση καδ", "καδ 2025", "καδ 2026", "καδ 2025 ααδε", "καδ 2026 ααδε", "νέοι καδ 2025", "νέοι καδ 2026", "αντιστοίχιση καδ 2008 2025"],
@@ -61,6 +61,7 @@ export default function AntistoixisiPage() {
         {" → "}<span>Αντιστοίχιση ΚΑΔ 2008 → 2025</span>
       </nav>
 
+      <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", margin: "0 0 0.25rem" }}>Εργαλείο αναζήτησης & εύρεσης — το πλήρες ευρετήριο αντιστοίχισης ΚΑΔ</p>
       <h1 style={{ marginBottom: "0.5rem" }}>Αντιστοίχιση ΚΑΔ 2008 → 2025</h1>
       <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "1.5rem" }}>
         Βάση <strong>{total.toLocaleString("el-GR")} κωδικών</strong> — <strong>{changed.toLocaleString("el-GR")}</strong> άλλαξαν από 1/3/2026.

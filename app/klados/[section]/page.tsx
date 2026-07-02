@@ -1,3 +1,4 @@
+import kadStatsRaw from "@/public/data/kad.json";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -42,6 +43,18 @@ export async function generateStaticParams() {
   return Object.keys(SECTIONS).map((section) => ({ section }));
 }
 
+
+const SECTION_STATS: Record<string, { total: number; changed: number; pct: number }> = (() => {
+  const acc: Record<string, { total: number; changed: number }> = {};
+  for (const r of kadStatsRaw as { kad2008: string; kad2025: string }[]) {
+    const s2 = r.kad2008.padStart(8, "0").slice(0, 2);
+    if (!acc[s2]) acc[s2] = { total: 0, changed: 0 };
+    acc[s2].total++;
+    if (r.kad2008 !== r.kad2025) acc[s2].changed++;
+  }
+  return Object.fromEntries(Object.entries(acc).map(([k, v]) => [k, { ...v, pct: Math.round((100 * v.changed) / v.total) }]));
+})();
+
 export async function generateMetadata({
   params,
 }: {
@@ -53,8 +66,8 @@ export async function generateMetadata({
   const nace = getNace21(section);
   const naceSnippet = nace?.description ? ` ${nace.description.slice(0, 80)}.` : "";
   return {
-    title: `ΚΑΔ ${def.name} 2025 | ${def.keywords.split(",")[0].trim()} — Αντιστοίχιση`,
-    description: `Πλήρης λίστα ΚΑΔ 2008 και ΚΑΔ 2025 για τον κλάδο ${def.name}. ${def.keywords}. ${def.desc}.${naceSnippet} Αντιστοίχιση βάσει ΑΑΔΕ Α.1003/2026.`,
+    title: `ΚΑΔ ${def.name} 2025: ${SECTION_STATS[section]?.pct ?? 0}% Άλλαξαν — Νέοι Κωδικοί & Αντιστοίχιση`,
+    description: `Στον κλάδο ${def.name} άλλαξαν ${SECTION_STATS[section]?.changed ?? 0} από ${SECTION_STATS[section]?.total ?? 0} ΚΑΔ (${SECTION_STATS[section]?.pct ?? 0}%). ${def.keywords}. ${def.desc}.${naceSnippet} Αντιστοίχιση βάσει ΑΑΔΕ Α.1003/2026.`,
     keywords: def.keywords.split(",").map((k) => k.trim()),
     alternates: { canonical: `https://www.kad2025.gr/klados/${section}` },
   };

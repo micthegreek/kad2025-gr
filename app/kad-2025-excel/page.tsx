@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ 2025 Excel: Δωρεάν Πίνακας Αντιστοίχισης (10.923 γραμμές)",
+  title: "ΚΑΔ 2025 Excel — Δωρεάν Πίνακας με τους Νέους ΚΑΔ 2026 (10.923 γραμμές)",
   description:
     "Κατεβάστε δωρεάν τον πλήρη πίνακα ΚΑΔ 2025 σε Excel: 10.923 αντιστοιχίσεις ΚΑΔ 2008 → 2025 με περιγραφές και κατάσταση αλλαγής. Επίσημα δεδομένα ΑΑΔΕ Α.1003/2026 & Α.1004/2026.",
   alternates: { canonical: "https://www.kad2025.gr/kad-2025-excel" },
@@ -101,7 +101,9 @@ export default function KadExcelPage() {
       {/* Download CTA */}
       <div className="card" style={{ marginBottom: "1.5rem", borderLeft: "5px solid var(--accent)", textAlign: "center", padding: "1.5rem" }}>
         <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>📥</div>
-        <h2 style={{ fontSize: "1.15rem", marginBottom: "0.5rem" }}>kad-2025-antistoixisi.xlsx</h2>
+        <h2 style={{ marginTop: "1.5rem" }}>Νέοι ΚΑΔ 2026 σε Excel — Ίδιο Αρχείο, Πλήρης Κάλυψη</h2>
+      <p>Οι «νέοι ΚΑΔ 2026» είναι οι ίδιοι κωδικοί ΚΑΔ 2025 που ισχύουν από 1/3/2026 — το Excel περιλαμβάνει και τις 10.923 αντιστοιχίσεις, με τις περιγραφές NACE Rev.2.1, έτοιμο για φίλτρα και αναζήτηση.</p>
+      <h2 style={{ fontSize: "1.15rem", marginBottom: "0.5rem" }}>kad-2025-antistoixisi.xlsx</h2>
         <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "1rem" }}>
           631 KB · 10.923 γραμμές · 2 φύλλα εργασίας · Excel 2010+ / LibreOffice / Google Sheets
         </p>

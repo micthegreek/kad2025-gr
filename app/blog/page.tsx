@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Οδηγοί & Άρθρα ΚΑΔ 2025 — Πλήρης Ενημέρωση",
+  title: "Οδηγοί ΚΑΔ 2025/2026: Προθεσμία 30/10, Διορθώσεις & Επιδοτήσεις",
   description: "Πλήρης οδηγός αλλαγών ΚΑΔ 2025: τι αλλάζει, πώς να αλλάξετε ΚΑΔ, προθεσμίες, συχνά λάθη, οδηγός για λογιστές. Επίσημα δεδομένα ΑΑΔΕ.",
   alternates: { canonical: "https://www.kad2025.gr/blog" },
 };
