@@ -286,7 +286,8 @@ function generateUniqueParagraphs(
 
   // Παράγραφος 3 — επιλεξιμότητα προγραμμάτων (πραγματικά δεδομένα ανά κωδικό)
   if (eligiblePrograms.length > 0) {
-    const names = eligiblePrograms.map((p) => PROGRAM_META[p]?.label).filter(Boolean);
+    const CLOSED_KEYS = new Set(["x", "p"]);
+    const names = eligiblePrograms.map((p) => PROGRAM_META[p] ? PROGRAM_META[p].label + (CLOSED_KEYS.has(p) ? " (ο κύκλος ολοκληρώθηκε)" : "") : null).filter(Boolean);
     paragraphs.push(
       `Σημαντικό για επιδοτήσεις: ο νέος ΚΑΔ ${r.kad2025} περιλαμβάνεται στους επιλέξιμους κωδικούς ${names.length === 1 ? "του προγράμματος" : `${names.length} ενεργών προγραμμάτων`}: ${names.join(" · ")}. Η επιλεξιμότητα βάσει ΚΑΔ είναι προϋπόθεση αλλά όχι εγγύηση ένταξης — απαιτείται έλεγχος και των λοιπών κριτηρίων κάθε προκήρυξης (μέγεθος επιχείρησης, περιοχή, ύψος επένδυσης). Ένας λανθασμένος ΚΑΔ στο Μητρώο μπορεί να αποκλείσει την επιχείρηση από χρηματοδότηση, γι' αυτό η επιβεβαίωση της αντιστοίχισης έχει και ουσιαστικό οικονομικό αντίκρισμα.`
     );

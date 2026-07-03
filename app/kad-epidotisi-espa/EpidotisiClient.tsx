@@ -3,7 +3,7 @@ import { useState, useCallback } from "react";
 
 const PROGRAMS: Record<string, { label: string; color: string; emoji: string; url: string }> = {
   e: {
-    label: "ΕΣΠΑ «Παράγουμε στην Ελλάδα» (1η Τροποποίηση)",
+    label: "ΕΣΠΑ «Παράγουμε στην Ελλάδα» — ⏸ οι υποβολές ολοκληρώθηκαν",
     color: "var(--info-strong)",
     emoji: "🏭",
     url: "https://www.espa.gr",
@@ -27,7 +27,7 @@ const PROGRAMS: Record<string, { label: string; color: string; emoji: string; ur
     url: "https://ependyseis.mindev.gov.gr/el/idiotikes/prokirikseis",
   },
   x: {
-    label: "ΕΣΠΑ «Ξεκινώ Επιχειρηματικά»",
+    label: "ΕΣΠΑ «Ξεκινώ Επιχειρηματικά» — ⏸ οι υποβολές ολοκληρώθηκαν",
     color: "var(--acc-cyan)",
     emoji: "🚀",
     url: "https://www.espa.gr",

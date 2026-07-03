@@ -22,19 +22,19 @@ export default function KadEpidotisiPage() {
         Επιλεξιμότητα ΚΑΔ 2025 σε Προγράμματα Επιδότησης
       </h1>
       <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem", lineHeight: 1.7 }}>
-        Αναζητήστε τον ΚΑΔ 2025 σας και ελέγξτε αν είναι επιλέξιμος στα παρακάτω ενεργά προγράμματα.
+        Αναζητήστε τον ΚΑΔ 2025 σας και ελέγξτε αν είναι επιλέξιμος στα παρακάτω προγράμματα — ενεργά ή με πρόσφατα ολοκληρωμένο κύκλο υποβολών.
         Τα δεδομένα προέρχονται από τους επίσημους πίνακες επιλεξιμότητας κάθε προγράμματος.
       </p>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: "0.75rem", marginBottom: "2rem" }}>
         {[
-          { color: "var(--info-strong)", emoji: "🏭", title: "ΕΣΠΑ «Παράγουμε στην Ελλάδα»", desc: "1η Τροποποίηση — 1.288 επιλέξιμοι ΚΑΔ" },
-          { color: "var(--acc-purple)", emoji: "🔧", title: "Αναπτυξιακός Νόμος — Μεταποίηση Δ' Κύκλος", desc: "Ν. 4887/2022 — 2.673 επιλέξιμοι ΚΑΔ" },
-          { color: "var(--success)", emoji: "📍", title: "Αναπτυξιακός Νόμος — Περιοχές Ειδικής Ενίσχυσης Β' Κύκλος", desc: "Ν. 4887/2022 — 2.721 επιλέξιμοι ΚΑΔ" },
-          { color: "var(--acc-amber)", emoji: "🏗️", title: "Αναπτυξιακός Νόμος — Μεγάλες Επενδύσεις Β' Κύκλος", desc: "Ν. 4887/2022 — 2.718 επιλέξιμοι ΚΑΔ" },
-          { color: "var(--acc-cyan)", emoji: "🚀", title: "ΕΣΠΑ «Ξεκινώ Επιχειρηματικά»", desc: "4.926 επιλέξιμοι ΚΑΔ" },
+          { color: "var(--info-strong)", emoji: "🏭", title: "ΕΣΠΑ «Παράγουμε στην Ελλάδα»", desc: "1.288 επιλέξιμοι ΚΑΔ · ⏸ Οι υποβολές ολοκληρώθηκαν", closed: true },
+          { color: "var(--acc-purple)", emoji: "🔧", title: "Αναπτυξιακός Νόμος — Μεταποίηση Δ' Κύκλος", desc: "Ν. 4887/2022 — 2.673 επιλέξιμοι ΚΑΔ" , closed: false },
+          { color: "var(--success)", emoji: "📍", title: "Αναπτυξιακός Νόμος — Περιοχές Ειδικής Ενίσχυσης Β' Κύκλος", desc: "Ν. 4887/2022 — 2.721 επιλέξιμοι ΚΑΔ" , closed: false },
+          { color: "var(--acc-amber)", emoji: "🏗️", title: "Αναπτυξιακός Νόμος — Μεγάλες Επενδύσεις Β' Κύκλος", desc: "Ν. 4887/2022 — 2.718 επιλέξιμοι ΚΑΔ" , closed: false },
+          { color: "var(--acc-cyan)", emoji: "🚀", title: "ΕΣΠΑ «Ξεκινώ Επιχειρηματικά»", desc: "4.926 επιλέξιμοι ΚΑΔ · ⏸ Οι υποβολές ολοκληρώθηκαν", closed: true },
         ].map((p, i) => (
-          <div key={i} style={{ padding: "0.75rem 1rem", background: "var(--bg-card)", border: `2px solid ${p.color}`, borderRadius: 10 }}>
+          <div key={i} style={{ padding: "0.75rem 1rem", background: "var(--bg-card)", border: `2px solid ${p.color}`, borderRadius: 10, opacity: p.closed ? 0.72 : 1 }}>
             <div style={{ fontSize: "1.4rem", marginBottom: "0.3rem" }}>{p.emoji}</div>
             <div style={{ fontWeight: 700, fontSize: "0.82rem", color: p.color, marginBottom: "0.2rem", lineHeight: 1.4 }}>{p.title}</div>
             <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{p.desc}</div>
@@ -57,7 +57,7 @@ export default function KadEpidotisiPage() {
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
           <a href="https://www.espa.gr" target="_blank" rel="noopener noreferrer"
             style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "var(--info-strong)", textDecoration: "none" }}>
-            🏭 <span><strong>ΕΣΠΑ — «Παράγουμε στην Ελλάδα»:</strong> www.espa.gr</span>
+            🏭 <span><strong>ΕΣΠΑ — «Παράγουμε στην Ελλάδα» (ο κύκλος ολοκληρώθηκε):</strong> www.espa.gr</span>
           </a>
           <a href="https://ependyseis.mindev.gov.gr/el/idiotikes/prokirikseis" target="_blank" rel="noopener noreferrer"
             style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "var(--acc-purple)", textDecoration: "none" }}>
@@ -65,7 +65,7 @@ export default function KadEpidotisiPage() {
           </a>
           <a href="https://www.espa.gr" target="_blank" rel="noopener noreferrer"
             style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "var(--acc-cyan)", textDecoration: "none" }}>
-            🚀 <span><strong>ΕΣΠΑ — «Ξεκινώ Επιχειρηματικά»:</strong> www.espa.gr</span>
+            🚀 <span><strong>ΕΣΠΑ — «Ξεκινώ Επιχειρηματικά» (ο κύκλος ολοκληρώθηκε):</strong> www.espa.gr</span>
           </a>
         </div>
       </div>
