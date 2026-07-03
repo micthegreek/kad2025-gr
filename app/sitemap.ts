@@ -8,7 +8,7 @@ const PROFESSION_SLUGS: string[] = (professionsRaw as { slug: string }[]).map((p
 
 const SECTION_CODES = ["01","02","03","10","11","14","20","21","25","41","43","45","46","47","49","55","56","62","68","69","70","71","85","86","93","96","50","63"];
 
-const LAST_UPDATED = "2026-06-10T12:00:00.000Z"; // Update only when content changes
+const LAST_UPDATED = "2026-07-03T08:00:00.000Z"; // Update only when content changes
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.kad2025.gr";

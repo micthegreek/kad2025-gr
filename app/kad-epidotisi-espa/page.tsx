@@ -28,7 +28,7 @@ export default function KadEpidotisiPage() {
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: "0.75rem", marginBottom: "2rem" }}>
         {[
-          { color: "var(--info-strong)", emoji: "🏭", title: "ΕΣΠΑ «Παράγουμε στην Ελλάδα»", desc: "1.288 επιλέξιμοι ΚΑΔ · ⏸ Οι υποβολές ολοκληρώθηκαν", closed: true },
+          { color: "var(--info-strong)", emoji: "🏭", title: "ΕΣΠΑ «Παράγουμε στην Ελλάδα»", desc: "1η Τροποποίηση — 1.288 επιλέξιμοι ΚΑΔ · ⏸ Οι υποβολές ολοκληρώθηκαν", closed: true },
           { color: "var(--acc-purple)", emoji: "🔧", title: "Αναπτυξιακός Νόμος — Μεταποίηση Δ' Κύκλος", desc: "Ν. 4887/2022 — 2.673 επιλέξιμοι ΚΑΔ" , closed: false },
           { color: "var(--success)", emoji: "📍", title: "Αναπτυξιακός Νόμος — Περιοχές Ειδικής Ενίσχυσης Β' Κύκλος", desc: "Ν. 4887/2022 — 2.721 επιλέξιμοι ΚΑΔ" , closed: false },
           { color: "var(--acc-amber)", emoji: "🏗️", title: "Αναπτυξιακός Νόμος — Μεγάλες Επενδύσεις Β' Κύκλος", desc: "Ν. 4887/2022 — 2.718 επιλέξιμοι ΚΑΔ" , closed: false },
