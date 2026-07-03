@@ -56,6 +56,7 @@ export default function Footer() {
                 ["/programma", "Επιλέξιμοι ΚΑΔ ανά Πρόγραμμα Επιδότησης"],
                 ["/klados", "Κατηγορίες ανά Κλάδο"],
                 ["/faq", "Συχνές Ερωτήσεις ΑΑΔΕ"],
+                ["/erotiseis", "Ερωτήσεις & Απαντήσεις ΚΑΔ"],
               ].map(([href, label]) => (
                 <Link key={href} href={href} style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.85rem", textDecoration: "none" }}>{label}</Link>
               ))}

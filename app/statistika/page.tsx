@@ -56,6 +56,16 @@ export default function StatistikaPage() {
 
   return (
     <div style={{ maxWidth: 1000, margin: "0 auto", padding: "2rem 1rem" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "Dataset",
+        name: "Αντιστοίχιση ΚΑΔ 2008 → ΚΑΔ 2025 (Ελλάδα)",
+        description: "Πλήρης πίνακας 10.923 αντιστοιχίσεων Κωδικών Αριθμών Δραστηριότητας (ΚΑΔ) 2008 προς 2025 βάσει ΑΑΔΕ Α.1003/2026 και NACE Rev.2.1, με περιγραφές δραστηριοτήτων.",
+        url: "https://www.kad2025.gr/statistika", license: "https://creativecommons.org/licenses/by/4.0/",
+        creator: { "@type": "Organization", name: "kad2025.gr" },
+        keywords: ["ΚΑΔ 2025", "ΚΑΔ 2026", "NACE Rev 2.1", "αντιστοίχιση ΚΑΔ", "ΑΑΔΕ"],
+        distribution: [{ "@type": "DataDownload", encodingFormat: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", contentUrl: "https://www.kad2025.gr/kad-2025-antistoixisi.xlsx" }],
+        temporalCoverage: "2026", spatialCoverage: "GR" }) }} />
+
       <nav style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "1rem" }}>
         <Link href="/" style={{ color: "var(--primary)", textDecoration: "none" }}>Αρχική</Link>
         {" → "}<span>Στατιστικά Αντιστοίχισης</span>

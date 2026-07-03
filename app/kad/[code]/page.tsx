@@ -14,6 +14,7 @@ import { RecentKadTracker } from "@/components/RecentKad";
 import similarRaw from "@/public/data/similar_kads.json";
 
 const SIMILAR = similarRaw as Record<string, string[]>;
+const CLOSED_PROGRAMS = new Set(['espa-xekino-epixeirimatika', 'espa-paragoume-stin-ellada']);
 const PROGRAM_SLUG: Record<string, string> = {
   x: "espa-xekino-epixeirimatika", e: "espa-paragoume-stin-ellada",
   m: "anaptyxiakos-metapoiisi", p: "anaptyxiakos-periohes-eidikis-enishysis",
@@ -714,7 +715,7 @@ export default async function KadDetailPage({
               if (!slug || !meta) return null;
               return (
                 <Link key={pk} href={`/programma/${slug}`} style={{ textDecoration: "none" }}>
-                  <span className="chip" style={{ fontSize: "0.78rem" }}>{meta.emoji} {meta.label.length > 34 ? meta.label.slice(0, 32) + "…" : meta.label}</span>
+                  <span className="chip" style={{ fontSize: "0.78rem", opacity: CLOSED_PROGRAMS.has(slug) ? 0.75 : 1 }}>{meta.emoji} {meta.label.length > 34 ? meta.label.slice(0, 32) + "…" : meta.label}{CLOSED_PROGRAMS.has(slug) ? " · ολοκληρώθηκε" : ""}</span>
                 </Link>
               );
             })}

@@ -1,3 +1,4 @@
+import DeadlineChip from "@/components/DeadlineChip";
 import type { Metadata } from "next";
 import { RecentKadChips } from "@/components/RecentKad";
 import Link from "next/link";
@@ -56,6 +57,7 @@ export default function HomePage() {
           <h1 style={{ color: "white", marginBottom: "1rem" }}>
             Αντιστοίχιση & Αναζήτηση <span style={{ color: "var(--accent-light)" }}>ΚΑΔ 2025</span>
           </h1>
+          <DeadlineChip />
           <p style={{ fontSize: "1.1rem", opacity: 0.9, marginBottom: "2rem", lineHeight: 1.7 }}>
             Πλήρες ευρετήριο & λίστα ΚΑΔ 2025 (νέοι ΚΑΔ 2026 ΑΑΔΕ) — Αντιστοίχιση ΚΑΔ και προς τις δύο κατευθύνσεις — Εξαγωγή σε Excel & CSV
           </p>

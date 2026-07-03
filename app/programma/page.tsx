@@ -4,6 +4,9 @@ import programsRaw from "@/public/data/programs_pages.json";
 
 interface Program { slug: string; label: string; emoji: string; family: string; total: number; sectionsCount: number }
 const PROGRAMS = programsRaw as Program[];
+const CLOSED_PROGRAMS = new Set(['espa-xekino-epixeirimatika', 'espa-paragoume-stin-ellada']);
+const ACTIVE = PROGRAMS.filter((p) => !CLOSED_PROGRAMS.has(p.slug));
+const OLDER = PROGRAMS.filter((p) => CLOSED_PROGRAMS.has(p.slug));
 
 export const metadata: Metadata = {
   title: "Επιλέξιμοι ΚΑΔ ανά Πρόγραμμα Επιδότησης (ΕΣΠΑ & Αναπτυξιακός)",
@@ -42,7 +45,25 @@ export default function ProgrammaIndexPage() {
       </p>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
-        {PROGRAMS.map((p) => (
+        {ACTIVE.map((p) => (
+          <Link key={p.slug} href={"/programma/" + p.slug} className="tool-card" style={{ padding: "1rem 1.15rem" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
+              <div>
+                <div style={{ fontSize: "1rem", fontWeight: 700, color: "var(--text)" }}>{p.emoji} {p.label}</div>
+                <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", marginTop: "0.2rem" }}>{p.family}</div>
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <div style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary)" }}>{p.total.toLocaleString("el-GR")}</div>
+                <div style={{ fontSize: "0.72rem", color: "var(--text-muted)" }}>ΚΑΔ σε {p.sectionsCount} τομείς</div>
+              </div>
+            </div>
+          </Link>
+        ))}
+        </div>
+        <h2 style={{ margin: "2rem 0 0.75rem" }}>🗂 Παλαιότερα Προγράμματα — Οι Υποβολές Ολοκληρώθηκαν</h2>
+        <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "1rem" }}>Οι κύκλοι υποβολών έχουν κλείσει. Οι λίστες επιλέξιμων ΚΑΔ παραμένουν διαθέσιμες ως οδηγός για επόμενους κύκλους και αντίστοιχα προγράμματα.</p>
+        <div className="tools-grid">
+        {OLDER.map((p) => (
           <Link key={p.slug} href={"/programma/" + p.slug} className="tool-card" style={{ padding: "1rem 1.15rem" }}>
             <div style={{ display: "flex", justifyContent: "space-between", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
               <div>

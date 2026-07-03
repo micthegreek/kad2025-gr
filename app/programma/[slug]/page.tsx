@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import programsRaw from "@/public/data/programs_pages.json";
 
+const CLOSED_PROGRAMS = new Set(['espa-xekino-epixeirimatika', 'espa-paragoume-stin-ellada']);
+
 interface ProgSample { c: string; d: string }
 interface ProgSection { s: string; name: string; count: number; samples: ProgSample[] }
 interface Program { slug: string; key: string; label: string; emoji: string; family: string; total: number; sectionsCount: number; sections: ProgSection[] }
@@ -20,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const p = BY_SLUG.get(slug);
   if (!p) return { title: "Δεν βρέθηκε", robots: { index: false, follow: false } };
-  const title = `Επιλέξιμοι ΚΑΔ — ${p.label} (${p.total.toLocaleString("el-GR")} κωδικοί)`;
+  const title = `Επιλέξιμοι ΚΑΔ — ${p.label} (${p.total.toLocaleString("el-GR")} κωδικοί)${CLOSED_PROGRAMS.has(slug) ? " — Ο Κύκλος Ολοκληρώθηκε" : ""}`;
   const description = `Ποιοι ΚΑΔ 2025 είναι επιλέξιμοι στο πρόγραμμα «${p.label}»: ${p.total.toLocaleString("el-GR")} κωδικοί σε ${p.sectionsCount} τομείς δραστηριότητας, με ανάλυση ανά κλάδο και άμεσο έλεγχο του δικού σας ΚΑΔ.`;
   return { title, description, alternates: { canonical: `https://www.kad2025.gr/programma/${slug}` } };
 }
@@ -101,6 +103,11 @@ export default async function ProgrammaPage({ params }: { params: Promise<{ slug
       <h1 style={{ marginBottom: "0.5rem", fontSize: "clamp(1.35rem, 3vw, 1.9rem)" }}>
         {prog.emoji} Επιλέξιμοι ΚΑΔ για το «{prog.label}»
       </h1>
+      {CLOSED_PROGRAMS.has(slug) && (
+        <div style={{ background: "var(--warn-bg, #fff8e6)", border: "1px solid var(--warn-border, #e6c200)", borderRadius: "8px", padding: "0.75rem 1rem", margin: "0.75rem 0 1rem", fontSize: "0.92rem" }}>
+          ⏸ <strong>Οι υποβολές του προγράμματος έχουν ολοκληρωθεί.</strong> Η λίστα επιλέξιμων ΚΑΔ παραμένει ως οδηγός για επόμενους κύκλους και αντίστοιχα προγράμματα επιδοτήσεων.
+        </div>
+      )}
       <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "1.25rem" }}>
         {prog.family} · Ενημέρωση λιστών: 11 Ιουνίου 2026 · Κωδικοποίηση: ΚΑΔ 2025 (NACE Rev.2.1)
       </p>

@@ -61,6 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/kad-dypa`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `${base}/ai-suggester`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `${base}/faq`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${base}/erotiseis`, lastModified: "2026-07-02T12:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `${base}/about`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.6 },
     { url: `${base}/contact`, lastModified: LAST_UPDATED, changeFrequency: "yearly" as const, priority: 0.5 },
     { url: `${base}/privacy`, lastModified: LAST_UPDATED, changeFrequency: "yearly" as const, priority: 0.3 },
