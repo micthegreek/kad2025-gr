@@ -11,7 +11,7 @@ const OLDER = PROGRAMS.filter((p) => CLOSED_PROGRAMS.has(p.slug));
 export const metadata: Metadata = {
   title: "Επιλέξιμοι ΚΑΔ ανά Πρόγραμμα Επιδότησης (ΕΣΠΑ & Αναπτυξιακός)",
   description:
-    "Δείτε τους επιλέξιμους ΚΑΔ 2025 για κάθε ενεργό πρόγραμμα: ΕΣΠΑ «Ξεκινώ Επιχειρηματικά», «Παράγουμε στην Ελλάδα» και τα καθεστώτα του Αναπτυξιακού Νόμου — με ανάλυση ανά τομέα.",
+    "Επιλέξιμοι ΚΑΔ 2025 ανά πρόγραμμα επιδότησης: τα ενεργά καθεστώτα του Αναπτυξιακού Νόμου με ανάλυση ανά τομέα, συν τις λίστες των ολοκληρωμένων ΕΣΠΑ (Ξεκινώ Επιχειρηματικά, Παράγουμε στην Ελλάδα) ως οδηγό για επόμενους κύκλους.",
   alternates: { canonical: "https://www.kad2025.gr/programma" },
 };
 
@@ -44,6 +44,7 @@ export default function ProgrammaIndexPage() {
         περιλαμβάνονται, με ανάλυση ανά τομέα δραστηριότητας — ή ελέγξτε απευθείας τον δικό σας.
       </p>
 
+      <h2 style={{ margin: "1.5rem 0 0.75rem" }}>🟢 Ενεργά Προγράμματα</h2>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
         {ACTIVE.map((p) => (
           <Link key={p.slug} href={"/programma/" + p.slug} className="tool-card" style={{ padding: "1rem 1.15rem" }}>

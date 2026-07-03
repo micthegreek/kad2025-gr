@@ -45,14 +45,14 @@ export async function generateStaticParams() {
 
 
 const SECTION_STATS: Record<string, { total: number; changed: number; pct: number }> = (() => {
-  const acc: Record<string, { total: number; changed: number }> = {};
+  const acc: Record<string, { all: Set<string>; ch: Set<string> }> = {};
   for (const r of kadStatsRaw as { kad2008: string; kad2025: string }[]) {
     const s2 = r.kad2008.padStart(8, "0").slice(0, 2);
-    if (!acc[s2]) acc[s2] = { total: 0, changed: 0 };
-    acc[s2].total++;
-    if (r.kad2008 !== r.kad2025) acc[s2].changed++;
+    if (!acc[s2]) acc[s2] = { all: new Set(), ch: new Set() };
+    acc[s2].all.add(r.kad2008);
+    if (r.kad2008 !== r.kad2025) acc[s2].ch.add(r.kad2008);
   }
-  return Object.fromEntries(Object.entries(acc).map(([k, v]) => [k, { ...v, pct: Math.round((100 * v.changed) / v.total) }]));
+  return Object.fromEntries(Object.entries(acc).map(([k, v]) => [k, { total: v.all.size, changed: v.ch.size, pct: Math.round((100 * v.ch.size) / v.all.size) }]));
 })();
 
 export async function generateMetadata({
@@ -96,8 +96,9 @@ export default async function KladosDetailPage({
 
   if (sectionData.length === 0) notFound();
 
-  const changed = sectionData.filter((r) => r.kad2008 !== r.kad2025).length;
-  const pct = Math.round((changed / sectionData.length) * 100);
+  const changed = new Set(sectionData.filter((r) => r.kad2008 !== r.kad2025).map((r) => r.kad2008)).size;
+  const uniqTotal = new Set(sectionData.map((r) => r.kad2008)).size;
+  const pct = uniqTotal ? Math.round((changed / uniqTotal) * 100) : 0;
 
   // Deduplicate by kad2008
   const unique = new Map<string, typeof sectionData[0]>();
@@ -153,9 +154,9 @@ export default async function KladosDetailPage({
       {/* Stats */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "1rem", marginBottom: "1.5rem" }}>
         {[
-          { label: "Σύνολο ΚΑΔ", value: uniqueList.length.toLocaleString("el-GR"), color: "var(--primary)" },
-          { label: "Άλλαξαν", value: changed.toLocaleString("el-GR"), color: "var(--accent)" },
-          { label: "Ποσοστό αλλαγής", value: `${pct}%`, color: pct > 70 ? "var(--accent)" : "var(--success)" },
+          { label: "Σύνολο ΚΑΔ", value: (SECTION_STATS[section]?.total ?? 0).toLocaleString("el-GR"), color: "var(--primary)" },
+          { label: "Άλλαξαν", value: (SECTION_STATS[section]?.changed ?? 0).toLocaleString("el-GR"), color: "var(--accent)" },
+          { label: "Ποσοστό αλλαγής", value: `${SECTION_STATS[section]?.pct ?? 0}%`, color: (SECTION_STATS[section]?.pct ?? 0) > 70 ? "var(--accent)" : "var(--success)" },
         ].map((s) => (
           <div key={s.label} className="card" style={{ textAlign: "center", padding: "0.75rem" }}>
             <div style={{ fontSize: "1.6rem", fontWeight: 800, color: s.color }}>{s.value}</div>
