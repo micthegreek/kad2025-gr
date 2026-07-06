@@ -1,3 +1,4 @@
+import naceNotesFull from "@/lib/nace_notes_full.json";
 import kadStatsRaw from "@/public/data/kad.json";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -147,6 +148,17 @@ export default async function KladosDetailPage({
         <span style={{ fontSize: "2rem" }}>{def.icon}</span>
         <div>
           <h1 style={{ marginBottom: "0.2rem" }}>ΚΑΔ 2025 — {def.name}</h1>
+      {(() => {
+        const d = (naceNotesFull as { divisions: Record<string, { inc: string[] }> }).divisions[section];
+        const txt = d?.inc?.[0];
+        if (!txt) return null;
+        return (
+          <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", margin: "0.5rem 0 1rem", maxWidth: 900 }}>
+            {txt.length > 420 ? txt.slice(0, 420).trimEnd() + "…" : txt}{" "}
+            <span style={{ fontSize: "0.75rem" }}>(Πηγή: Επεξηγηματικές Σημειώσεις NACE Αναθ. 2.1, ΕΛΣΤΑΤ)</span>
+          </p>
+        );
+      })()}
           <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>{def.desc}</p>
         </div>
       </div>

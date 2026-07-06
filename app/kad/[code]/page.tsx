@@ -1,3 +1,4 @@
+import naceNotesFull from "@/lib/nace_notes_full.json";
 import { isSensitiveKadPage } from "@/lib/adsense-utils";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -314,6 +315,69 @@ export async function generateStaticParams() {
 
 export const dynamicParams = false;  // Cloudflare Pages doesn't support ISR — all codes must be pre-built
 export const revalidate = false;     // static forever — KAD data never changes after deploy
+
+
+type NaceNote = { t: string; inc: string[]; also: string[]; exc: { x: string; see: string[] }[] };
+const NACE = naceNotesFull as unknown as { classes: Record<string, NaceNote>; groups: Record<string, NaceNote> };
+function getNaceNote(kad2025: string): { cls: string; n: NaceNote } | null {
+  const p8 = kad2025.padStart(8, "0");
+  const c = `${p8.slice(0, 2)}.${p8.slice(2, 4)}`;
+  const g = `${p8.slice(0, 2)}.${p8[2]}`;
+  const n = NACE.classes[c] || NACE.groups[g];
+  if (!n || (!n.inc.length && !n.also.length && !n.exc.length)) return null;
+  return { cls: NACE.classes[c] ? c : g, n };
+}
+const NACE_VALID = new Set((kadDataRaw as { kad2008: string }[]).map((r) => r.kad2008));
+function seeHref(code: string, valid: Set<string>): string {
+  const raw = code.replace(".", "").padEnd(8, "0");
+  const key = raw.replace(/^0/, "");
+  if (valid.has(key)) return `/kad/${key}`;
+  if (valid.has(raw)) return `/kad/${raw}`;
+  return `/kad-2025?q=${code.replace(".", "")}`;
+}
+
+
+        function NaceOfficialNotes({ kad2025 }: { kad2025: string }) {
+  const nn = getNaceNote(kad2025);
+  if (!nn) return null;
+  return (
+            <section className="card" style={{ marginTop: "1.25rem" }}>
+              <h2 style={{ fontSize: "1.1rem", marginBottom: "0.4rem" }}>📖 Τι περιλαμβάνει η τάξη {nn.cls} — Επίσημες Επεξηγήσεις</h2>
+              <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", margin: "0 0 0.7rem" }}>
+                Ο ΚΑΔ {kad2025} ανήκει στην τάξη NACE {nn.cls} «{nn.n.t}» (Αναθ. 2.1). Σύμφωνα με τις επίσημες επεξηγηματικές σημειώσεις:
+              </p>
+              {nn.n.inc.length > 0 && (<>
+                <h3 style={{ fontSize: "0.85rem", color: "var(--success)", margin: "0 0 0.3rem" }}>✅ Περιλαμβάνει</h3>
+                <ul style={{ margin: "0 0 0.7rem", paddingLeft: "1.2rem", fontSize: "0.88rem", display: "grid", gap: "0.18rem" }}>
+                  {nn.n.inc.slice(0, 8).map((x, k) => <li key={k}>{x}</li>)}
+                </ul>
+                {nn.n.inc.length > 8 && (
+                  <details style={{ margin: "-0.4rem 0 0.7rem" }}>
+                    <summary style={{ cursor: "pointer", fontSize: "0.8rem", color: "var(--text-muted)" }}>+ {nn.n.inc.length - 8} ακόμη δραστηριότητες</summary>
+                    <ul style={{ margin: "0.3rem 0 0", paddingLeft: "1.2rem", fontSize: "0.88rem", display: "grid", gap: "0.18rem" }}>
+                      {nn.n.inc.slice(8).map((x, k) => <li key={k}>{x}</li>)}
+                    </ul>
+                  </details>
+                )}
+              </>)}
+              {nn.n.also.length > 0 && (<>
+                <h3 style={{ fontSize: "0.85rem", color: "var(--primary)", margin: "0 0 0.3rem" }}>➕ Περιλαμβάνει επίσης</h3>
+                <ul style={{ margin: "0 0 0.7rem", paddingLeft: "1.2rem", fontSize: "0.88rem", display: "grid", gap: "0.18rem" }}>
+                  {nn.n.also.slice(0, 5).map((x, k) => <li key={k}>{x}</li>)}
+                </ul>
+              </>)}
+              {nn.n.exc.length > 0 && (<>
+                <h3 style={{ fontSize: "0.85rem", color: "var(--acc-red, #d9534f)", margin: "0 0 0.3rem" }}>🚫 Δεν περιλαμβάνει — ταξινομείται αλλού</h3>
+                <ul style={{ margin: "0 0 0.7rem", paddingLeft: "1.2rem", fontSize: "0.88rem", display: "grid", gap: "0.22rem" }}>
+                  {nn.n.exc.slice(0, 8).map((e, k) => (
+                    <li key={k}>{e.x}{e.see.map((c) => <Link key={c} href={seeHref(c, NACE_VALID)} style={{ marginLeft: "0.4rem", fontSize: "0.8rem", whiteSpace: "nowrap" }}>→ {c}</Link>)}</li>
+                  ))}
+                </ul>
+              </>)}
+              <p style={{ fontSize: "0.72rem", color: "var(--text-muted)", margin: 0 }}>Πηγή: Επεξηγηματικές Σημειώσεις ΣΤΑΚΟΔ/NACE Αναθ. 2.1 — ΕΛΣΤΑΤ (Έκδ. 1.05, 2025)</p>
+            </section>
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -826,7 +890,9 @@ export default async function KadDetailPage({
         </div>
       )}
 
-      {/* ===== FAQ — visible text identical to JSON-LD ===== */}
+      <NaceOfficialNotes kad2025={r.kad2025} />
+
+        {/* ===== FAQ — visible text identical to JSON-LD ===== */}
       <div className="card" style={{ marginBottom: "1.5rem" }}>
         <h2 style={{ fontSize: "1rem", marginBottom: "1rem" }}>❓ Συχνές Ερωτήσεις (FAQ ΑΑΔΕ)</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -932,3 +998,4 @@ export default async function KadDetailPage({
     </div>
   );
 }
+

@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getKadData, getSsgCodes, getSafeKadUrl } from "@/lib/kadData";
-import KadSearch from "@/components/KadSearch";
-
-export const runtime = "edge";
+import KadSearchWithUrl from "@/components/KadSearchWithUrl";
 
 export const metadata: Metadata = {
   title: "Νέοι ΚΑΔ 2025: Πλήρης Λίστα & Αναζήτηση των 9.422 Κωδικών",
@@ -33,8 +31,7 @@ const SECTION_NAMES: Record<string, { name: string; icon: string }> = {
   "86": { name: "Υγεία", icon: "🏥" },
 };
 
-export default async function Kad2025Page({ searchParams }: { searchParams?: Promise<{ q?: string }> }) {
-  const params = await searchParams;
+export default async function Kad2025Page() {
   const data = getKadData();
   const ssg = getSsgCodes();
   const unique2025Map = new Map<string, typeof data[0]>();
@@ -92,7 +89,7 @@ export default async function Kad2025Page({ searchParams }: { searchParams?: Pro
 
       {/* ===== SEARCH FIRST ===== */}
       <section style={{ marginBottom: "3rem" }}>
-        <KadSearch mode="kad2025" initialData={data} initialQuery={params?.q || ""} />
+        <KadSearchWithUrl mode="kad2025" initialData={data} />
       </section>
 
       {/* Stats per section */}

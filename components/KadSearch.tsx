@@ -1,4 +1,5 @@
 "use client";
+import NaceNotesPanel from "./NaceNotesPanel";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { trackKadSearch, trackCsvExport, trackExcelExport } from "@/lib/ga4";
@@ -291,7 +292,12 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
       {!loading && query.length >= 2 && results.length === 0 && !searching && <div style={{ textAlign: "center", padding: "3rem 1rem", color: "var(--text-muted)" }}><div style={{ fontSize: "3rem", marginBottom: "1rem" }}>😕</div><div style={{ fontSize: "1.1rem", fontWeight: 600 }}>Δεν βρέθηκαν αποτελέσματα</div><div style={{ fontSize: "0.9rem", marginTop: "0.5rem" }}>Δοκιμάστε διαφορετική λέξη ή μέρος κωδικού</div></div>}
 
       <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-        {paginated.map((r, i) => <ResultCard key={`${r.kad2008}-${r.kad2025}-${i}`} record={r} mode={mode} query={query} copied={copied} setCopied={setCopied} showDots={showDots} ssgCodes={ssgCodes} />)}
+        {paginated.map((r, i) => (
+          <div key={`${r.kad2008}-${r.kad2025}-${i}`}>
+            <ResultCard record={r} mode={mode} query={query} copied={copied} setCopied={setCopied} showDots={showDots} ssgCodes={ssgCodes} />
+            <NaceNotesPanel code2025={r.kad2025} defaultOpen={i === 0} onSeeRef={(q) => setQuery(q)} />
+          </div>
+        ))}
       </div>
 
       {paginated.length < results.length && (

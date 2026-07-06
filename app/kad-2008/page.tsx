@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getKadData } from "@/lib/kadData";
-import KadSearch from "@/components/KadSearch";
-
-export const runtime = "edge";
+import KadSearchWithUrl from "@/components/KadSearchWithUrl";
 
 export const metadata: Metadata = {
   title: "Παλιοί ΚΑΔ 2008: Πλήρης Λίστα & Αντιστοίχιση με 2025",
@@ -27,8 +25,7 @@ const SECTION_NAMES: Record<string, string> = {
   "85": "Εκπαίδευση", "86": "Υγεία", "93": "Αθλητισμός", "96": "Άλλες Υπηρεσίες",
 };
 
-export default async function Kad2008Page({ searchParams }: { searchParams?: Promise<{ q?: string }> }) {
-  const params = await searchParams;
+export default async function Kad2008Page() {
   const data = getKadData();
   const totalUnique = new Set(data.map((r) => r.kad2008)).size;
 
@@ -76,7 +73,7 @@ export default async function Kad2008Page({ searchParams }: { searchParams?: Pro
 
       {/* ===== SEARCH FIRST ===== */}
       <section style={{ marginBottom: "3rem" }}>
-        <KadSearch mode="kad2008" initialData={data} initialQuery={params?.q || ""} />
+        <KadSearchWithUrl mode="kad2008" initialData={data} />
       </section>
 
       {/* Directory after search */}
