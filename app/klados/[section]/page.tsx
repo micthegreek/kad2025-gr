@@ -74,12 +74,13 @@ export async function generateMetadata({
   };
 }
 
-function buildKladosFaq(name: string, st: { total: number; changed: number; pct: number }) {
+function buildKladosFaq(name: string, st: { total: number; changed: number; pct: number }, offIntro?: string) {
   return [
     { q: `Πόσοι ΚΑΔ άλλαξαν στον κλάδο ${name} το 2025;`, a: `Στον κλάδο ${name} άλλαξαν ${st.changed} από τους ${st.total} κωδικούς (${st.pct}%), βάσει της αντιστοίχισης ΚΑΔ 2008 → 2025 της ΑΑΔΕ (Α.1003/2026, NACE Rev.2.1).` },
     { q: `Τι πρέπει να κάνω αν η επιχείρησή μου έχει ΚΑΔ του κλάδου ${name};`, a: `Ελέγξτε την αντιστοίχιση του κωδικού σας στη λίστα αυτής της σελίδας ή στο εργαλείο αντιστοίχισης. Οι νέοι ΚΑΔ 2025 ισχύουν από 1/3/2026, ενώ διορθώσεις στο μητρώο μπορούν να γίνουν έως 30/10/2026 μέσω myAADE.` },
     { q: `Ισχύουν ακόμα οι παλιοί ΚΑΔ 2008 του κλάδου ${name};`, a: `Οι παλιοί κωδικοί 2008 αντικαταστάθηκαν από τους ΚΑΔ 2025. Για όσους δεν έγινε χειροκίνητη μετάβαση, πραγματοποιήθηκε αυτόματη αντιστοίχιση στις 9/3/2026 — καλό είναι όμως να επιβεβαιώσετε ότι ο νέος κωδικός περιγράφει σωστά τη δραστηριότητά σας.` },
     { q: `Πού βλέπω όλους τους νέους ΚΑΔ του κλάδου ${name};`, a: `Σε αυτή τη σελίδα εμφανίζεται η πλήρης λίστα αντιστοίχισης του κλάδου. Μπορείτε επίσης να κατεβάσετε τον πλήρη πίνακα σε Excel ή να αναζητήσετε συγκεκριμένο κωδικό.` },
+    ...(offIntro ? [{ q: `Τι περιλαμβάνει επίσημα ο κλάδος ${name};`, a: `${offIntro.length > 300 ? offIntro.slice(0, 300).trimEnd() + "…" : offIntro} (Πηγή: Επεξηγηματικές Σημειώσεις ΣΤΑΚΟΔ/NACE Αναθ. 2.1, ΕΛΣΤΑΤ.)` }] : []),
   ];
 }
 
@@ -308,7 +309,7 @@ export default async function KladosDetailPage({
 
       <section style={{ marginTop: "2rem" }}>
         <h2>Συχνές Ερωτήσεις — ΚΑΔ {def.name}</h2>
-        {buildKladosFaq(def.name, SECTION_STATS[section] ?? { total: 0, changed: 0, pct: 0 }).map((f, i) => (
+        {buildKladosFaq(def.name, SECTION_STATS[section] ?? { total: 0, changed: 0, pct: 0 }, (naceNotesFull as { divisions: Record<string, { inc: string[] }> }).divisions[section]?.inc?.[0]).map((f, i) => (
           <details key={i} style={{ margin: "0.5rem 0", padding: "0.5rem 0.75rem", border: "1px solid var(--border, #333)", borderRadius: "8px" }}>
             <summary style={{ cursor: "pointer", fontWeight: 600 }}>{f.q}</summary>
             <p style={{ margin: "0.5rem 0 0" }}>{f.a}</p>
@@ -316,7 +317,7 @@ export default async function KladosDetailPage({
         ))}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org", "@type": "FAQPage",
-          mainEntity: buildKladosFaq(def.name, SECTION_STATS[section] ?? { total: 0, changed: 0, pct: 0 }).map((f) => ({
+          mainEntity: buildKladosFaq(def.name, SECTION_STATS[section] ?? { total: 0, changed: 0, pct: 0 }, (naceNotesFull as { divisions: Record<string, { inc: string[] }> }).divisions[section]?.inc?.[0]).map((f) => ({
             "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }) }} />
       </section>
     </div>

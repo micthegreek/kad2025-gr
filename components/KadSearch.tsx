@@ -148,6 +148,12 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
   }, []);
 
   // v60b: Fetch SSG codes once on mount
+  const [synonyms, setSynonyms] = useState<Record<string, string[]> | null>(null);
+  const [useSynonyms, setUseSynonyms] = useState(false);
+  useEffect(() => {
+    fetch("/data/search_synonyms.json").then((r) => r.json()).then(setSynonyms).catch(() => {});
+  }, []);
+
   useEffect(() => {
     fetch("/data/ssg_codes.json").then((r) => r.json()).then((codes: string[]) => {
       setSsgCodes(new Set(codes));
@@ -193,6 +199,32 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
       filtered = data.filter((r) => matchRecord(r.kad2025, r.desc2025));
     }
 
+
+    // v108: Επέκταση αποτελεσμάτων μέσω επίσημων επεξηγήσεων NACE (synonyms)
+    if (useSynonyms && !numeric && lower.length >= 4 && synonyms) {
+      const hitClasses = new Set<string>();
+      for (const [cls, kws] of Object.entries(synonyms)) {
+        for (const k of kws) {
+          if (k.includes(lower) || (lower.length >= 6 && lower.includes(k))) { hitClasses.add(cls); break; }
+        }
+      }
+      if (hitClasses.size > 0 && hitClasses.size <= 12) {
+        const present = new Set(filtered.map((r) => r.kad2008 + "|" + r.kad2025));
+        const seenX = new Set<string>();
+        const extra = data.filter((r) => {
+          const p8 = r.kad2025.replace(/\./g, "").padStart(8, "0");
+          if (!hitClasses.has(p8.slice(0, 4))) return false;
+          const key = r.kad2008 + "|" + r.kad2025;
+          if (present.has(key) || seenX.has(key)) return false;
+          const dk = mode === "kad2008" ? r.kad2008 : mode === "kad2025" ? r.kad2025 : key;
+          if (seenX.has(dk)) return false;
+          seenX.add(dk); seenX.add(key);
+          return true;
+        });
+        filtered = filtered.concat(extra);
+      }
+    }
+
     filtered.sort((a, b) => {
       // Priority 1: exact code match goes first
       const aExact = (a.kad2008 === lower || a.kad2025 === lower);
@@ -213,7 +245,7 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
 
     setResults(filtered); setPage(1); setSearching(false);
     if (filtered.length > 0) trackKadSearch(q, filtered.length, mode);
-  }, [mode]);
+  }, [mode, synonyms, useSynonyms]);
 
   useEffect(() => {
     if (searchRef.current) clearTimeout(searchRef.current);
@@ -263,6 +295,20 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
             />
             <span style={{ fontSize: "0.8rem", fontWeight: 700, color: startsWithMode ? "white" : "var(--text-muted)" }}>
               Να ξεκινάει με {query}
+            </span>
+          </label>
+        )}
+        {/* v108: Synonyms opt-in — εμφανίζεται ΜΟΝΟ για λεκτικά queries */}
+        {!isNumeric && query.length >= 2 && synonyms && (
+          <label style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem", marginTop: "0.5rem", cursor: "pointer", userSelect: "none", padding: "0.35rem 0.75rem", background: useSynonyms ? "var(--primary)" : "var(--bg)", border: `1.5px solid ${useSynonyms ? "var(--primary)" : "var(--border)"}`, borderRadius: 20, transition: "all 0.15s" }}>
+            <input
+              type="checkbox"
+              checked={useSynonyms}
+              onChange={(e) => setUseSynonyms(e.target.checked)}
+              style={{ width: 15, height: 15, accentColor: "white", cursor: "pointer" }}
+            />
+            <span style={{ fontSize: "0.8rem", fontWeight: 700, color: useSynonyms ? "white" : "var(--text-muted)" }}>
+              📖 Αναζήτηση και στις επίσημες επεξηγήσεις (συνώνυμα NACE 2.1)
             </span>
           </label>
         )}
