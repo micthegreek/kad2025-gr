@@ -1,10 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
+import { daysToDeadline } from "@/lib/deadline";
 
 export default function DeadlineChip() {
   const [days, setDays] = useState<number | null>(null);
   useEffect(() => {
-    const d = Math.ceil((new Date("2026-10-30T23:59:59+02:00").getTime() - Date.now()) / 86400000);
+    const d = daysToDeadline();
     if (d > 0 && d < 400) setDays(d);
   }, []);
   

@@ -149,17 +149,7 @@ export default async function KladosDetailPage({
         <span style={{ fontSize: "2rem" }}>{def.icon}</span>
         <div>
           <h1 style={{ marginBottom: "0.2rem" }}>ΚΑΔ 2025 — {def.name}</h1>
-      {(() => {
-        const d = (naceNotesFull as { divisions: Record<string, { inc: string[] }> }).divisions[section];
-        const txt = d?.inc?.[0];
-        if (!txt) return null;
-        return (
-          <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", margin: "0.5rem 0 1rem", maxWidth: 900 }}>
-            {txt.length > 420 ? txt.slice(0, 420).trimEnd() + "…" : txt}{" "}
-            <span style={{ fontSize: "0.75rem" }}>(Πηγή: Επεξηγηματικές Σημειώσεις NACE Αναθ. 2.1, ΕΛΣΤΑΤ)</span>
-          </p>
-        );
-      })()}
+      
           <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>{def.desc}</p>
         </div>
       </div>
@@ -187,6 +177,9 @@ export default async function KladosDetailPage({
       {(() => {
         const nace = getNace21(section);
         if (!nace) return null;
+        const nnDiv = (naceNotesFull as { divisions: Record<string, { inc: string[]; exc: { x: string }[] }> }).divisions[section];
+        const fullDesc = (nnDiv?.inc?.length ? nnDiv.inc.join(" ") : nace.description) || "";
+        const fullExc = (nnDiv?.exc?.length ? nnDiv.exc.map((e) => e.x).join("· ") : nace.excludes) || "";
         return (
           <div className="card" style={{ marginBottom: "1.5rem", borderLeft: "4px solid var(--primary)" }}>
             <h2 style={{ fontSize: "0.9rem", fontWeight: 700, marginBottom: "0.5rem", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
@@ -194,24 +187,25 @@ export default async function KladosDetailPage({
             </h2>
             <p style={{ fontWeight: 600, marginBottom: "0.5rem" }}>{nace.title}</p>
             {nace.description && (
-              nace.description.length > 400 ? (
-                <details>
+              fullDesc.length > 400 ? (
+                <details className="nace-expand">
                   <summary style={{ fontSize: "0.875rem", lineHeight: 1.7, color: "var(--text)", cursor: "pointer" }}>
-                    {nace.description.slice(0, 350)}... <span style={{ color: "var(--primary)", fontWeight: 600 }}>[Περισσότερα]</span>
+                    {fullDesc.slice(0, 350)}<span className="lbl-more">… <span style={{ color: "var(--primary)", fontWeight: 600 }}>[Περισσότερα]</span></span><span className="lbl-less" style={{ color: "var(--primary)", fontWeight: 600 }}> [Λιγότερα]</span>
                   </summary>
                   <p style={{ fontSize: "0.875rem", lineHeight: 1.7, color: "var(--text)", marginTop: "0.25rem" }}>
-                    {nace.description}
+                    {fullDesc.slice(350)}
                   </p>
+                  <p style={{ fontSize: "0.72rem", color: "var(--text-muted)", marginTop: "0.4rem" }}>Πηγή: Επεξηγηματικές Σημειώσεις ΣΤΑΚΟΔ/NACE Αναθ. 2.1 (ΕΛΣΤΑΤ)</p>
                 </details>
               ) : (
                 <p style={{ fontSize: "0.875rem", lineHeight: 1.7, color: "var(--text)" }}>
-                  {nace.description}
+                  {fullDesc}
                 </p>
               )
             )}
             {nace.excludes && (
               <p style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "0.5rem" }}>
-                <strong>Εξαιρούνται:</strong> {nace.excludes}
+                <strong>Εξαιρούνται:</strong> {fullExc}
               </p>
             )}
           </div>

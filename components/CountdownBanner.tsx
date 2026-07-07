@@ -1,10 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
+import { KAD_DEADLINE_MS } from "@/lib/deadline";
 
 type TimeLeft = { days: number; hours: number; minutes: number; seconds: number } | null;
 
 function getTimeLeft(): TimeLeft {
-  const deadline = new Date("2026-10-30T00:00:00+03:00").getTime();
+  const deadline = KAD_DEADLINE_MS;
   const diff = deadline - Date.now();
   if (diff <= 0) return null;
   return {

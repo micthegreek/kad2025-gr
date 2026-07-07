@@ -206,3 +206,8 @@ section[id] { scroll-margin-top: 84px; }
   .post-toc a { display: block; font-size: 0.8rem; color: var(--text-muted); text-decoration: none; padding: 0.28rem 0; line-height: 1.4; border-left: 2px solid transparent; padding-left: 0.6rem; margin-left: -0.6rem; }
   .post-toc a:hover { color: var(--primary); border-left-color: var(--primary); }
 }
+
+/* v109: expandable NACE description label toggle */
+details.nace-expand summary .lbl-less { display: none; }
+details.nace-expand[open] summary .lbl-more { display: none; }
+details.nace-expand[open] summary .lbl-less { display: inline; }

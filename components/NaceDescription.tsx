@@ -25,12 +25,12 @@ export function NaceDescription({ kad2025, naceData }: NaceDescriptionProps) {
             Περιλαμβάνει:
           </p>
           {entry.description.length > 400 ? (
-            <details>
+            <details className="nace-expand">
               <summary style={{ fontSize: "0.875rem", lineHeight: 1.7, color: "var(--text)", cursor: "pointer" }}>
-                {entry.description.slice(0, 350)}... <span style={{ color: "var(--primary)", fontWeight: 600 }}>[Περισσότερα]</span>
+                {entry.description.slice(0, 350)}<span className="lbl-more">… <span style={{ color: "var(--primary)", fontWeight: 600 }}>[Περισσότερα]</span></span><span className="lbl-less" style={{ color: "var(--primary)", fontWeight: 600 }}> [Λιγότερα]</span>
               </summary>
               <p style={{ fontSize: "0.875rem", lineHeight: 1.7, color: "var(--text)", marginTop: "0.25rem" }}>
-                {entry.description}
+                {entry.description.slice(350)}
               </p>
             </details>
           ) : (
@@ -47,12 +47,12 @@ export function NaceDescription({ kad2025, naceData }: NaceDescriptionProps) {
             Εξαιρούνται:
           </p>
           {entry.excludes.length > 300 ? (
-            <details>
+            <details className="nace-expand">
               <summary style={{ fontSize: "0.85rem", lineHeight: 1.7, color: "var(--text-muted)", cursor: "pointer" }}>
-                {entry.excludes.slice(0, 250)}... <span style={{ color: "var(--primary)", fontWeight: 600 }}>[Περισσότερα]</span>
+                {entry.excludes.slice(0, 250)}<span className="lbl-more">… <span style={{ color: "var(--primary)", fontWeight: 600 }}>[Περισσότερα]</span></span><span className="lbl-less" style={{ color: "var(--primary)", fontWeight: 600 }}> [Λιγότερα]</span>
               </summary>
               <p style={{ fontSize: "0.85rem", lineHeight: 1.7, color: "var(--text-muted)", marginTop: "0.25rem" }}>
-                {entry.excludes}
+                {entry.excludes.slice(250)}
               </p>
             </details>
           ) : (

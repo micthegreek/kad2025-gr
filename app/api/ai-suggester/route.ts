@@ -1,3 +1,4 @@
+import naceCtx from "@/lib/nace_ai_context.json";
 import { NextRequest, NextResponse } from "next/server";
 import kadValidCodes from "../../../public/data/kad-valid.json";
 
@@ -34,6 +35,27 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Υπηρεσία μη διαθέσιμη." }, { status: 503 });
     }
 
+    
+function stripAccents(t: string): string {
+  return t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+function relevantNaceContext(description: string, maxClasses = 8): string {
+  const tokens = stripAccents(description).match(/[α-ωa-z]{5,}/g) || [];
+  if (!tokens.length) return "";
+  const scored: [string, number][] = [];
+  for (const [cls, text] of Object.entries(naceCtx as Record<string, string>)) {
+    const hay = stripAccents(text);
+    let score = 0;
+    for (const t of tokens) if (hay.includes(t)) score++;
+    if (score > 0) scored.push([cls, score]);
+  }
+  scored.sort((a, b) => b[1] - a[1]);
+  const top = scored.slice(0, maxClasses);
+  if (!top.length) return "";
+  return "\n\nΕπίσημες τάξεις NACE 2.1 πιθανώς σχετικές (ΕΛΣΤΑΤ):\n" +
+    top.map(([cls]) => `${cls}: ${(naceCtx as Record<string, string>)[cls]}`).join("\n");
+}
+
     const systemPrompt = `Είσαι ειδικός σε ΚΑΔ 2025 (Κωδικούς Αριθμούς Δραστηριότητας) της ΑΑΔΕ Ελλάδας, βασισμένους στη νέα NACE Rev.2.1 ονοματολογία.
 ΣΗΜΑΝΤΙΚΟ: Οι ΚΑΔ 2025 είναι ΔΙΑΦΟΡΕΤΙΚΟΙ από τους παλιούς ΚΑΔ 2008 (NACE Rev.2). ΜΗΝ χρησιμοποιείς ΚΑΔ 2008. Πολλοί κωδικοί άλλαξαν δομή στους ΚΑΔ 2025.
 Ο χρήστης περιγράφει τη δραστηριότητά του και εσύ προτείνεις τους 3-5 πιο κατάλληλους ΚΑΔ 2025.
@@ -51,7 +73,7 @@ Format: {"suggestions": [{"code": "XXXXXXXX", "description": "Περιγραφή
         model: "llama-3.3-70b-versatile",
         messages: [
           { role: "system", content: systemPrompt },
-          { role: "user", content: `Δραστηριότητα: ${description.trim()}` }
+          { role: "user", content: `Δραστηριότητα: ${description.trim()}${relevantNaceContext(description)}` }
         ],
         temperature: 0.3,
         max_tokens: 800,
