@@ -213,7 +213,7 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
         const seenX = new Set<string>();
         const extra = data.filter((r) => {
           const p8 = r.kad2025.replace(/\./g, "").padStart(8, "0");
-          if (!hitClasses.has(p8.slice(0, 4))) return false;
+          if (!hitClasses.has(p8.slice(0, 4)) && !hitClasses.has(p8.slice(0, 3))) return false;
           const key = r.kad2008 + "|" + r.kad2025;
           if (present.has(key) || seenX.has(key)) return false;
           const dk = mode === "kad2008" ? r.kad2008 : mode === "kad2025" ? r.kad2025 : key;

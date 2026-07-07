@@ -1,7 +1,14 @@
+import naceNotesFull from "@/lib/nace_notes_full.json";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import programsRaw from "@/public/data/programs_pages.json";
+
+const DIV_INTRO: Record<string, string> = Object.fromEntries(
+  Object.entries((naceNotesFull as { divisions: Record<string, { inc: string[] }> }).divisions)
+    .filter(([, v]) => v.inc?.[0])
+    .map(([k, v]) => [k, v.inc[0].length > 220 ? v.inc[0].slice(0, 220).trimEnd() + "…" : v.inc[0]])
+);
 
 const CLOSED_PROGRAMS = new Set(['espa-xekino-epixeirimatika', 'espa-paragoume-stin-ellada']);
 
@@ -161,6 +168,11 @@ export default async function ProgrammaPage({ params }: { params: Promise<{ slug
               <summary style={{ cursor: "pointer", fontSize: "0.88rem", fontWeight: 700 }}>
                 Τομέας {sec.s} — {sec.name}: <span style={{ color: "var(--primary)" }}>{sec.count} επιλέξιμοι ΚΑΔ</span>
               </summary>
+              {DIV_INTRO[sec.s] && (
+                <p style={{ fontSize: "0.78rem", color: "var(--text-muted)", margin: "0.4rem 0 0.5rem", lineHeight: 1.55 }}>
+                  {DIV_INTRO[sec.s]} <span style={{ fontSize: "0.68rem" }}>(Πηγή: Σημειώσεις NACE 2.1, ΕΛΣΤΑΤ)</span>
+                </p>
+              )}
               <div style={{ padding: "0.75rem 0 0.35rem", display: "flex", gap: "0.45rem", flexWrap: "wrap", alignItems: "center" }}>
                 {sec.samples.map((sm) => (
                   <Link key={sm.c} href={`/kad/${sm.c}`} style={{ textDecoration: "none" }} title={sm.d}>
