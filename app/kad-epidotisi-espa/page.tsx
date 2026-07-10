@@ -33,6 +33,10 @@ export default function KadEpidotisiPage() {
           { color: "var(--success)", emoji: "📍", title: "Αναπτυξιακός Νόμος — Περιοχές Ειδικής Ενίσχυσης Β' Κύκλος", desc: "Ν. 4887/2022 — 2.721 επιλέξιμοι ΚΑΔ" , closed: false },
           { color: "var(--acc-amber)", emoji: "🏗️", title: "Αναπτυξιακός Νόμος — Μεγάλες Επενδύσεις Β' Κύκλος", desc: "Ν. 4887/2022 — 2.718 επιλέξιμοι ΚΑΔ" , closed: false },
           { color: "var(--acc-cyan)", emoji: "🚀", title: "ΕΣΠΑ «Ξεκινώ Επιχειρηματικά»", desc: "4.926 επιλέξιμοι ΚΑΔ · ⏸ Οι υποβολές ολοκληρώθηκαν", closed: true },
+  { color: "var(--success)", emoji: "🌱", title: "ΤΔΜ/ΕΣΔΙΜ — Υφιστάμενες ΜΜΕ", desc: "Δίκαιη Μετάβαση · 4.144 επιλέξιμοι ΚΑΔ", closed: false },
+  { color: "var(--acc-cyan)", emoji: "🌿", title: "ΤΔΜ/ΕΣΔΙΜ — Νέες & Υπό Σύσταση ΜΜΕ", desc: "Δίκαιη Μετάβαση · 4.144 επιλέξιμοι ΚΑΔ", closed: false },
+  { color: "var(--acc-amber)", emoji: "⚡", title: "ΤΔΜ/ΕΣΔΙΜ — Υφιστάμενες Μεγάλες", desc: "Δίκαιη Μετάβαση · 4.144 επιλέξιμοι ΚΑΔ", closed: false },
+  { color: "var(--acc-purple)", emoji: "🔋", title: "ΤΔΜ/ΕΣΔΙΜ — Νέες & Υπό Σύσταση Μεγάλες", desc: "Δίκαιη Μετάβαση · 4.144 επιλέξιμοι ΚΑΔ", closed: false },
         ].map((p, i) => (
           <div key={i} style={{ padding: "0.75rem 1rem", background: "var(--bg-card)", border: `2px solid ${p.color}`, borderRadius: 10, opacity: p.closed ? 0.72 : 1 }}>
             <div style={{ fontSize: "1.4rem", marginBottom: "0.3rem" }}>{p.emoji}</div>
@@ -67,6 +71,9 @@ export default function KadEpidotisiPage() {
             style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "var(--acc-cyan)", textDecoration: "none" }}>
             🚀 <span><strong>ΕΣΠΑ — «Ξεκινώ Επιχειρηματικά» (ο κύκλος ολοκληρώθηκε):</strong> www.espa.gr</span>
           </a>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", padding: "0.5rem 0" }}>
+            🌱 <span><strong>Ταμείο Δίκαιης Μετάβασης — ΕΣΔΙΜ (4 δράσεις, ενεργές):</strong> Επιλέξιμοι ΚΑΔ βάσει Παραρτημάτων XIV & XVIII των προσκλήσεων (Καν. ΕΕ 2021/1056) — κοινή λίστα 4.144 κωδικών για ΜΜΕ και μεγάλες επιχειρήσεις.</span>
+          </div>
         </div>
       </div>
     </div>

@@ -17,6 +17,10 @@ import similarRaw from "@/public/data/similar_kads.json";
 const SIMILAR = similarRaw as Record<string, string[]>;
 const CLOSED_PROGRAMS = new Set(['espa-xekino-epixeirimatika', 'espa-paragoume-stin-ellada']);
 const PROGRAM_SLUG: Record<string, string> = {
+  tmy: "tdm-esdim-mme-yfistamenes",
+  tmn: "tdm-esdim-mme-nees-ypo-systasi",
+  tgy: "tdm-esdim-megales-yfistamenes",
+  tgn: "tdm-esdim-megales-nees-ypo-systasi",
   x: "espa-xekino-epixeirimatika", e: "espa-paragoume-stin-ellada",
   m: "anaptyxiakos-metapoiisi", p: "anaptyxiakos-periohes-eidikis-enishysis",
   g: "anaptyxiakos-megales-ependyseis",
@@ -132,6 +136,10 @@ const KLADOS_PAGES = new Set([
 
 // ΕΣΠΑ / Αναπτυξιακός program metadata (keys match kad_programs_lookup.json — keyed by ΚΑΔ 2025)
 const PROGRAM_META: Record<string, { label: string; emoji: string }> = {
+  tmy: { label: "Δίκαιη Μετάβαση — Υφιστάμενες ΜΜΕ", emoji: "🌱" },
+  tmn: { label: "Δίκαιη Μετάβαση — Νέες/Υπό Σύστ. ΜΜΕ", emoji: "🌿" },
+  tgy: { label: "Δίκαιη Μετάβαση — Υφιστ. Μεγάλες", emoji: "⚡" },
+  tgn: { label: "Δίκαιη Μετάβαση — Νέες Μεγάλες", emoji: "🔋" },
   e: { label: "ΕΣΠΑ «Παράγουμε στην Ελλάδα»", emoji: "🏭" },
   m: { label: "Αναπτυξιακός Νόμος — Μεταποίηση Δ΄ Κύκλος", emoji: "⚙️" },
   p: { label: "Αναπτυξιακός Νόμος — Περιοχές Ειδικής Ενίσχυσης Β΄", emoji: "📍" },

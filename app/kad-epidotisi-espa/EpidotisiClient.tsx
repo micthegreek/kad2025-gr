@@ -2,6 +2,10 @@
 import { useState, useCallback } from "react";
 
 const PROGRAMS: Record<string, { label: string; color: string; emoji: string; url: string }> = {
+  tmy: { label: "ΤΔΜ/ΕΣΔΙΜ — Υφιστάμενες ΜΜΕ (Δίκαιη Μετάβαση)", color: "var(--success)", emoji: "🌱", url: "/programma/tdm-esdim-mme-yfistamenes" },
+  tmn: { label: "ΤΔΜ/ΕΣΔΙΜ — Νέες & Υπό Σύσταση ΜΜΕ (Δίκαιη Μετάβαση)", color: "var(--acc-cyan)", emoji: "🌿", url: "/programma/tdm-esdim-mme-nees-ypo-systasi" },
+  tgy: { label: "ΤΔΜ/ΕΣΔΙΜ — Υφιστάμενες Μεγάλες (Δίκαιη Μετάβαση)", color: "var(--acc-amber)", emoji: "⚡", url: "/programma/tdm-esdim-megales-yfistamenes" },
+  tgn: { label: "ΤΔΜ/ΕΣΔΙΜ — Νέες & Υπό Σύσταση Μεγάλες (Δίκαιη Μετάβαση)", color: "var(--acc-purple)", emoji: "🔋", url: "/programma/tdm-esdim-megales-nees-ypo-systasi" },
   e: {
     label: "ΕΣΠΑ «Παράγουμε στην Ελλάδα» — ⏸ οι υποβολές ολοκληρώθηκαν",
     color: "var(--info-strong)",
