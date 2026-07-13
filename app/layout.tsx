@@ -84,6 +84,13 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://www.kad2025.gr/#org",
+      name: "kad2025.gr",
+      url: "https://www.kad2025.gr",
+      logo: "https://www.kad2025.gr/apple-touch-icon.png",
+    },
+    {
       "@type": "WebSite",
       "@id": "https://www.kad2025.gr/#website",
       name: "kad2025.gr",

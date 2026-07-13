@@ -58,6 +58,9 @@ export default function HomePage() {
             Αντιστοίχιση & Αναζήτηση <span style={{ color: "var(--accent-light)" }}>ΚΑΔ 2025</span>
           </h1>
           <DeadlineChip />
+          <p style={{ margin: "0.6rem 0 0", fontSize: "0.88rem" }}>
+            <Link href="/programma" style={{ fontWeight: 700 }}>🆕 Νέες προσκλήσεις Δίκαιης Μετάβασης (ΕΣΔΙΜ): 4.144 επιλέξιμοι ΚΑΔ →</Link>
+          </p>
           <p style={{ fontSize: "1.1rem", opacity: 0.9, marginBottom: "2rem", lineHeight: 1.7 }}>
             Πλήρες ευρετήριο & λίστα ΚΑΔ 2025 (νέοι ΚΑΔ 2026 ΑΑΔΕ) — Αντιστοίχιση ΚΑΔ και προς τις δύο κατευθύνσεις — Εξαγωγή σε Excel & CSV
           </p>

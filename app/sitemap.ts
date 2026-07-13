@@ -41,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/en`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.6, alternates: { languages: { el: `${base}/`, en: `${base}/en` } } },
     { url: `${base}/blog/lathos-kad-prostima`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${base}/blog/epeksigimatikes-simeioseis-nace-odigos`, lastModified: "2026-07-04T08:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.9 },
+    { url: `${base}/blog/nees-proskliseis-tdm-esdim-epileximoi-kad`, lastModified: "2026-07-04T08:00:00.000Z", changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${base}/blog/parexigimenes-taksinomiseis-kad`, lastModified: "2026-07-04T08:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${base}/blog/kad-gia-eshop`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${base}/blog/kad-airbnb-vraxychronia`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.9 },
