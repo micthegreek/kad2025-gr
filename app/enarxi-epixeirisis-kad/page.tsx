@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "ΚΑΔ Έναρξης Επιχείρησης 2025 | Σωστός ΚΑΔ",
   description:
     "Βρείτε τον ΚΑΔ 2025 για έναρξη επιχείρησης. Αναζήτηση με λέξη-κλειδί (π.χ. εστιατόριο, κομμωτήριο). Σωστός κωδικός εφορίας.",
-  alternates: { canonical: "https://www.kad2025.gr/enarxi-epixeirisis-kad" },
+  alternates: { canonical: "https://www.kad2025.gr/enarxi-epixeirisis-kad", languages: { el: "https://www.kad2025.gr/enarxi-epixeirisis-kad", en: "https://www.kad2025.gr/en/start-business-greece-activity-codes", "x-default": "https://www.kad2025.gr/enarxi-epixeirisis-kad" } },
   openGraph: {
     title: "ΚΑΔ για Έναρξη Επιχείρησης 2025",
     description: "Βρείτε τον ΚΑΔ που πρέπει να δηλώσετε στην εφορία κατά την έναρξη επιχείρησης.",
@@ -71,6 +71,10 @@ export default function EnarxiPage() {
 
   return (
     <div style={{ maxWidth: 1000, margin: "0 auto", padding: "2rem 1rem" }}>
+      <link rel="alternate" hrefLang="el" href="https://www.kad2025.gr/enarxi-epixeirisis-kad" />
+      <link rel="alternate" hrefLang="en" href="https://www.kad2025.gr/en/start-business-greece-activity-codes" />
+      <link rel="alternate" hrefLang="x-default" href="https://www.kad2025.gr/enarxi-epixeirisis-kad" />
+      
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <nav style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "1rem" }}>

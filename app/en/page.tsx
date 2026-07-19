@@ -99,6 +99,18 @@ export default function EnglishPage() {
         Sources: AADE decisions A.1003/2026, A.1004/2026 and A.1113/2026. This page is informational
         and not legal or tax advice. Ελληνική έκδοση: <Link href="/" style={{ color: "var(--primary)" }}>kad2025.gr</Link>
       </p>
+
+      <section style={{ marginTop: "1.5rem" }}>
+        <h2>English Guides</h2>
+        <div style={{ display: "grid", gap: "0.6rem", marginTop: "0.6rem" }}>
+          <Link href="/en/greek-activity-codes-guide" className="tool-card" style={{ padding: "0.8rem 1rem" }}>📘 <strong>Greek Activity Codes (KAD) Explained</strong> — the 2026 guide for foreign businesses</Link>
+          <Link href="/en/start-business-greece-activity-codes" className="tool-card" style={{ padding: "0.8rem 1rem" }}>🚀 <strong>Starting a Business in Greece</strong> — choosing the right codes</Link>
+          <Link href="/en/kad-tools" className="tool-card" style={{ padding: "0.8rem 1rem" }}>🛠 <strong>Free Tools Walkthrough</strong> — search, mapping & grant eligibility in English</Link>
+          <Link href="/en/just-transition-fund-greece-kad" className="tool-card" style={{ padding: "0.8rem 1rem" }}>💶 <strong>Just Transition Fund (ESDIM)</strong> — 4,144 eligible codes for the 4 new actions</Link>
+          <Link href="/en/faq" className="tool-card" style={{ padding: "0.8rem 1rem" }}>❓ <strong>English FAQ</strong> — 10 answers on the 2026 transition</Link>
+        </div>
+      </section>
+
     </div>
   );
 }

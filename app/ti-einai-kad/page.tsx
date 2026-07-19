@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Τι είναι ΚΑΔ | Πλήρης Εξήγηση",
   description:
     "Τι είναι ο ΚΑΔ, πού χρησιμοποιείται, πώς τον βρίσκετε, πόσους μπορείτε να έχετε και ποια η διαφορά ΚΑΔ 2008 και ΚΑΔ 2025.",
-  alternates: { canonical: "https://www.kad2025.gr/ti-einai-kad" },
+  alternates: { canonical: "https://www.kad2025.gr/ti-einai-kad", languages: { el: "https://www.kad2025.gr/ti-einai-kad", en: "https://www.kad2025.gr/en/greek-activity-codes-guide", "x-default": "https://www.kad2025.gr/ti-einai-kad" } },
 };
 
 const FAQS = [
@@ -41,6 +41,10 @@ const jsonLd = {
 export default function TiEinaiKadPage() {
   return (
     <div style={{ maxWidth: 900, margin: "0 auto", padding: "2rem 1rem" }}>
+      <link rel="alternate" hrefLang="el" href="https://www.kad2025.gr/ti-einai-kad" />
+      <link rel="alternate" hrefLang="en" href="https://www.kad2025.gr/en/greek-activity-codes-guide" />
+      <link rel="alternate" hrefLang="x-default" href="https://www.kad2025.gr/ti-einai-kad" />
+      
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <nav style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "1rem" }}>
         <Link href="/" style={{ color: "var(--primary)", textDecoration: "none" }}>Αρχική</Link>{" → "}

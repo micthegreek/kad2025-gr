@@ -211,3 +211,18 @@ section[id] { scroll-margin-top: 84px; }
 details.nace-expand summary .lbl-less { display: none; }
 details.nace-expand[open] summary .lbl-more { display: none; }
 details.nace-expand[open] summary .lbl-less { display: inline; }
+
+/* v119: Εκτυπώσιμη κάρτα ΚΑΔ */
+@media print {
+  nav, footer, .no-print, button, details:not([open]) summary { display: none !important; }
+  body { background: white !important; color: black !important; font-size: 11pt; }
+  .card { border: 1px solid #999 !important; break-inside: avoid; }
+  a { color: black !important; text-decoration: none !important; }
+  a[href^="/"]::after { content: " (kad2025.gr" attr(href) ")"; font-size: 8pt; color: #555; }
+}
+
+/* v120: accessibility skip-link */
+.skip-link { position: absolute; left: -9999px; top: 0; z-index: 999; padding: 0.6rem 1rem; background: var(--primary); color: #fff; border-radius: 0 0 8px 0; font-weight: 700; }
+.skip-link:focus { left: 0; }
+
+.ladder-chip { font-size: 0.78rem; text-decoration: none; padding: 0.15rem 0.5rem; border: 1px solid var(--border); border-radius: 12px; display: inline-block; }

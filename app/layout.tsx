@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "google-adsense-account": "ca-pub-8450100137851566",
   },
   title: {
-    default: "ΚΑΔ 2025: Αντιστοίχιση 2008→2025 | 10.923 Κωδικοί ΑΑΔΕ",
+    default: "ΚΑΔ 2025 ΑΑΔΕ: Αντιστοίχιση 2008→2025 & Δωρεάν Excel — 10.923 Κωδικοί",
     template: "%s | kad2025.gr",
   },
   description:
@@ -83,13 +83,6 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.kad2025.gr/#org",
-      name: "kad2025.gr",
-      url: "https://www.kad2025.gr",
-      logo: "https://www.kad2025.gr/apple-touch-icon.png",
-    },
     {
       "@type": "WebSite",
       "@id": "https://www.kad2025.gr/#website",
@@ -165,6 +158,7 @@ gtag('consent','default',{
         />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">Μετάβαση στο περιεχόμενο</a>
         <link rel="alternate" type="application/rss+xml" title="kad2025.gr — Οδηγοί ΚΑΔ" href="https://www.kad2025.gr/feed.xml" />
         {/* GA4 — loads after hydration */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-BSSB8F33SV" strategy="afterInteractive" />
@@ -223,7 +217,7 @@ gtag('config','G-BSSB8F33SV',{anonymize_ip:true});
         )}
 
         <Navbar />
-        <main style={{ minHeight: "calc(100vh - 200px)" }}>{children}</main>
+        <main style={{ minHeight: "calc(100vh - 200px)" }}><main id="main-content">{children}</main></main>
         <Footer />
 
       </body>

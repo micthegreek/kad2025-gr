@@ -10,6 +10,7 @@ const DIV_INTRO: Record<string, string> = Object.fromEntries(
     .map(([k, v]) => [k, v.inc[0].length > 220 ? v.inc[0].slice(0, 220).trimEnd() + "…" : v.inc[0]])
 );
 
+const KLADOS_OK = new Set(["01","02","03","10","11","14","20","21","25","41","43","45","46","47","49","55","56","62","68","69","70","71","85","86","93","96","50","63","07","08","13","15","16","17","18","22","23","24","26","27","28","29","30","31","32","33","38","39","42","52","58","59","60","72","74","75","81","82","87","88","90","91","95"]);
 const CLOSED_PROGRAMS = new Set(['espa-xekino-epixeirimatika', 'espa-paragoume-stin-ellada']);
 
 interface ProgSample { c: string; d: string }
@@ -85,7 +86,7 @@ export default async function ProgrammaPage({ params }: { params: Promise<{ slug
         itemListElement: top3.map((s, i) => ({
           "@type": "ListItem", position: i + 1,
           name: `${s.name} — ${s.count} επιλέξιμοι ΚΑΔ`,
-          url: `https://www.kad2025.gr/klados/${s.s}`,
+          url: KLADOS_OK.has(s.s) ? `https://www.kad2025.gr/klados/${s.s}` : `https://www.kad2025.gr/programma/${prog.slug}`,
         })),
       },
       {
@@ -114,6 +115,11 @@ export default async function ProgrammaPage({ params }: { params: Promise<{ slug
         <div style={{ background: "var(--warn-bg, #fff8e6)", border: "1px solid var(--warn-border, #e6c200)", borderRadius: "8px", padding: "0.75rem 1rem", margin: "0.75rem 0 1rem", fontSize: "0.92rem" }}>
           ⏸ <strong>Οι υποβολές του προγράμματος έχουν ολοκληρωθεί.</strong> Η λίστα επιλέξιμων ΚΑΔ παραμένει ως οδηγός για επόμενους κύκλους και αντίστοιχα προγράμματα επιδοτήσεων.
         </div>
+      )}
+      {slug.startsWith("tdm-") && (
+        <p style={{ fontSize: "0.88rem", margin: "0.5rem 0 1rem" }}>
+          📰 <Link href="/blog/nees-proskliseis-tdm-esdim-epileximoi-kad" style={{ fontWeight: 700 }}>Νέο: Η πλήρης ανάλυση των 4 δράσεων ΤΔΜ και του προφίλ επιλεξιμότητας →</Link>
+        </p>
       )}
       <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "1.25rem" }}>
         {prog.family} · Ενημέρωση λιστών: 11 Ιουνίου 2026 · Κωδικοποίηση: ΚΑΔ 2025 (NACE Rev.2.1)
@@ -179,9 +185,9 @@ export default async function ProgrammaPage({ params }: { params: Promise<{ slug
                     <span className="chip" style={{ fontFamily: "monospace", fontWeight: 700, fontSize: "0.78rem" }}>{sm.c}</span>
                   </Link>
                 ))}
-                <Link href={`/klados/${sec.s}`} style={{ fontSize: "0.78rem", color: "var(--primary)", fontWeight: 600, textDecoration: "none" }}>
+                {KLADOS_OK.has(sec.s) ? <Link key="kl" href={`/klados/${sec.s}`} style={{ fontSize: "0.78rem", color: "var(--primary)", fontWeight: 600, textDecoration: "none" }}>
                   Όλος ο κλάδος {sec.s} →
-                </Link>
+                </Link> : null}
               </div>
             </details>
           ))}

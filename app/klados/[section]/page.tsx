@@ -1,5 +1,6 @@
 import naceNotesFull from "@/lib/nace_notes_full.json";
 import kadStatsRaw from "@/public/data/kad.json";
+import canonicalRaw from "@/public/data/canonical_indexable_kads.json";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -38,6 +39,41 @@ const SECTIONS: Record<string, { name: string; icon: string; desc: string; keywo
   "50": { name: "Πλωτές Μεταφορές", icon: "⛴️", desc: "Ναυτιλία, πλοία", keywords: "καδ ναυτιλίας, καδ πλοίων, καδ θαλάσσιων μεταφορών" },
   "63": { name: "Υπηρεσίες Πληροφορίας", icon: "📡", desc: "Ψηφιακές υπηρεσίες πληροφορίας", keywords: "καδ υπηρεσιών πληροφορίας, καδ ψηφιακών υπηρεσιών" },
   "96": { name: "Άλλες Υπηρεσίες", icon: "🔧", desc: "Κομμωτήρια, επισκευές", keywords: "καδ κομμωτηρίων, καδ επισκευών" },
+  "07": { name: "Εξόρυξη Μεταλλευμάτων", icon: "⛏️", desc: "Μεταλλεύματα σιδήρου και μη σιδηρούχα", keywords: "καδ εξόρυξη μεταλλευμάτων" },
+  "08": { name: "Λοιπά Ορυχεία & Λατομεία", icon: "🪨", desc: "Λατομεία, αδρανή υλικά, αλάτι", keywords: "καδ λοιπά ορυχεία & λατομεία" },
+  "13": { name: "Κλωστοϋφαντουργία", icon: "🧵", desc: "Νήματα, υφάσματα, κλωστοϋφαντουργικά προϊόντα", keywords: "καδ κλωστοϋφαντουργία" },
+  "15": { name: "Δέρμα & Δερμάτινα Είδη", icon: "👞", desc: "Δέρματα, τσάντες, υποδήματα", keywords: "καδ δέρμα & δερμάτινα είδη" },
+  "16": { name: "Βιομηχανία Ξύλου", icon: "🪵", desc: "Πριστήρια, προϊόντα ξύλου και φελλού", keywords: "καδ βιομηχανία ξύλου" },
+  "17": { name: "Χαρτοποιία & Προϊόντα Χαρτιού", icon: "📄", desc: "Χαρτοπολτός, χαρτί, χάρτινες συσκευασίες", keywords: "καδ χαρτοποιία & προϊόντα χαρτιού" },
+  "18": { name: "Εκτυπώσεις & Αναπαραγωγή", icon: "🖨️", desc: "Εκτυπωτικές δραστηριότητες, προεκτύπωση", keywords: "καδ εκτυπώσεις & αναπαραγωγή" },
+  "22": { name: "Πλαστικά & Ελαστικά", icon: "🧴", desc: "Προϊόντα από ελαστικό και πλαστικές ύλες", keywords: "καδ πλαστικά & ελαστικά" },
+  "23": { name: "Μη Μεταλλικά Ορυκτά", icon: "🧱", desc: "Γυαλί, τσιμέντο, κεραμικά, δομικά υλικά", keywords: "καδ μη μεταλλικά ορυκτά" },
+  "24": { name: "Βασικά Μέταλλα", icon: "🔩", desc: "Χάλυβας, αλουμίνιο, χύτευση μετάλλων", keywords: "καδ βασικά μέταλλα" },
+  "26": { name: "Ηλεκτρονικά & Οπτικά Προϊόντα", icon: "🔌", desc: "Ηλεκτρονικοί υπολογιστές, ηλεκτρονικά, οπτικά", keywords: "καδ ηλεκτρονικά & οπτικά προϊόντα" },
+  "27": { name: "Ηλεκτρολογικός Εξοπλισμός", icon: "💡", desc: "Ηλεκτρικοί κινητήρες, καλώδια, φωτισμός", keywords: "καδ ηλεκτρολογικός εξοπλισμός" },
+  "28": { name: "Μηχανήματα & Εξοπλισμός", icon: "⚙️", desc: "Μηχανήματα γενικής και ειδικής χρήσης", keywords: "καδ μηχανήματα & εξοπλισμός" },
+  "29": { name: "Αυτοκίνητα & Εξαρτήματα", icon: "🚗", desc: "Μηχανοκίνητα οχήματα, αμαξώματα, εξαρτήματα", keywords: "καδ αυτοκίνητα & εξαρτήματα" },
+  "30": { name: "Λοιπός Εξοπλισμός Μεταφορών", icon: "🚢", desc: "Ναυπηγική, σιδηροδρομικός & αεροπορικός εξοπλισμός", keywords: "καδ λοιπός εξοπλισμός μεταφορών" },
+  "31": { name: "Κατασκευή Επίπλων", icon: "🪑", desc: "Έπιπλα κάθε είδους", keywords: "καδ κατασκευή επίπλων" },
+  "32": { name: "Λοιπές Μεταποιητικές Δραστηριότητες", icon: "🛠️", desc: "Κοσμήματα, ιατρικά είδη, παιχνίδια κ.ά.", keywords: "καδ λοιπές μεταποιητικές δραστηριότητες" },
+  "33": { name: "Επισκευή & Εγκατάσταση Μηχανημάτων", icon: "🔧", desc: "Επισκευή, συντήρηση και εγκατάσταση εξοπλισμού", keywords: "καδ επισκευή & εγκατάσταση μηχανημάτων" },
+  "38": { name: "Διαχείριση Αποβλήτων & Ανακύκλωση", icon: "♻️", desc: "Συλλογή, επεξεργασία, ανάκτηση υλικών", keywords: "καδ διαχείριση αποβλήτων & ανακύκλωση" },
+  "39": { name: "Εξυγίανση & Περιβάλλον", icon: "🌿", desc: "Απορρύπανση και περιβαλλοντικές υπηρεσίες", keywords: "καδ εξυγίανση & περιβάλλον" },
+  "42": { name: "Έργα Πολιτικού Μηχανικού", icon: "🏗️", desc: "Δρόμοι, δίκτυα, ενεργειακά και τεχνικά έργα", keywords: "καδ έργα πολιτικού μηχανικού" },
+  "52": { name: "Αποθήκευση & Υποστήριξη Μεταφορών", icon: "📦", desc: "Logistics, αποθήκες, τερματικοί σταθμοί", keywords: "καδ αποθήκευση & υποστήριξη μεταφορών" },
+  "58": { name: "Εκδοτικές Δραστηριότητες", icon: "📚", desc: "Εκδόσεις βιβλίων, λογισμικού, περιοδικών", keywords: "καδ εκδοτικές δραστηριότητες" },
+  "59": { name: "Παραγωγή Ταινιών & Ήχου", icon: "🎬", desc: "Κινηματογράφος, βίντεο, μουσικές εκδόσεις", keywords: "καδ παραγωγή ταινιών & ήχου" },
+  "60": { name: "Ραδιοτηλεοπτικές Μεταδόσεις", icon: "📺", desc: "Ραδιόφωνο, τηλεόραση, streaming προγραμμάτων", keywords: "καδ ραδιοτηλεοπτικές μεταδόσεις" },
+  "72": { name: "Επιστημονική Έρευνα & Ανάπτυξη", icon: "🔬", desc: "R&D σε φυσικές και κοινωνικές επιστήμες", keywords: "καδ επιστημονική έρευνα & ανάπτυξη" },
+  "74": { name: "Λοιπές Επαγγελματικές & Επιστημονικές", icon: "🎨", desc: "Design, φωτογραφία, μετάφραση, εξειδικευμένες υπηρεσίες", keywords: "καδ λοιπές επαγγελματικές & επιστημονικές" },
+  "75": { name: "Κτηνιατρικές Δραστηριότητες", icon: "🐾", desc: "Κτηνιατρικές υπηρεσίες", keywords: "καδ κτηνιατρικές δραστηριότητες" },
+  "81": { name: "Υπηρεσίες Κτιρίων & Τοπίου", icon: "🧹", desc: "Καθαρισμός, συντήρηση κτιρίων, κηποτεχνία", keywords: "καδ υπηρεσίες κτιρίων & τοπίου" },
+  "82": { name: "Διοικητικές Υπηρεσίες Γραφείου", icon: "🗂️", desc: "Γραμματειακή υποστήριξη, call centers, συνέδρια", keywords: "καδ διοικητικές υπηρεσίες γραφείου" },
+  "87": { name: "Φροντίδα με Διαμονή", icon: "🏥", desc: "Μονάδες φροντίδας ηλικιωμένων και ΑμεΑ", keywords: "καδ φροντίδα με διαμονή" },
+  "88": { name: "Κοινωνική Μέριμνα", icon: "🤝", desc: "Κοινωνική εργασία χωρίς διαμονή, παιδικοί σταθμοί", keywords: "καδ κοινωνική μέριμνα" },
+  "90": { name: "Τέχνες & Πολιτισμός", icon: "🎭", desc: "Παραστατικές τέχνες, δημιουργικές δραστηριότητες", keywords: "καδ τέχνες & πολιτισμός" },
+  "91": { name: "Βιβλιοθήκες, Αρχεία & Μουσεία", icon: "🏛️", desc: "Πολιτιστικοί χώροι και συλλογές", keywords: "καδ βιβλιοθήκες, αρχεία & μουσεία" },
+  "95": { name: "Επισκευή Υπολογιστών & Ειδών", icon: "🔧", desc: "Επισκευές Η/Υ, κινητών, προσωπικών ειδών", keywords: "καδ επισκευή υπολογιστών & ειδών" },
 };
 
 export async function generateStaticParams() {
@@ -56,6 +92,8 @@ const SECTION_STATS: Record<string, { total: number; changed: number; pct: numbe
   return Object.fromEntries(Object.entries(acc).map(([k, v]) => [k, { total: v.all.size, changed: v.ch.size, pct: Math.round((100 * v.ch.size) / v.all.size) }]));
 })();
 
+const TDM_COUNT: Record<string, number> = { "07": 7, "08": 35, "10": 319, "11": 39, "13": 144, "14": 100, "15": 53, "16": 91, "17": 86, "18": 40, "20": 232, "21": 27, "22": 89, "23": 196, "24": 75, "25": 162, "26": 163, "27": 152, "28": 323, "29": 61, "30": 62, "31": 41, "32": 142, "33": 93, "38": 95, "39": 14, "41": 31, "42": 9, "43": 130, "52": 47, "55": 8, "56": 63, "58": 53, "59": 46, "60": 24, "62": 30, "63": 23, "70": 56, "71": 109, "72": 58, "74": 24, "75": 6, "81": 25, "82": 26, "85": 97, "86": 150, "87": 19, "88": 25, "90": 67, "91": 17, "93": 40, "95": 72, "96": 48 };
+
 export async function generateMetadata({
   params,
 }: {
@@ -73,6 +111,29 @@ export async function generateMetadata({
     alternates: { canonical: `https://www.kad2025.gr/klados/${section}` },
   };
 }
+
+const CANON_SET = new Set(canonicalRaw as string[]);
+const CLASS_TITLES = (naceNotesFull as { classes: Record<string, { t: string }> }).classes;
+const FULL_LADDER: Record<string, { cls: string; title: string; codes: string[] }[]> = (() => {
+  const bySec: Record<string, Record<string, string[]>> = {};
+  const seen = new Set<string>();
+  for (const r of kadStatsRaw as { kad2008: string; kad2025: string }[]) {
+    if (!CANON_SET.has(r.kad2008) || seen.has(r.kad2008)) continue;
+    seen.add(r.kad2008);
+    const p8 = r.kad2008.padStart(8, "0");
+    const sec = p8.slice(0, 2);
+    const cls = `${p8.slice(0, 2)}.${p8.slice(2, 4)}`;
+    (bySec[sec] ??= {})[cls] ??= [];
+    bySec[sec][cls].push(r.kad2008);
+  }
+  const out: Record<string, { cls: string; title: string; codes: string[] }[]> = {};
+  for (const [sec, byCls] of Object.entries(bySec)) {
+    out[sec] = Object.keys(byCls).sort().map((cls) => ({
+      cls, title: CLASS_TITLES[cls]?.t?.slice(0, 70) ?? "", codes: byCls[cls].sort(),
+    }));
+  }
+  return out;
+})();
 
 function buildKladosFaq(name: string, st: { total: number; changed: number; pct: number }, offIntro?: string) {
   return [
@@ -170,6 +231,13 @@ export default async function KladosDetailPage({
 
       {/* Progress bar */}
       <div style={{ height: 8, background: "var(--border)", borderRadius: 4, marginBottom: "1.5rem", overflow: "hidden" }}>
+        {(TDM_COUNT[section] ?? 0) > 0 && (
+          <p style={{ margin: "0.75rem 0", fontSize: "0.9rem" }}>
+            💶 <strong>{TDM_COUNT[section]}</strong> ΚΑΔ του κλάδου είναι επιλέξιμοι στις 4 ενεργές δράσεις{" "}
+            <Link href="/programma" style={{ fontWeight: 700 }}>Δίκαιης Μετάβασης (ΕΣΔΙΜ) →</Link>
+          </p>
+        )}
+
         <div style={{ height: "100%", width: `${pct}%`, background: pct > 70 ? "var(--accent)" : "var(--success)", borderRadius: 4 }} />
       </div>
 
@@ -302,6 +370,27 @@ export default async function KladosDetailPage({
       </div>
 
       <section style={{ marginTop: "2rem" }}>
+        <section className="card" style={{ marginTop: "1.25rem", padding: "1rem 1.15rem" }}>
+          <h2 style={{ fontSize: "1.05rem", margin: "0 0 0.5rem" }}>📚 Πλήρης λίστα ΚΑΔ του κλάδου — ανά τάξη</h2>
+          <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", margin: "0 0 0.7rem" }}>
+            Όλοι οι {(FULL_LADDER[section] ?? []).reduce((a, g) => a + g.codes.length, 0).toLocaleString("el-GR")} ενεργοί κωδικοί του κλάδου, οργανωμένοι στις τάξεις NACE 2.1.
+          </p>
+          {(FULL_LADDER[section] ?? []).map((g) => (
+            <details key={g.cls} style={{ margin: "0.35rem 0", border: "1px solid var(--border)", borderRadius: 8, padding: "0.45rem 0.75rem" }}>
+              <summary style={{ cursor: "pointer", fontWeight: 700, fontSize: "0.92rem" }}>
+                Τάξη {g.cls}{g.title ? ` — ${g.title}` : ""} <span style={{ fontWeight: 400, color: "var(--text-muted)" }}>({g.codes.length})</span>
+              </summary>
+              <div style={{ margin: "0.5rem 0 0.2rem", display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
+                {g.codes.map((k) => (
+                  <Link key={k} href={`/kad/${k}`} className="ladder-chip">
+                    {k.padStart(8, "0").replace(/(\d{2})(\d{2})(\d{2})(\d{2})/, "$1.$2.$3.$4")}
+                  </Link>
+                ))}
+              </div>
+            </details>
+          ))}
+        </section>
+
         <h2>Συχνές Ερωτήσεις — ΚΑΔ {def.name}</h2>
         {buildKladosFaq(def.name, SECTION_STATS[section] ?? { total: 0, changed: 0, pct: 0 }, (naceNotesFull as { divisions: Record<string, { inc: string[] }> }).divisions[section]?.inc?.[0]).map((f, i) => (
           <details key={i} style={{ margin: "0.5rem 0", padding: "0.5rem 0.75rem", border: "1px solid var(--border, #333)", borderRadius: "8px" }}>

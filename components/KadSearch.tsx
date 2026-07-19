@@ -304,7 +304,7 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
             <input
               type="checkbox"
               checked={useSynonyms}
-              onChange={(e) => setUseSynonyms(e.target.checked)}
+              onChange={(e) => { setUseSynonyms(e.target.checked); if (typeof window !== "undefined") (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "synonyms_toggle", { on: e.target.checked }); }}
               style={{ width: 15, height: 15, accentColor: "white", cursor: "pointer" }}
             />
             <span style={{ fontSize: "0.8rem", fontWeight: 700, color: useSynonyms ? "white" : "var(--text-muted)" }}>
@@ -335,7 +335,11 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
 
       {loading && <div style={{ textAlign: "center", padding: "3rem", color: "var(--text-muted)" }}><div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>⏳</div>Φόρτωση δεδομένων...</div>}
       {!loading && query.length < 2 && <div style={{ textAlign: "center", padding: "3rem 1rem", color: "var(--text-muted)" }}><div style={{ fontSize: "3rem", marginBottom: "1rem" }}>🔎</div><div style={{ fontSize: "1.1rem", fontWeight: 600, marginBottom: "0.5rem" }}>Ξεκινήστε την αναζήτηση</div><div style={{ fontSize: "0.9rem" }}>Πληκτρολογήστε τουλάχιστον 2 χαρακτήρες</div></div>}
-      {!loading && query.length >= 2 && results.length === 0 && !searching && <div style={{ textAlign: "center", padding: "3rem 1rem", color: "var(--text-muted)" }}><div style={{ fontSize: "3rem", marginBottom: "1rem" }}>😕</div><div style={{ fontSize: "1.1rem", fontWeight: 600 }}>Δεν βρέθηκαν αποτελέσματα</div><div style={{ fontSize: "0.9rem", marginTop: "0.5rem" }}>Δοκιμάστε διαφορετική λέξη ή μέρος κωδικού</div></div>}
+      {!loading && query.length >= 2 && results.length === 0 && !searching && <div style={{ textAlign: "center", padding: "3rem 1rem", color: "var(--text-muted)" }}><div style={{ fontSize: "3rem", marginBottom: "1rem" }}>😕</div><div style={{ fontSize: "1.1rem", fontWeight: 600 }}>Δεν βρέθηκαν αποτελέσματα</div><div style={{ fontSize: "0.9rem", marginTop: "0.5rem" }}>Δοκιμάστε διαφορετική λέξη ή μέρος κωδικού</div>{!isNumeric && !useSynonyms && synonyms && (
+        <button onClick={() => { setUseSynonyms(true); if (typeof window !== "undefined") (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "synonyms_from_zero_results"); }} className="btn" style={{ marginTop: "0.9rem", padding: "0.5rem 1rem", fontSize: "0.85rem", fontWeight: 700, cursor: "pointer", border: "1.5px solid var(--primary)", borderRadius: 20, background: "var(--primary)", color: "white" }}>
+          📖 Δοκιμάστε αναζήτηση και στις επίσημες επεξηγήσεις (NACE 2.1)
+        </button>
+      )}</div>}
 
       <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
         {paginated.map((r, i) => (

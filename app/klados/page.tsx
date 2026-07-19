@@ -38,6 +38,41 @@ const SECTIONS: Record<string, { name: string; icon: string; color: string; desc
   "86": { name: "Υγεία", icon: "🏥", color: "var(--danger)", desc: "Γιατροί, κλινικές" },
   "93": { name: "Αθλητισμός & Ψυχαγωγία", icon: "⚽", color: "var(--success)", desc: "Αθλητικές εγκαταστάσεις" },
   "96": { name: "Άλλες Υπηρεσίες", icon: "🔧", color: "#6b7280", desc: "Κομμωτήρια, επισκευές" },
+  "07": { name: "Εξόρυξη Μεταλλευμάτων", icon: "⛏️", color: "var(--primary)", desc: "Μεταλλεύματα σιδήρου και μη σιδηρούχα" },
+  "08": { name: "Λοιπά Ορυχεία & Λατομεία", icon: "🪨", color: "var(--acc-cyan)", desc: "Λατομεία, αδρανή υλικά, αλάτι" },
+  "13": { name: "Κλωστοϋφαντουργία", icon: "🧵", color: "var(--acc-amber)", desc: "Νήματα, υφάσματα, κλωστοϋφαντουργικά προϊόντα" },
+  "15": { name: "Δέρμα & Δερμάτινα Είδη", icon: "👞", color: "var(--acc-purple)", desc: "Δέρματα, τσάντες, υποδήματα" },
+  "16": { name: "Βιομηχανία Ξύλου", icon: "🪵", color: "var(--success)", desc: "Πριστήρια, προϊόντα ξύλου και φελλού" },
+  "17": { name: "Χαρτοποιία & Προϊόντα Χαρτιού", icon: "📄", color: "var(--primary)", desc: "Χαρτοπολτός, χαρτί, χάρτινες συσκευασίες" },
+  "18": { name: "Εκτυπώσεις & Αναπαραγωγή", icon: "🖨️", color: "var(--acc-cyan)", desc: "Εκτυπωτικές δραστηριότητες, προεκτύπωση" },
+  "22": { name: "Πλαστικά & Ελαστικά", icon: "🧴", color: "var(--acc-amber)", desc: "Προϊόντα από ελαστικό και πλαστικές ύλες" },
+  "23": { name: "Μη Μεταλλικά Ορυκτά", icon: "🧱", color: "var(--acc-purple)", desc: "Γυαλί, τσιμέντο, κεραμικά, δομικά υλικά" },
+  "24": { name: "Βασικά Μέταλλα", icon: "🔩", color: "var(--success)", desc: "Χάλυβας, αλουμίνιο, χύτευση μετάλλων" },
+  "26": { name: "Ηλεκτρονικά & Οπτικά Προϊόντα", icon: "🔌", color: "var(--primary)", desc: "Ηλεκτρονικοί υπολογιστές, ηλεκτρονικά, οπτικά" },
+  "27": { name: "Ηλεκτρολογικός Εξοπλισμός", icon: "💡", color: "var(--acc-cyan)", desc: "Ηλεκτρικοί κινητήρες, καλώδια, φωτισμός" },
+  "28": { name: "Μηχανήματα & Εξοπλισμός", icon: "⚙️", color: "var(--acc-amber)", desc: "Μηχανήματα γενικής και ειδικής χρήσης" },
+  "29": { name: "Αυτοκίνητα & Εξαρτήματα", icon: "🚗", color: "var(--acc-purple)", desc: "Μηχανοκίνητα οχήματα, αμαξώματα, εξαρτήματα" },
+  "30": { name: "Λοιπός Εξοπλισμός Μεταφορών", icon: "🚢", color: "var(--success)", desc: "Ναυπηγική, σιδηροδρομικός & αεροπορικός εξοπλισμός" },
+  "31": { name: "Κατασκευή Επίπλων", icon: "🪑", color: "var(--primary)", desc: "Έπιπλα κάθε είδους" },
+  "32": { name: "Λοιπές Μεταποιητικές Δραστηριότητες", icon: "🛠️", color: "var(--acc-cyan)", desc: "Κοσμήματα, ιατρικά είδη, παιχνίδια κ.ά." },
+  "33": { name: "Επισκευή & Εγκατάσταση Μηχανημάτων", icon: "🔧", color: "var(--acc-amber)", desc: "Επισκευή, συντήρηση και εγκατάσταση εξοπλισμού" },
+  "38": { name: "Διαχείριση Αποβλήτων & Ανακύκλωση", icon: "♻️", color: "var(--acc-purple)", desc: "Συλλογή, επεξεργασία, ανάκτηση υλικών" },
+  "39": { name: "Εξυγίανση & Περιβάλλον", icon: "🌿", color: "var(--success)", desc: "Απορρύπανση και περιβαλλοντικές υπηρεσίες" },
+  "42": { name: "Έργα Πολιτικού Μηχανικού", icon: "🏗️", color: "var(--primary)", desc: "Δρόμοι, δίκτυα, ενεργειακά και τεχνικά έργα" },
+  "52": { name: "Αποθήκευση & Υποστήριξη Μεταφορών", icon: "📦", color: "var(--acc-cyan)", desc: "Logistics, αποθήκες, τερματικοί σταθμοί" },
+  "58": { name: "Εκδοτικές Δραστηριότητες", icon: "📚", color: "var(--acc-amber)", desc: "Εκδόσεις βιβλίων, λογισμικού, περιοδικών" },
+  "59": { name: "Παραγωγή Ταινιών & Ήχου", icon: "🎬", color: "var(--acc-purple)", desc: "Κινηματογράφος, βίντεο, μουσικές εκδόσεις" },
+  "60": { name: "Ραδιοτηλεοπτικές Μεταδόσεις", icon: "📺", color: "var(--success)", desc: "Ραδιόφωνο, τηλεόραση, streaming προγραμμάτων" },
+  "72": { name: "Επιστημονική Έρευνα & Ανάπτυξη", icon: "🔬", color: "var(--primary)", desc: "R&D σε φυσικές και κοινωνικές επιστήμες" },
+  "74": { name: "Λοιπές Επαγγελματικές & Επιστημονικές", icon: "🎨", color: "var(--acc-cyan)", desc: "Design, φωτογραφία, μετάφραση, εξειδικευμένες υπηρεσίες" },
+  "75": { name: "Κτηνιατρικές Δραστηριότητες", icon: "🐾", color: "var(--acc-amber)", desc: "Κτηνιατρικές υπηρεσίες" },
+  "81": { name: "Υπηρεσίες Κτιρίων & Τοπίου", icon: "🧹", color: "var(--acc-purple)", desc: "Καθαρισμός, συντήρηση κτιρίων, κηποτεχνία" },
+  "82": { name: "Διοικητικές Υπηρεσίες Γραφείου", icon: "🗂️", color: "var(--success)", desc: "Γραμματειακή υποστήριξη, call centers, συνέδρια" },
+  "87": { name: "Φροντίδα με Διαμονή", icon: "🏥", color: "var(--primary)", desc: "Μονάδες φροντίδας ηλικιωμένων και ΑμεΑ" },
+  "88": { name: "Κοινωνική Μέριμνα", icon: "🤝", color: "var(--acc-cyan)", desc: "Κοινωνική εργασία χωρίς διαμονή, παιδικοί σταθμοί" },
+  "90": { name: "Τέχνες & Πολιτισμός", icon: "🎭", color: "var(--acc-amber)", desc: "Παραστατικές τέχνες, δημιουργικές δραστηριότητες" },
+  "91": { name: "Βιβλιοθήκες, Αρχεία & Μουσεία", icon: "🏛️", color: "var(--acc-purple)", desc: "Πολιτιστικοί χώροι και συλλογές" },
+  "95": { name: "Επισκευή Υπολογιστών & Ειδών", icon: "🔧", color: "var(--success)", desc: "Επισκευές Η/Υ, κινητών, προσωπικών ειδών" },
 };
 
 export default function KladosPage() {
@@ -60,6 +95,10 @@ export default function KladosPage() {
 
   return (
     <div style={{ maxWidth: 1200, margin: "0 auto", padding: "2rem 1rem" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "ItemList", name: "ΚΑΔ 2025 ανά Κλάδο Δραστηριότητας",
+        itemListElement: Object.entries(SECTIONS).map(([code, def], i) => ({ "@type": "ListItem", position: i + 1, name: `${code} — ${def.name}`, url: "https://www.kad2025.gr/klados/" + code })) }) }} />
+
       <nav style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "1rem" }}>
         <Link href="/" style={{ color: "var(--primary)", textDecoration: "none" }}>Αρχική</Link>
         {" → "}

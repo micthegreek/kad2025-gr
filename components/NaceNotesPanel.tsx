@@ -69,7 +69,7 @@ export default function NaceNotesPanel({
   return (
     <details
       open={open}
-      onToggle={(e) => setOpen((e.target as HTMLDetailsElement).open)}
+      onToggle={(e) => { const o = (e.target as HTMLDetailsElement).open; setOpen(o); if (o && typeof window !== "undefined") (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "nace_panel_open", { cls }); }}
       style={{
         margin: "-0.35rem 0 0",
         padding: "0.55rem 0.9rem 0.65rem",

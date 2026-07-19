@@ -9,9 +9,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.kad2025.gr/kad-epidotisi-espa" },
 };
 
+const jsonLdApp = { "@context": "https://schema.org", "@type": "WebApplication", name: "Έλεγχος Επιλεξιμότητας ΚΑΔ σε Προγράμματα", url: "https://www.kad2025.gr/kad-epidotisi-espa", applicationCategory: "BusinessApplication", operatingSystem: "Any", offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" } };
+
 export default function KadEpidotisiPage() {
   return (
     <div style={{ maxWidth: 860, margin: "0 auto", padding: "2rem 1rem" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdApp) }} />
       <nav style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "1.5rem" }}>
         <Link href="/" style={{ color: "var(--primary)", textDecoration: "none" }}>Αρχική</Link>
         {" → "}

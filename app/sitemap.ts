@@ -6,9 +6,9 @@ const PROGRAM_SLUGS: string[] = (programsRaw as { slug: string }[]).map((p) => p
 
 const PROFESSION_SLUGS: string[] = (professionsRaw as { slug: string }[]).map((p) => p.slug);
 
-const SECTION_CODES = ["01","02","03","10","11","14","20","21","25","41","43","45","46","47","49","55","56","62","68","69","70","71","85","86","93","96","50","63"];
+const SECTION_CODES = ["01","02","03","10","11","14","20","21","25","41","43","45","46","47","49","55","56","62","68","69","70","71","85","86","93","96","50","63","07","08","13","15","16","17","18","22","23","24","26","27","28","29","30","31","32","33","38","39","42","52","58","59","60","72","74","75","81","82","87","88","90","91","95"];
 
-const LAST_UPDATED = "2026-07-03T08:00:00.000Z"; // Update only when content changes
+const LAST_UPDATED = "2026-07-19T08:00:00.000Z"; // Update only when content changes
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.kad2025.gr";
@@ -39,8 +39,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/programma`, lastModified: LAST_UPDATED, changeFrequency: "weekly" as const, priority: 0.9 },
     ...PROGRAM_SLUGS.map((slug) => ({ url: `${base}/programma/${slug}`, lastModified: LAST_UPDATED, changeFrequency: "weekly" as const, priority: 0.88 })),
     { url: `${base}/en`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.6, alternates: { languages: { el: `${base}/`, en: `${base}/en` } } },
+    { url: `${base}/en/greek-activity-codes-guide`, lastModified: "2026-07-05T10:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${base}/en/start-business-greece-activity-codes`, lastModified: "2026-07-05T10:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${base}/en/kad-tools`, lastModified: "2026-07-05T10:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.75 },
+    { url: `${base}/en/just-transition-fund-greece-kad`, lastModified: "2026-07-05T12:00:00.000Z", changeFrequency: "weekly" as const, priority: 0.85 },
+    { url: `${base}/en/faq`, lastModified: "2026-07-05T10:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.75 },
     { url: `${base}/blog/lathos-kad-prostima`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${base}/blog/epeksigimatikes-simeioseis-nace-odigos`, lastModified: "2026-07-04T08:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.9 },
+    { url: `${base}/blog/kad-diaspaseis-odigos`, lastModified: "2026-07-06T11:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${base}/blog/kyrios-defterevon-kad-odigos`, lastModified: "2026-07-06T10:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${base}/blog/prosthiki-kad-kostos-mythoi`, lastModified: "2026-07-06T09:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${base}/blog/kad-eleftheroi-epaggelmaties-2026`, lastModified: "2026-07-06T08:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${base}/blog/kladoi-pou-allaksan-kad-2025`, lastModified: "2026-07-05T09:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `${base}/blog/nees-proskliseis-tdm-esdim-epileximoi-kad`, lastModified: "2026-07-04T08:00:00.000Z", changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${base}/blog/parexigimenes-taksinomiseis-kad`, lastModified: "2026-07-04T08:00:00.000Z", changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${base}/blog/kad-gia-eshop`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.9 },
@@ -60,6 +70,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/kad-ana-epaggelma`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${base}/enarxi-epixeirisis-kad`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${base}/odigies-logistes`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${base}/odigos-epilogis-kad`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${base}/sygkrisi-kad`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `${base}/kad-epidotisi-espa`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `${base}/kad-dypa`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `${base}/ai-suggester`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.85 },

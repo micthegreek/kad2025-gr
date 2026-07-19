@@ -157,7 +157,7 @@ export default function LathosKadProstimaPage() {
           {faqItems.map((faq, i) => (
             <div key={i} style={{ borderLeft: "3px solid var(--border)", paddingLeft: "1rem" }}>
               <h3 style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--primary)", marginBottom: "0.3rem" }}>{faq.q}</h3>
-              <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: 1.7 }}>{faq.a}</p>
+              <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: 1.7 }}>{faq.a} Αν ο κωδικός σας προήλθε από <Link href="/blog/kad-diaspaseis-odigos">διάσπαση</Link>, ο έλεγχος είναι διπλά απαραίτητος.</p>
             </div>
           ))}
         </div>

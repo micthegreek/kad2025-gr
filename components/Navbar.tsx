@@ -1,4 +1,5 @@
 "use client";
+import LangSwitcher from "./LangSwitcher";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect, useMemo, useRef } from "react";
@@ -371,6 +372,7 @@ export default function Navbar() {
         }
         nav a:hover { opacity: 1; background: rgba(255,255,255,0.1) !important; color: white !important; }
       `}</style>
-    </nav>
+            <LangSwitcher />
+      </nav>
   );
 }

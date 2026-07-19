@@ -6,7 +6,7 @@ import CountdownBanner from "@/components/CountdownBanner";
 import PopularKad from "@/components/PopularKad";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ 2025: Αντιστοίχιση, Αναζήτηση & Δωρεάν Excel",
+  title: "ΚΑΔ 2025 ΑΑΔΕ: Αντιστοίχιση 2008→2025, Αναζήτηση & Δωρεάν Excel",
   description: "Βρείτε τον νέο ΚΑΔ 2025 άμεσα. Πλήρης αντιστοίχιση ΚΑΔ 2008→2025 βάσει ΑΑΔΕ Α.1004/2026. Εργαλεία, Excel εξαγωγή, AI εύρεση ΚΑΔ.",
   keywords: ["καδ", "καδ 2025", "καδ 2026", "νέοι καδ", "νέοι καδ 2025", "νέοι καδ 2026", "αντιστοίχιση καδ", "λίστα καδ", "ευρετήριο καδ", "καδ 2025 excel", "καδ 2026 excel", "καδ 2025 ααδε", "καδ 2026 ααδε", "κωδικοί δραστηριότητας 2025"],
   alternates: { canonical: "https://www.kad2025.gr/", languages: { el: "https://www.kad2025.gr/", en: "https://www.kad2025.gr/en", "x-default": "https://www.kad2025.gr/" } },
@@ -247,6 +247,23 @@ export default function HomePage() {
         </div>
       </section>
     </div>
-    </>
+
+      <section style={{ maxWidth: 1100, margin: "1.25rem auto 0", padding: "0 1rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "0.6rem" }}>
+          <Link href="/odigos-epilogis-kad" className="tool-card" style={{ padding: "0.8rem 1rem" }}>🧭 <strong>Οδηγός Επιλογής ΚΑΔ</strong> — βρείτε τη σωστή τάξη σε 3 ερωτήσεις</Link>
+          <Link href="/sygkrisi-kad" className="tool-card" style={{ padding: "0.8rem 1rem" }}>⚖️ <strong>Σύγκριση Τάξεων</strong> — 55.20 vs 68.20 δίπλα-δίπλα</Link>
+        </div>
+      </section>
+      <section style={{ maxWidth: 1100, margin: "1.5rem auto 0", padding: "0 1rem" }}>
+        <h2 style={{ fontSize: "1.15rem", marginBottom: "0.6rem" }}>📰 Τελευταίοι Οδηγοί</h2>
+        <div style={{ display: "grid", gap: "0.5rem" }}>
+          <Link href="/blog/nees-proskliseis-tdm-esdim-epileximoi-kad" className="tool-card" style={{ padding: "0.65rem 0.95rem" }}>🔴 Νέες Προσκλήσεις Δίκαιης Μετάβασης (ΕΣΔΙΜ): 4.144 Επιλέξιμοι ΚΑΔ</Link>
+          <Link href="/blog/parexigimenes-taksinomiseis-kad" className="tool-card" style={{ padding: "0.65rem 0.95rem" }}>🚫 Οι 10 πιο Παρεξηγημένες Ταξινομήσεις ΚΑΔ</Link>
+          <Link href="/blog/epeksigimatikes-simeioseis-nace-odigos" className="tool-card" style={{ padding: "0.65rem 0.95rem" }}>📖 Τι Πραγματικά Περιλαμβάνει ο ΚΑΔ σας: Οι Επίσημες Επεξηγήσεις</Link>
+        </div>
+        <p style={{ margin: "0.5rem 0 0", fontSize: "0.85rem" }}><Link href="/blog">Όλοι οι οδηγοί →</Link></p>
+      </section>
+
+          </>
   );
 }

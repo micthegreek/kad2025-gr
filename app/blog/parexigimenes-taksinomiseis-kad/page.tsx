@@ -89,7 +89,7 @@ export default function Post() {
 
       <p style={{ fontSize: "0.78rem", color: "var(--text-muted)", marginTop: "1.5rem" }}>
         Πηγή: Επεξηγηματικές Σημειώσεις ΣΤΑΚΟΔ/NACE Αναθ. 2.1 — ΕΛΣΤΑΤ, Έκδοση 1.05 (2025).
-      </p>
+       Για κάθε τέτοιο δίλημμα, το <Link href="/sygkrisi-kad">εργαλείο σύγκρισης τάξεων</Link> δείχνει τα επίσημα κείμενα δίπλα-δίπλα.</p>
     </article>
   );
 }

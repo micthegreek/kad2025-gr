@@ -1,3 +1,4 @@
+import PrintBtn from "@/components/PrintBtn";
 import naceNotesFull from "@/lib/nace_notes_full.json";
 import { isSensitiveKadPage } from "@/lib/adsense-utils";
 import type { Metadata } from "next";
@@ -132,7 +133,7 @@ function getCanonicalCode(record: KadRecord, requestedCode: string): string {
 const KLADOS_PAGES = new Set([
   "01","02","03","10","11","14","20","21","25","41","43","45","46","47","49",
   "55","56","62","68","69","70","71","85","86","93","96","50","63",
-]);
+,"07","08","13","15","16","17","18","22","23","24","26","27","28","29","30","31","32","33","38","39","42","52","58","59","60","72","74","75","81","82","87","88","90","91","95"]);
 
 // ΕΣΠΑ / Αναπτυξιακός program metadata (keys match kad_programs_lookup.json — keyed by ΚΑΔ 2025)
 const PROGRAM_META: Record<string, { label: string; emoji: string }> = {
@@ -349,7 +350,7 @@ function seeHref(code: string, valid: Set<string>): string {
   const nn = getNaceNote(kad2025);
   if (!nn) return null;
   return (
-            <section className="card" style={{ marginTop: "1.25rem" }}>
+            <section id="nace-notes" className="card" style={{ marginTop: "1.25rem" }}>
               <h2 style={{ fontSize: "1.1rem", marginBottom: "0.4rem" }}>📖 Τι περιλαμβάνει η τάξη {nn.cls} — Επίσημες Επεξηγήσεις</h2>
               <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", margin: "0 0 0.7rem" }}>
                 Ο ΚΑΔ {kad2025} ανήκει στην τάξη NACE {nn.cls} «{nn.n.t}» (Αναθ. 2.1). Σύμφωνα με τις επίσημες επεξηγηματικές σημειώσεις:
@@ -382,7 +383,7 @@ function seeHref(code: string, valid: Set<string>): string {
                   ))}
                 </ul>
               </>)}
-              <p style={{ fontSize: "0.72rem", color: "var(--text-muted)", margin: 0 }}>Πηγή: Επεξηγηματικές Σημειώσεις ΣΤΑΚΟΔ/NACE Αναθ. 2.1 — ΕΛΣΤΑΤ (Έκδ. 1.05, 2025)</p>
+              <p style={{ fontSize: "0.72rem", color: "var(--text-muted)", margin: 0 }}>Πηγή: Επεξηγηματικές Σημειώσεις ΣΤΑΚΟΔ/NACE Αναθ. 2.1 — <a href="https://www.statistics.gr" target="_blank" rel="noopener" style={{ color: "inherit", textDecoration: "underline" }}>ΕΛΣΤΑΤ</a> (Έκδ. 1.05, 2025) · <a href="https://ec.europa.eu/eurostat/web/nace" target="_blank" rel="noopener" style={{ color: "inherit", textDecoration: "underline" }}>Eurostat NACE</a></p>
             </section>
   );
 }
@@ -611,6 +612,14 @@ export default async function KadDetailPage({
         {" → "}
         <span>ΚΑΔ {code}</span>
       </nav>
+        <nav aria-label="Περιεχόμενα σελίδας" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", margin: "0.85rem 0 0.25rem", fontSize: "0.8rem" }}>
+          <a href="#nace-notes" className="chip" style={{ textDecoration: "none" }}>📖 Τι περιλαμβάνει</a>
+          <a href="#faq" className="chip" style={{ textDecoration: "none" }}>❓ Συχνές ερωτήσεις</a>
+          <a href="#related" className="chip" style={{ textDecoration: "none" }}>🔎 Σχετικές αναζητήσεις</a>
+          <Link href={`/sygkrisi-kad?a=${r.kad2025.padStart(8, "0").slice(0, 4)}`} className="chip no-print" style={{ textDecoration: "none" }}>⚖️ Σύγκριση τάξης</Link>
+          <PrintBtn />
+        </nav>
+
 
       <h1 style={{ marginBottom: "0.4rem", fontSize: "clamp(1.4rem, 3vw, 2rem)" }}>
         ΚΑΔ {r.kad2008} — {r.desc2008}
@@ -902,7 +911,7 @@ export default async function KadDetailPage({
 
         {/* ===== FAQ — visible text identical to JSON-LD ===== */}
       <div className="card" style={{ marginBottom: "1.5rem" }}>
-        <h2 style={{ fontSize: "1rem", marginBottom: "1rem" }}>❓ Συχνές Ερωτήσεις (FAQ ΑΑΔΕ)</h2>
+        <h2 id="faq" style={{ fontSize: "1rem", marginBottom: "1rem" }}>❓ Συχνές Ερωτήσεις (FAQ ΑΑΔΕ)</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
           {faqItems.map((faq, i) => (
             <div key={i} style={{ borderLeft: "3px solid var(--border)", paddingLeft: "1rem" }}>
@@ -958,7 +967,7 @@ export default async function KadDetailPage({
 
       {/* ===== ΣΧΕΤΙΚΕΣ ΑΝΑΖΗΤΗΣΕΙΣ — v97: internal links σε επαγγέλματα/εργαλεία ===== */}
       <div className="card" style={{ marginTop: "1.5rem" }}>
-        <h2 style={{ fontSize: "1rem", marginBottom: "0.65rem" }}>🔎 Σχετικές αναζητήσεις</h2>
+        <h2 id="related" style={{ fontSize: "1rem", marginBottom: "0.65rem" }}>🔎 Σχετικές αναζητήσεις</h2>
         {(SIMILAR[r.kad2008] ?? []).length >= 2 && (
           <div style={{ display: "flex", gap: "0.45rem", flexWrap: "wrap", alignItems: "center", marginBottom: "0.7rem", paddingBottom: "0.7rem", borderBottom: "1px dashed var(--border)" }}>
             <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--text-muted)" }}>🧭 Παρόμοιες δραστηριότητες:</span>

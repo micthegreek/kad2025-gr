@@ -30,6 +30,11 @@ const jsonLd = {
 
 const articles = [
   { href: "/blog/epeksigimatikes-simeioseis-nace-odigos", title: "Τι Πραγματικά Περιλαμβάνει ο ΚΑΔ σας: Οδηγός των Επίσημων Επεξηγήσεων NACE 2.1", desc: "Ο τίτλος του ΚΑΔ δεν αρκεί: πώς διαβάζονται τα «Περιλαμβάνει / Δεν περιλαμβάνει» των επίσημων σημειώσεων ΕΛΣΤΑΤ και πού τα βρίσκετε για κάθε κωδικό.", date: "4 Ιουλίου 2026", tag: "", readTime: "7 λεπτά" },
+  { href: "/blog/kad-diaspaseis-odigos", title: "Διασπάσεις ΚΑΔ: Όταν ο Παλιός σας Κωδικός Έγινε 2, 5 — ή και 52 Νέοι", desc: "685 κωδικοί διασπάστηκαν στη μετάβαση. Ποιοι είναι οι ακραίοι, γιατί η αυτόματη επιλογή μπορεί να είναι λάθος, και το 3-βημάτων checklist.", date: "6 Ιουλίου 2026", tag: "📊 Ανάλυση", readTime: "6 λεπτά" },
+  { href: "/blog/kyrios-defterevon-kad-odigos", title: "Κύριος & Δευτερεύων ΚΑΔ: Ο Πλήρης Οδηγός", desc: "Διαφορές, όρια, επίδραση σε φορολογία και επιδοτήσεις, και πώς αλλάζετε τη σειρά στο myAADE.", date: "6 Ιουλίου 2026", tag: "", readTime: "5 λεπτά" },
+  { href: "/blog/prosthiki-kad-kostos-mythoi", title: "Πόσο Κοστίζει η Προσθήκη ΚΑΔ; Οι 5 Μύθοι", desc: "Μηδέν ευρώ, πέντε λεπτά — και πέντε μύθοι που επιμένουν: φόροι, έλεγχοι, παράβολα. Τι ισχύει.", date: "6 Ιουλίου 2026", tag: "", readTime: "4 λεπτά" },
+  { href: "/blog/kad-eleftheroi-epaggelmaties-2026", title: "ΚΑΔ για Freelancers: Οι 12 Πιο Συχνές Τάξεις", desc: "Σύμβουλοι, developers, design, υγεία, εκπαίδευση: πού δηλώνεται η συντριπτική πλειονότητα των ελεύθερων επαγγελματιών.", date: "6 Ιουλίου 2026", tag: "", readTime: "6 λεπτά" },
+  { href: "/blog/kladoi-pou-allaksan-kad-2025", title: "Οι Κλάδοι που Άλλαξαν 100% — και οι 3 που Δεν Άλλαξαν Καθόλου", desc: "Ανάλυση 10.923 κωδικών: λιανικό, πληροφορική και ένδυση άλλαξαν πλήρως· τρεις κλάδοι έμειναν άθικτοι. Δείτε τον δικό σας.", date: "5 Ιουλίου 2026", tag: "📊 Ανάλυση", readTime: "6 λεπτά" },
   { href: "/blog/nees-proskliseis-tdm-esdim-epileximoi-kad", title: "Νέες Προσκλήσεις Δίκαιης Μετάβασης (ΕΣΔΙΜ): 4.144 Επιλέξιμοι ΚΑΔ", desc: "4 δράσεις ΤΔΜ για ΜΜΕ & μεγάλες επιχειρήσεις στις περιοχές ΕΣΔΙΜ — πλήρης ανάλυση επιλέξιμων ΚΑΔ ανά τομέα και έλεγχος ανά κωδικό.", date: "4 Ιουλίου 2026", tag: "🔴 Νέο", readTime: "5 λεπτά" },
   { href: "/blog/parexigimenes-taksinomiseis-kad", title: "Οι 10 πιο Παρεξηγημένες Ταξινομήσεις ΚΑΔ: Τι ΔΕΝ Περιλαμβάνει ο Κωδικός σας", desc: "Φόρτιση ηλεκτρικών ≠ βενζινάδικο, personal trainer ≠ γυμναστήριο: 10 πραγματικές περιπτώσεις όπου ο «προφανής» ΚΑΔ είναι λάθος — από τις επίσημες εξαιρέσεις NACE 2.1.", date: "4 Ιουλίου 2026", tag: "", readTime: "8 λεπτά" },
   { href: "/blog/lathos-kad-prostima", title: "Λάθος ΚΑΔ: Πρόστιμα & Συνέπειες το 2026", desc: "Το άμεσο πρόστιμο, οι έμμεσες συνέπειες σε ΕΣΠΑ και μητρώα, και το παράθυρο δωρεάν διόρθωσης έως 30/10/2026.", date: "10 Ιουνίου 2026", tag: "", readTime: "9 λεπτά" },
@@ -68,6 +73,10 @@ const faqs = [
 export default function BlogIndexPage() {
   return (
     <div style={{ maxWidth: 900, margin: "0 auto", padding: "2rem 1rem" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "ItemList", name: "Οδηγοί & Άρθρα για τους ΚΑΔ 2025",
+        itemListElement: articles.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: p.title, url: "https://www.kad2025.gr" + p.href })) }) }} />
+
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <nav style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "1.5rem" }}>
         <Link href="/" style={{ color: "var(--primary)", textDecoration: "none" }}>Αρχική</Link>

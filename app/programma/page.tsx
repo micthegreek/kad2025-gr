@@ -29,6 +29,10 @@ const jsonLd = {
 export default function ProgrammaIndexPage() {
   return (
     <div style={{ maxWidth: 860, margin: "0 auto", padding: "2rem 1rem" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "ItemList", name: "Προγράμματα Επιδότησης — Επιλέξιμοι ΚΑΔ",
+        itemListElement: PROGRAMS.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: p.label, url: "https://www.kad2025.gr/programma/" + p.slug })) }) }} />
+
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <nav style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "1.5rem" }}>
         <Link href="/" style={{ color: "var(--primary)", textDecoration: "none" }}>Αρχική</Link>
@@ -41,7 +45,7 @@ export default function ProgrammaIndexPage() {
       <p style={{ fontSize: "0.95rem", lineHeight: 1.8, color: "var(--text-muted)", marginBottom: "1.5rem" }}>
         Κάθε προκήρυξη ΕΣΠΑ και κάθε καθεστώς του Αναπτυξιακού Νόμου ορίζει κλειστή λίστα
         επιλέξιμων ΚΑΔ 2025. Επιλέξτε πρόγραμμα για να δείτε πόσοι και ποιοι κωδικοί
-        περιλαμβάνονται, με ανάλυση ανά τομέα δραστηριότητας — ή ελέγξτε απευθείας τον δικό σας.
+        περιλαμβάνονται, με ανάλυση ανά τομέα δραστηριότητας — ή ελέγξτε απευθείας τον δικό σας. <Link href="/blog/nees-proskliseis-tdm-esdim-epileximoi-kad" style={{ fontWeight: 700 }}>📰 Νέο: Οι 4 δράσεις Δίκαιης Μετάβασης →</Link>
       </p>
 
       <h2 style={{ margin: "1.5rem 0 0.75rem" }}>🟢 Ενεργά Προγράμματα</h2>

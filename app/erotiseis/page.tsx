@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Ερωτήσεις & Απαντήσεις για τους ΚΑΔ 2025/2026 — Ό,τι Ρωτούν οι Επιχειρήσεις",
   description:
     "Απαντήσεις στις πιο συχνές πραγματικές ερωτήσεις για τους νέους ΚΑΔ 2025/2026: αντιστοίχιση, προθεσμία 30/10/2026, Excel, myAADE, επιδοτήσεις, επαγγέλματα. Βασισμένο σε πραγματικές αναζητήσεις.",
-  alternates: { canonical: "https://www.kad2025.gr/erotiseis" },
+  alternates: { canonical: "https://www.kad2025.gr/erotiseis", languages: { el: "https://www.kad2025.gr/erotiseis", en: "https://www.kad2025.gr/en/faq", "x-default": "https://www.kad2025.gr/erotiseis" } },
 };
 
 type QA = { q: string; a: string; links?: [string, string][] };
@@ -90,6 +90,10 @@ const ALL_QA = CATS.flatMap((c) => c.items);
 export default function ErotiseisPage() {
   return (
     <div className="container" style={{ maxWidth: 900, margin: "0 auto", padding: "1.5rem 1rem" }}>
+      <link rel="alternate" hrefLang="el" href="https://www.kad2025.gr/erotiseis" />
+      <link rel="alternate" hrefLang="en" href="https://www.kad2025.gr/en/faq" />
+      <link rel="alternate" hrefLang="x-default" href="https://www.kad2025.gr/erotiseis" />
+      
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

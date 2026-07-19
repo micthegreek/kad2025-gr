@@ -71,6 +71,7 @@ export default function Footer() {
                 ["/about", "Σχετικά με εμάς"],
                 ["/contact", "Επικοινωνία"],
                 ["/methodology", "Μεθοδολογία Δεδομένων"],
+                ["/widget", "Widget για το site σας"],
                 ["/sources", "Πηγές & Αναφορές"],
                 ["/privacy", "Πολιτική Απορρήτου"],
                 ["/terms", "Όροι Χρήσης"],
