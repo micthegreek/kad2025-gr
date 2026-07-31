@@ -226,3 +226,8 @@ details.nace-expand[open] summary .lbl-less { display: inline; }
 .skip-link:focus { left: 0; }
 
 .ladder-chip { font-size: 0.78rem; text-decoration: none; padding: 0.15rem 0.5rem; border: 1px solid var(--border); border-radius: 12px; display: inline-block; }
+
+/* v126: μηδενισμός CLS από τα «Πρόσφατοι ΚΑΔ» — ο χώρος δεσμεύεται πριν το paint */
+.recent-slot { min-height: 0; }
+.has-recent .recent-slot { min-height: 56px; }
+.recent-slot--filled { min-height: 56px; box-sizing: border-box; }

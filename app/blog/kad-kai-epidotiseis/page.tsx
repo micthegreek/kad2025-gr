@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ και ΕΣΠΑ 2025: Πώς Επηρεάζει η Αλλαγή την Επιλεξιμότητά σας",
+  title: "ΚΑΔ & ΕΣΠΑ 2026: Πώς Αλλάζει η Επιλεξιμότητά σας",
   description:
     "Πώς οι νέοι ΚΑΔ 2025 επηρεάζουν την επιλεξιμότητα σε ΕΣΠΑ, ΔΥΠΑ, Αναπτυξιακό Νόμο. Τι πρέπει να ελέγξετε πριν υποβάλετε αίτηση επιδότησης.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kad-kai-epidotiseis" },
@@ -31,7 +31,7 @@ export default function KadKaiEpidotiseisPage() {
         <span>·</span><span>🎯 Για επιχειρήσεις & συμβούλους ΕΣΠΑ</span>
       </div>
       <h1 style={{ marginBottom: "1rem", fontSize: "clamp(1.4rem, 3vw, 2rem)", lineHeight: 1.3 }}>
-        ΚΑΔ και ΕΣΠΑ 2025: Πώς Επηρεάζει η Αλλαγή την Επιλεξιμότητά σας
+        ΚΑΔ & ΕΣΠΑ 2026: Πώς Αλλάζει η Επιλεξιμότητά σας
       </h1>
       <p style={{ fontSize: "1rem", lineHeight: 1.8, color: "var(--text-muted)", marginBottom: "2rem", borderLeft: "3px solid var(--primary)", paddingLeft: "1rem" }}>
         Η αλλαγή ΚΑΔ δεν είναι μόνο φορολογικό θέμα — επηρεάζει άμεσα την επιλεξιμότητα σε

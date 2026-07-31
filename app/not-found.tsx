@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SmartNotFound from "@/components/SmartNotFound";
 
 export const metadata: Metadata = {
-  title: "Η σελίδα δεν βρέθηκε | kad2025.gr",
+  title: "Η σελίδα δεν βρέθηκε",
   robots: { index: false, follow: true },
 };
 

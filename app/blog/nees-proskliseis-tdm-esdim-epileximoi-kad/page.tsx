@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Νέες Προσκλήσεις Δίκαιης Μετάβασης (ΕΣΔΙΜ): Οι 4.144 Επιλέξιμοι ΚΑΔ των 4 Δράσεων",
+  title: "Δίκαιη Μετάβαση 2026: 4.144 Επιλέξιμοι ΚΑΔ",
   description:
     "Δημοσιεύθηκαν 4 δράσεις του Ταμείου Δίκαιης Μετάβασης για επενδυτικά σχέδια ΜΜΕ και μεγάλων επιχειρήσεων στις περιοχές ΕΣΔΙΜ (Καν. ΕΕ 2021/1056). Δείτε αναλυτικά τους 4.144 επιλέξιμους ΚΑΔ ανά τομέα και ελέγξτε τον δικό σας.",
   alternates: { canonical: "https://www.kad2025.gr/blog/nees-proskliseis-tdm-esdim-epileximoi-kad" },

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Free Greek KAD Tools: Search, 2008→2025 Mapping & Grant Eligibility — English Walkthrough",
+  title: "Greek KAD Tools: Search, Mapping & Eligibility",
   description:
     "How to use kad2025.gr's free tools as a non-Greek speaker: code search, old-to-new mapping, bulk conversion, grant eligibility checker and the official NACE 2.1 explanatory notes.",
   alternates: {

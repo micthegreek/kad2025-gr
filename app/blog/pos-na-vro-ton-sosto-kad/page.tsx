@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Πώς να Βρείτε τον Σωστό ΚΑΔ 2025 — 3 Μέθοδοι για Κάθε Περίπτωση",
+  title: "Πώς Βρίσκετε τον Σωστό ΚΑΔ 2025: 3 Μέθοδοι",
   description:
     "Τρεις πρακτικές μέθοδοι για να βρείτε τον σωστό ΚΑΔ 2025: αναζήτηση με λέξη-κλειδί, AI βοηθός και οδηγός βήμα-βήμα. Παραδείγματα και συμβουλές για συνηθισμένες δραστηριότητες.",
   alternates: { canonical: "https://www.kad2025.gr/blog/pos-na-vro-ton-sosto-kad" },
@@ -30,7 +30,7 @@ export default function PosNaVroPage() {
         <span>📅 5 Απριλίου 2026</span><span>·</span><span>✍️ Ομάδα kad2025.gr</span><span>·</span><span>⏱️ 6 λεπτά</span>
       </div>
       <h1 style={{ marginBottom: "1rem", fontSize: "clamp(1.4rem, 3vw, 2rem)", lineHeight: 1.3 }}>
-        Πώς να Βρείτε τον Σωστό ΚΑΔ 2025 — 3 Μέθοδοι για Κάθε Περίπτωση
+        Πώς Βρίσκετε τον Σωστό ΚΑΔ 2025: 3 Μέθοδοι
       </h1>
       <p style={{ fontSize: "1rem", lineHeight: 1.8, color: "var(--text-muted)", marginBottom: "2rem", borderLeft: "3px solid var(--primary)", paddingLeft: "1rem" }}>
         Δεν ξέρετε ποιος ΚΑΔ 2025 ταιριάζει στη δραστηριότητά σας; Ανάλογα με την περίπτωσή σας,

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Greek Activity Codes (KAD) Explained — The 2026 Guide for Foreign Businesses",
+  title: "Greek Activity Codes (KAD): The 2026 Guide",
   description:
     "What are Greek KAD activity codes, how the 2025/2026 NACE 2.1 transition works, the 30 October 2026 correction deadline, and how to find the right code for your business in Greece.",
   alternates: {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Λάθος ΚΑΔ: Οι 6 Συνέπειες και Πώς να τον Διορθώσετε Πριν τις 30/10/2026",
+  title: "Λάθος ΚΑΔ: 6 Συνέπειες & Διόρθωση έως 30/10",
   description:
     "Τι ρισκάρετε με λάθος ή ξεπερασμένο ΚΑΔ: αποκλεισμός από επιδοτήσεις, προβλήματα τιμολόγησης, ασυμφωνίες σε ελέγχους και άδειες. Ο έλεγχος 2 λεπτών και τα βήματα διόρθωσης στο myAADE.",
   alternates: { canonical: "https://www.kad2025.gr/blog/lathos-kad-prostima" },

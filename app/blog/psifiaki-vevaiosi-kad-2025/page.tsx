@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Νέα Ψηφιακή Βεβαίωση ΚΑΔ 2025 — Ειδικές Κατηγορίες & Υπαίθριο Εμπόριο",
+  title: "Ψηφιακή Βεβαίωση ΚΑΔ 2025: Τι Ισχύει",
   description:
     "Η ΑΑΔΕ εξέδωσε ψηφιακή βεβαίωση αντιστοίχισης ΚΑΔ (Α.1004/2026 & Α.1090/2026). Ειδικές κατηγορίες για υπαίθριο εμπόριο και e-shop. Τι πρέπει να γνωρίζετε σήμερα.",
   alternates: { canonical: "https://www.kad2025.gr/blog/psifiaki-vevaiosi-kad-2025" },

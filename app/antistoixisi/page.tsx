@@ -6,7 +6,7 @@ import { RecentKadChips } from "@/components/RecentKad";
 import TrackPageTool from "@/components/TrackPageTool";
 
 export const metadata: Metadata = {
-  title: "Αντιστοίχιση ΚΑΔ 2008 → 2025/2026: Βρείτε τον Νέο σας Κωδικό Δωρεάν",
+  title: "Αντιστοίχιση ΚΑΔ 2008 → 2025/2026 Δωρεάν",
   description:
     "Αντιστοίχιση ΚΑΔ 2008→2025. Βρείτε ποιος νέος ΚΑΔ αντικαθιστά τον παλιό σας. 10.923 κωδικοί, εξαγωγή Excel & CSV.",
   keywords: ["αντιστοίχιση καδ", "καδ 2025", "καδ 2026", "καδ 2025 ααδε", "καδ 2026 ααδε", "νέοι καδ 2025", "νέοι καδ 2026", "αντιστοίχιση καδ 2008 2025"],
@@ -73,7 +73,7 @@ export default function AntistoixisiPage() {
       {/* ===== SEARCH FIRST ===== */}
       <section style={{ marginBottom: "3rem" }}>
         <RecentKadChips />
-      <KadSearch mode="antistoixisi-2008" initialData={data} />
+      <KadSearch mode="antistoixisi-2008" />
       </section>
 
       {/* Examples after search */}

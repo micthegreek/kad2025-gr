@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Λάθος ΚΑΔ: Πρόστιμα & Συνέπειες το 2026 — Τι Ισχύει",
+  title: "Λάθος ΚΑΔ 2026: Πρόστιμα, Συνέπειες & Διόρθωση",
   description:
     "Τι κοστίζει ένας λάθος ΚΑΔ το 2026: το άμεσο πρόστιμο εκπρόθεσμης μεταβολής, οι έμμεσες συνέπειες σε ΕΣΠΑ και επιδοτήσεις, και πώς διορθώνετε δωρεάν έως 30 Οκτωβρίου 2026.",
   alternates: { canonical: "https://www.kad2025.gr/blog/lathos-kad-prostima" },

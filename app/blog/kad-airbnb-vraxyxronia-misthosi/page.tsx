@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ για Airbnb & Βραχυχρόνια Μίσθωση 2026: 55.20 ή 68.20; Ο Οριστικός Οδηγός",
+  title: "ΚΑΔ για Airbnb 2026: 55.20 ή 68.20;",
   description:
     "Ποιος ΚΑΔ ισχύει για βραχυχρόνια μίσθωση τύπου Airbnb το 2026: η τάξη 55.20 (τουριστικά καταλύματα) έναντι της 68.20 (εκμίσθωση ακινήτων) — με βάση τις επίσημες επεξηγήσεις NACE 2.1, και πότε δεν χρειάζεστε καν ΚΑΔ.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kad-airbnb-vraxychronia" },
@@ -17,7 +17,7 @@ const faq = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "BlogPosting", headline: "ΚΑΔ για Airbnb & Βραχυχρόνια Μίσθωση 2026: 55.20 ή 68.20;", datePublished: "2026-07-06", dateModified: "2026-07-06", author: { "@type": "Organization", name: "kad2025.gr" }, mainEntityOfPage: "https://www.kad2025.gr/blog/kad-airbnb-vraxychronia" },
+    { "@type": "BlogPosting", headline: "ΚΑΔ Airbnb & Βραχυχρόνια Μίσθωση: 55.20 ή 68.20;", datePublished: "2026-07-06", dateModified: "2026-07-06", author: { "@type": "Organization", name: "kad2025.gr" }, mainEntityOfPage: "https://www.kad2025.gr/blog/kad-airbnb-vraxychronia" },
     { "@type": "FAQPage", mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   ],
 };

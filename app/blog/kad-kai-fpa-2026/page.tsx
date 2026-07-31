@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ 2025 και ΦΠΑ: Τι Αλλάζει το 2026 για Επιχειρήσεις",
+  title: "ΚΑΔ 2025 & ΦΠΑ: Τι Αλλάζει το 2026",
   description:
     "Πώς ο νέος ΚΑΔ 2025 επηρεάζει τον συντελεστή ΦΠΑ της επιχείρησής σας, ποιες κατηγορίες επιχειρήσεων πρέπει να δώσουν ιδιαίτερη προσοχή και πώς να ελέγξετε αν κάτι άλλαξε.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kad-kai-fpa-2026" },
@@ -30,7 +30,7 @@ export default function KadFpaPage() {
         <span>📅 25 Απριλίου 2026</span><span>·</span><span>✍️ Ομάδα kad2025.gr</span><span>·</span><span>⏱️ 6 λεπτά</span>
       </div>
       <h1 style={{ marginBottom: "1rem", fontSize: "clamp(1.4rem, 3vw, 2rem)", lineHeight: 1.3 }}>
-        ΚΑΔ 2025 και ΦΠΑ: Τι Αλλάζει το 2026 για Επιχειρήσεις
+        ΚΑΔ 2025 & ΦΠΑ: Τι Αλλάζει το 2026
       </h1>
       <p style={{ fontSize: "1rem", lineHeight: 1.8, color: "var(--text-muted)", marginBottom: "1.5rem", borderLeft: "3px solid var(--primary)", paddingLeft: "1rem" }}>
         Η αλλαγή ΚΑΔ δεν αφορά μόνο έναν αριθμό στα χαρτιά — σε ορισμένες περιπτώσεις, μπορεί να

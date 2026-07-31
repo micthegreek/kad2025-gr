@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Διασπάσεις ΚΑΔ 2025: Όταν ο Παλιός σας Κωδικός Έγινε 2, 5 — ή και 52 Νέοι",
+  title: "Διασπάσεις ΚΑΔ 2025: 1 Κωδικός → έως 52 Νέοι",
   description:
     "685 κωδικοί του 2008 διασπάστηκαν σε πολλαπλούς νέους ΚΑΔ 2025. Ποιοι είναι οι ακραίοι (52 νέοι από έναν!), γιατί η αυτόματη αντιστοίχιση διάλεξε μόνο έναν, και πώς επιλέγετε τον σωστό πριν τις 30/10/2026.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kad-diaspaseis-odigos" },

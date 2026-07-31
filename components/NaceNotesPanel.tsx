@@ -69,7 +69,7 @@ export default function NaceNotesPanel({
   return (
     <details
       open={open}
-      onToggle={(e) => { const o = (e.target as HTMLDetailsElement).open; setOpen(o); if (o && typeof window !== "undefined") (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "nace_panel_open", { cls }); }}
+      onToggle={(e) => setOpen((e.target as HTMLDetailsElement).open)}
       style={{
         margin: "-0.35rem 0 0",
         padding: "0.55rem 0.9rem 0.65rem",
@@ -80,7 +80,7 @@ export default function NaceNotesPanel({
         fontSize: "0.86rem",
       }}
     >
-      <summary style={{ cursor: "pointer", fontWeight: 700, fontSize: "0.82rem", color: "var(--text-muted)", userSelect: "none" }}>
+      <summary onClick={() => { if (!open && typeof window !== "undefined") (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "nace_panel_open", { cls }); }} style={{ cursor: "pointer", fontWeight: 700, fontSize: "0.82rem", color: "var(--text-muted)", userSelect: "none" }}>
         📖 Επίσημες επεξηγήσεις — Τι περιλαμβάνει η τάξη {cls} «{note.t}»
       </summary>
       <div style={{ marginTop: "0.55rem", display: "grid", gap: "0.55rem" }}>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ 2025 Excel — Δωρεάν Πίνακας με τους Νέους ΚΑΔ 2026 (10.923 γραμμές)",
+  title: "ΚΑΔ 2025 Excel: Δωρεάν Πίνακας 10.923 Γραμμών",
   description:
     "Κατεβάστε δωρεάν τον πλήρη πίνακα ΚΑΔ 2025 σε Excel: 10.923 αντιστοιχίσεις ΚΑΔ 2008 → 2025 με περιγραφές και κατάσταση αλλαγής. Επίσημα δεδομένα ΑΑΔΕ Α.1003/2026 & Α.1004/2026.",
   alternates: { canonical: "https://www.kad2025.gr/kad-2025-excel" },

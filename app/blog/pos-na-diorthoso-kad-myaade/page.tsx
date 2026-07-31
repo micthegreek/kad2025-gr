@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Πώς να Διορθώσετε τον ΚΑΔ σας στο myAADE — Βήμα-βήμα Οδηγός 2026",
+  title: "Πώς Διορθώνω τον ΚΑΔ μου στο myAADE 2026",
   description:
     "Αναλυτικός οδηγός για τη διόρθωση λανθασμένου ΚΑΔ 2025 στο myAADE: ηλεκτρονικά μέσω Μεταβολής Εργασιών ή με έντυπο Δ211. Προθεσμία 30 Οκτωβρίου 2026 (Α.1113/2026).",
   alternates: { canonical: "https://www.kad2025.gr/blog/pos-na-diorthoso-kad-myaade" },

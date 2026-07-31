@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Τι Πραγματικά Περιλαμβάνει ο ΚΑΔ σας: Οδηγός των Επίσημων Επεξηγήσεων NACE 2.1",
+  title: "Τι Περιλαμβάνει ο ΚΑΔ σας: Επεξηγήσεις NACE",
   description:
     "Ο τίτλος του ΚΑΔ δεν αρκεί: οι Επεξηγηματικές Σημειώσεις ΕΛΣΤΑΤ ορίζουν τι περιλαμβάνει, τι επίσης και τι εξαιρείται από κάθε τάξη. Πώς να τις διαβάζετε και πού να τις βρείτε για κάθε κωδικό.",
   alternates: { canonical: "https://www.kad2025.gr/blog/epeksigimatikes-simeioseis-nace-odigos" },

@@ -18,7 +18,16 @@ interface SearchProps {
 }
 
 // Normalize: remove Greek accents + dots + lowercase so "εστιατόριο" matches "ΕΣΤΙΑΤΟΡΙΟ"
+// v126: memoized normalization — το NFD σε 10.923 περιγραφές ανά keystroke προκαλούσε INP ~840ms
+const _normCache = new Map<string, string>();
 function normalizeStr(str: string): string {
+  const hit = _normCache.get(str);
+  if (hit !== undefined) return hit;
+  const out = _normalizeRaw(str);
+  if (_normCache.size < 40000) _normCache.set(str, out);
+  return out;
+}
+function _normalizeRaw(str: string): string {
   return str
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "") // remove accent marks

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ 2025: Οι Κλάδοι που Άλλαξαν 100% — και οι 3 που Δεν Άλλαξαν Καθόλου",
+  title: "ΚΑΔ 2025: Οι Κλάδοι που Άλλαξαν 100%",
   description:
     "Ανάλυση δεδομένων της μετάβασης ΚΑΔ 2008→2025: έξι κλάδοι άλλαξαν πλήρως (λιανικό εμπόριο με 1.349 κωδικούς, πληροφορική, κατασκευές), ενώ τρεις έμειναν εντελώς άθικτοι. Τι σημαίνει για την επιχείρησή σας.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kladoi-pou-allaksan-kad-2025" },

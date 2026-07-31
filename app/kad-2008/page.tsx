@@ -73,7 +73,7 @@ export default async function Kad2008Page() {
 
       {/* ===== SEARCH FIRST ===== */}
       <section style={{ marginBottom: "3rem" }}>
-        <KadSearchWithUrl mode="kad2008" initialData={data} />
+        <KadSearchWithUrl mode="kad2008" />
       </section>
 
       {/* Directory after search */}

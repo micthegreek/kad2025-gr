@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Οδηγός ΚΑΔ 2025 για Λογιστές — Πώς να Διαχειριστείτε Δεκάδες Πελάτες Αποτελεσματικά",
+  title: "Οδηγός ΚΑΔ 2025 για Λογιστές: Πολλοί Πελάτες",
   description:
     "Πρακτικός οδηγός για λογιστές: πώς να ελέγξετε και να διορθώσετε αποτελεσματικά τους ΚΑΔ 2025 για πολλούς πελάτες, ποια λάθη να προσέξετε και πώς να οργανώσετε τη διαδικασία.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kad-kai-logistes" },

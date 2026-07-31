@@ -1,6 +1,7 @@
 import naceNotesFull from "@/lib/nace_notes_full.json";
 import kadStatsRaw from "@/public/data/kad.json";
 import canonicalRaw from "@/public/data/canonical_indexable_kads.json";
+import clsFbRaw from "@/lib/class_titles_fallback.json";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -83,7 +84,7 @@ export async function generateStaticParams() {
 
 const SECTION_STATS: Record<string, { total: number; changed: number; pct: number }> = (() => {
   const acc: Record<string, { all: Set<string>; ch: Set<string> }> = {};
-  for (const r of kadStatsRaw as { kad2008: string; kad2025: string }[]) {
+  for (const r of kadStatsRaw as { kad2008: string; kad2025: string; desc2008: string }[]) {
     const s2 = r.kad2008.padStart(8, "0").slice(0, 2);
     if (!acc[s2]) acc[s2] = { all: new Set(), ch: new Set() };
     acc[s2].all.add(r.kad2008);
@@ -105,7 +106,7 @@ export async function generateMetadata({
   const nace = getNace21(section);
   const naceSnippet = nace?.description ? ` ${nace.description.slice(0, 80)}.` : "";
   return {
-    title: `ΚΑΔ ${def.name} 2025: ${SECTION_STATS[section]?.pct ?? 0}% Άλλαξαν — Νέοι Κωδικοί & Αντιστοίχιση`,
+    title: `ΚΑΔ ${def.name} 2025 — ${SECTION_STATS[section]?.pct ?? 0}% Άλλαξαν`,
     description: `Στον κλάδο ${def.name} άλλαξαν ${SECTION_STATS[section]?.changed ?? 0} από ${SECTION_STATS[section]?.total ?? 0} ΚΑΔ (${SECTION_STATS[section]?.pct ?? 0}%). ${def.keywords}. ${def.desc}.${naceSnippet} Αντιστοίχιση βάσει ΑΑΔΕ Α.1003/2026.`,
     keywords: def.keywords.split(",").map((k) => k.trim()),
     alternates: { canonical: `https://www.kad2025.gr/klados/${section}` },
@@ -116,20 +117,21 @@ const CANON_SET = new Set(canonicalRaw as string[]);
 const CLASS_TITLES = (naceNotesFull as { classes: Record<string, { t: string }> }).classes;
 const FULL_LADDER: Record<string, { cls: string; title: string; codes: string[] }[]> = (() => {
   const bySec: Record<string, Record<string, string[]>> = {};
+  const clsFallback = clsFbRaw as Record<string, string>;
   const seen = new Set<string>();
   for (const r of kadStatsRaw as { kad2008: string; kad2025: string }[]) {
-    if (!CANON_SET.has(r.kad2008) || seen.has(r.kad2008)) continue;
-    seen.add(r.kad2008);
     const p8 = r.kad2008.padStart(8, "0");
     const sec = p8.slice(0, 2);
     const cls = `${p8.slice(0, 2)}.${p8.slice(2, 4)}`;
+    if (!CANON_SET.has(r.kad2008) || seen.has(r.kad2008)) continue;
+    seen.add(r.kad2008);
     (bySec[sec] ??= {})[cls] ??= [];
     bySec[sec][cls].push(r.kad2008);
   }
   const out: Record<string, { cls: string; title: string; codes: string[] }[]> = {};
   for (const [sec, byCls] of Object.entries(bySec)) {
     out[sec] = Object.keys(byCls).sort().map((cls) => ({
-      cls, title: CLASS_TITLES[cls]?.t?.slice(0, 70) ?? "", codes: byCls[cls].sort(),
+      cls, title: (CLASS_TITLES[cls]?.t || clsFallback[cls] || "").slice(0, 70), codes: byCls[cls].sort(),
     }));
   }
   return out;
@@ -378,7 +380,7 @@ export default async function KladosDetailPage({
           {(FULL_LADDER[section] ?? []).map((g) => (
             <details key={g.cls} style={{ margin: "0.35rem 0", border: "1px solid var(--border)", borderRadius: 8, padding: "0.45rem 0.75rem" }}>
               <summary style={{ cursor: "pointer", fontWeight: 700, fontSize: "0.92rem" }}>
-                Τάξη {g.cls}{g.title ? ` — ${g.title}` : ""} <span style={{ fontWeight: 400, color: "var(--text-muted)" }}>({g.codes.length})</span>
+                Τάξη {g.cls}{g.title ? ` — ${g.title}` : " (ταξινόμηση 2008)"} <span style={{ fontWeight: 400, color: "var(--text-muted)" }}>({g.codes.length})</span>
               </summary>
               <div style={{ margin: "0.5rem 0 0.2rem", display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
                 {g.codes.map((k) => (

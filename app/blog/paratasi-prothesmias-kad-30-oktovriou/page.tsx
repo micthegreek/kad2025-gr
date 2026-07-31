@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Παράταση Προθεσμίας Επικαιροποίησης ΚΑΔ: Έως 30 Οκτωβρίου 2026",
+  title: "Παράταση Προθεσμίας ΚΑΔ: Έως 30 Οκτωβρίου 2026",
   description:
     "Νέα απόφαση ΑΑΔΕ Α.1113/2026: η προθεσμία για την επικαιροποίηση των ΚΑΔ 2025 παρατείνεται έως 30 Οκτωβρίου 2026. Τι ισχύει, ποιους αφορά και πώς να κάνετε τη μεταβολή.",
   alternates: { canonical: "https://www.kad2025.gr/blog/paratasi-prothesmias-kad-30-oktovriou" },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "NewsArticle",
-  headline: "Παράταση Προθεσμίας Επικαιροποίησης ΚΑΔ: Έως 30 Οκτωβρίου 2026",
+  headline: "Παράταση Προθεσμίας ΚΑΔ: Έως 30 Οκτωβρίου 2026",
   datePublished: "2026-06-04",
   dateModified: "2026-06-04",
   description: "Νέα απόφαση ΑΑΔΕ Α.1113/2026 παρατείνει την προθεσμία επικαιροποίησης ΚΑΔ 2025 από 1η Ιουνίου στις 30 Οκτωβρίου 2026.",

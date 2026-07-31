@@ -4,7 +4,7 @@ import { getKadData, getSafeKadUrlForCode } from "@/lib/kadData";
 
 export const metadata: Metadata = {
   robots: { index: true, follow: true },
-  title: "Στατιστικά ΚΑΔ 2025: Το 66% των Κωδικών Άλλαξε — Πλήρης Ανάλυση",
+  title: "Στατιστικά ΚΑΔ 2025: Το 66% Άλλαξε",
   description:
     "Πλήρη στατιστικά αντιστοίχισης ΚΑΔ 2008 → 2025. 10.923 εγγραφές, 7.240 αλλαγές, ανάλυση συγχωνεύσεων ανά κλάδο. Δεδομένα ΑΑΔΕ Α.1004/2026.",
   alternates: { canonical: "https://www.kad2025.gr/statistika" },

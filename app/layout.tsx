@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   title: {
     default: "ΚΑΔ 2025 ΑΑΔΕ: Αντιστοίχιση 2008→2025 & Δωρεάν Excel — 10.923 Κωδικοί",
-    template: "%s | kad2025.gr",
+    template: "%s",
   },
   description:
     "Πλήρης αντιστοίχιση ΚΑΔ 2008 με ΚΑΔ 2025. 10.923 κωδικοί, αναζήτηση, εξαγωγή Excel & CSV. Επίσημα δεδομένα ΑΑΔΕ Α.1003/2026 & Α.1004/2026. Ισχύς από 1/3/2026.",
@@ -136,7 +136,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Theme init — must be sync to prevent flash */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('kad-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('kad-theme')||'light';document.documentElement.setAttribute('data-theme',t);var r=localStorage.getItem('kad2025_recent');if(r&&JSON.parse(r).length)document.documentElement.classList.add('has-recent');}catch(e){}})();`,
           }}
         />
 

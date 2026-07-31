@@ -23,6 +23,8 @@ export default function SygkrisiPage() {
         Συγκρίνετε δύο ΚΑΔ δίπλα-δίπλα για να δείτε τις διαφορές τους.
       </p>
       <SygkrisiClient />
+
+      <p style={{ marginTop: "1.25rem", padding: "0.6rem 0.9rem", border: "1px dashed var(--border)", borderRadius: 8, fontSize: "0.85rem" }}>💡 Για σύγκριση σε επίπεδο τάξης, με τα επίσημα «Περιλαμβάνει / Δεν περιλαμβάνει» της ΕΛΣΤΑΤ: <Link href="/sygkrisi-kad">Σύγκριση Τάξεων NACE</Link>.</p>
     </div>
   );
 }

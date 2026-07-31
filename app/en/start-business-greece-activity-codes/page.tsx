@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Starting a Business in Greece: How to Choose Your Activity Codes (KAD) in 2026",
+  title: "Starting a Business in Greece: Choosing KAD",
   description:
     "A practical guide for foreign founders and investors: primary vs secondary KAD codes, common codes for consulting, e-commerce, short-term rentals, IT and tourism, and how codes affect Greek subsidy eligibility.",
   alternates: {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Μεθοδολογία Δεδομένων kad2025.gr — Πώς Επεξεργαζόμαστε τα ΚΑΔ",
+  title: "Μεθοδολογία Δεδομένων: Πώς Επεξεργαζόμαστε τα ΚΑΔ",
   description:
     "Αναλυτική παρουσίαση της μεθοδολογίας του kad2025.gr: πηγές ΑΑΔΕ, πραγματικά στατιστικά της βάσης, ιδιαιτερότητες του πίνακα Α.1004/2026 και πώς επαληθεύετε μόνοι σας μια αντιστοίχιση.",
   alternates: { canonical: "https://www.kad2025.gr/blog/metodologia-dedomenon" },
@@ -72,7 +72,7 @@ export default function MetodologiaPage() {
       </div>
 
       <h1 style={{ marginBottom: "1rem", fontSize: "clamp(1.4rem, 3vw, 2rem)", lineHeight: 1.3 }}>
-        Μεθοδολογία Δεδομένων kad2025.gr — Πώς Επεξεργαζόμαστε τα ΚΑΔ
+        Μεθοδολογία Δεδομένων: Πώς Επεξεργαζόμαστε τα ΚΑΔ
       </h1>
 
       <p style={{ fontSize: "1rem", lineHeight: 1.8, color: "var(--text-muted)", marginBottom: "2rem", borderLeft: "3px solid var(--primary)", paddingLeft: "1rem" }}>

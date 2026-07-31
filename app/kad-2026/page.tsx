@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   robots: { index: true, follow: true },
-  title: 'Νέοι ΚΑΔ 2026: Πίνακας, Δωρεάν Excel & Αντιστοίχιση | kad2025.gr',
+  title: 'Νέοι ΚΑΔ 2026: Πίνακας, Δωρεάν Excel & Αντιστοίχιση',
   description:
     'ΚΑΔ 2026: Ο νέος πίνακας ΚΑΔ που ισχύει υποχρεωτικά από την 30 Οκτωβρίου 2026 σύμφωνα με την Α.1003/2026. Βρες σε ποιον νέο ΚΑΔ αντιστοιχεί ο παλιός σου με δωρεάν εργαλείο αντιστοίχισης.',
   keywords: [

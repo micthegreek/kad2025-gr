@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ 2008 vs ΚΑΔ 2025: Τι Άλλαξε και Τι Παρέμεινε — Πλήρης Σύγκριση",
+  title: "ΚΑΔ 2008 vs 2025: Τι Άλλαξε — Σύγκριση",
   description:
     "Σύγκριση ΚΑΔ 2008 και ΚΑΔ 2025 με πραγματικά δεδομένα: 66% των εγγραφών άλλαξαν, πίνακας αλλαγών ανά κλάδο, παραδείγματα συγχωνεύσεων και διαχωρισμών, πρακτικές συνέπειες.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kad-2008-vs-2025" },

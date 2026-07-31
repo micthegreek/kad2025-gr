@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ανοιχτά Προγράμματα Επιδότησης 2026: Ελέγξτε αν ο ΚΑΔ σας Είναι Επιλέξιμος",
+  title: "Ανοιχτά Προγράμματα Επιδότησης 2026 & ΚΑΔ",
   description:
     "Ποια προγράμματα επιδότησης ΕΣΠΑ και Αναπτυξιακός Νόμος είναι ανοιχτά το 2026, πόσες επιχειρήσεις καλύπτουν και πώς να ελέγξετε αν ο ΚΑΔ 2025 σας είναι επιλέξιμος.",
   alternates: { canonical: "https://www.kad2025.gr/blog/anoixta-programmata-epidotisis" },

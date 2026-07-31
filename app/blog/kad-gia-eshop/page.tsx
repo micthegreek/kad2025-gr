@@ -7,7 +7,7 @@ interface Profession { slug: string; name: string; emoji: string; intro: string;
 const ESHOP = (professionsRaw as Profession[]).find((p) => p.slug === "eshop")!;
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ για E-shop 2026: Οδηγός μετά την Κατάργηση του 47.91",
+  title: "ΚΑΔ για E-shop 2026: Μετά την Κατάργηση του 47.91",
   description:
     "Ποιον ΚΑΔ χρειάζεται ένα e-shop το 2026: γιατί ο ενιαίος 47.91 καταργήθηκε στη NACE Rev.2.1, πώς ταξινομείται πλέον το ηλεκτρονικό εμπόριο ανά προϊόν, και τι ισχύει για marketplaces.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kad-gia-eshop" },
@@ -37,7 +37,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Article",
-      headline: "ΚΑΔ για E-shop 2026: Οδηγός μετά την Κατάργηση του 47.91",
+      headline: "ΚΑΔ για E-shop 2026: Μετά την Κατάργηση του 47.91",
       datePublished: "2026-06-10",
       dateModified: "2026-06-10",
       author: { "@type": "Organization", name: "Ομάδα kad2025.gr" },

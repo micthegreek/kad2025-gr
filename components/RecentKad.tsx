@@ -46,10 +46,10 @@ export function RecentKadChips() {
     setItems(readRecent());
   }, []);
 
-  if (items.length === 0) return null;
+  if (items.length === 0) return <div className="recent-slot" aria-hidden="true" />;
 
   return (
-    <div className="card card-compact" style={{ marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "0.6rem", flexWrap: "wrap" }}>
+    <div className="card card-compact recent-slot recent-slot--filled" style={{ marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "0.6rem", flexWrap: "wrap" }}>
       <span style={{ fontSize: "0.8rem", fontWeight: 700, color: "var(--text-muted)", flexShrink: 0 }}>
         🕘 Πρόσφατοι ΚΑΔ:
       </span>

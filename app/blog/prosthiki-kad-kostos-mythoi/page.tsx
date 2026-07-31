@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Πόσο Κοστίζει η Προσθήκη ΚΑΔ; Οι 5 Μύθοι για τους Δευτερεύοντες Κωδικούς",
+  title: "Πόσο Κοστίζει η Προσθήκη ΚΑΔ; 5 Μύθοι",
   description:
     "Η προσθήκη ΚΑΔ στο myAADE είναι δωρεάν και άμεση — κι όμως οι μύθοι επιμένουν: «κάθε ΚΑΔ = παραπάνω φόρος», «θα με ελέγξουν», «δεν αφαιρείται». Τι ισχύει πραγματικά το 2026.",
   alternates: { canonical: "https://www.kad2025.gr/blog/prosthiki-kad-kostos-mythoi" },

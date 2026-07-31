@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ για Freelancers 2026: Οι 12 Πιο Συχνές Τάξεις για Ελεύθερους Επαγγελματίες",
+  title: "ΚΑΔ για Freelancers 2026: Οι 12 Τάξεις",
   description:
     "Σύμβουλοι, developers, γραφίστες, λογιστές, εκπαιδευτές: οι 12 τάξεις NACE 2.1 όπου δηλώνεται η συντριπτική πλειονότητα των ελεύθερων επαγγελματιών — με τα όρια κάθε τάξης από τις επίσημες επεξηγήσεις.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kad-eleftheroi-epaggelmaties-2026" },

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Οι 10 πιο Παρεξηγημένες Ταξινομήσεις ΚΑΔ: Τι ΔΕΝ Περιλαμβάνει ο Κωδικός σας",
+  title: "Οι 10 πιο Παρεξηγημένες Ταξινομήσεις ΚΑΔ",
   description:
     "Φόρτιση ηλεκτρικών ≠ βενζινάδικο, personal trainer ≠ γυμναστήριο, περούκες ≠ κομμωτήριο: 10 πραγματικές περιπτώσεις όπου ο «προφανής» ΚΑΔ είναι λάθος — τεκμηριωμένες από τις επίσημες εξαιρέσεις NACE 2.1.",
   alternates: { canonical: "https://www.kad2025.gr/blog/parexigimenes-taksinomiseis-kad" },

@@ -53,7 +53,7 @@ export default function Antistoixisi2025Page() {
       </p>
 
       <div style={{ marginBottom: "3rem" }}>
-        <KadSearch mode="antistoixisi-2025" initialData={data} />
+        <KadSearch mode="antistoixisi-2025" />
       </div>
 
       {/* Server-rendered: many-to-one merges */}

@@ -7,7 +7,7 @@ interface Profession { slug: string; name: string; emoji: string; intro: string;
 const AIRBNB = (professionsRaw as Profession[]).find((p) => p.slug === "airbnb")!;
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ για Airbnb & Βραχυχρόνια Μίσθωση 2026: 55.20 ή 68.20;",
+  title: "ΚΑΔ Airbnb & Βραχυχρόνια Μίσθωση: 55.20 ή 68.20;",
   description:
     "Ποιος ΚΑΔ ισχύει για Airbnb και βραχυχρόνια μίσθωση το 2026: η κρίσιμη διάκριση 55.20 (καταλύματα με υπηρεσίες) και 68.20 (απλή εκμίσθωση), πότε απαιτείται έναρξη, και τι άλλαξε με τους ΚΑΔ 2025.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kad-airbnb-vraxychronia" },
@@ -37,7 +37,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Article",
-      headline: "ΚΑΔ για Airbnb & Βραχυχρόνια Μίσθωση 2026: 55.20 ή 68.20;",
+      headline: "ΚΑΔ Airbnb & Βραχυχρόνια Μίσθωση: 55.20 ή 68.20;",
       datePublished: "2026-06-10",
       dateModified: "2026-06-10",
       author: { "@type": "Organization", name: "Ομάδα kad2025.gr" },

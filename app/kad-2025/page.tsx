@@ -89,7 +89,7 @@ export default async function Kad2025Page() {
 
       {/* ===== SEARCH FIRST ===== */}
       <section style={{ marginBottom: "3rem" }}>
-        <KadSearchWithUrl mode="kad2025" initialData={data} />
+        <KadSearchWithUrl mode="kad2025" />
       </section>
 
       {/* Stats per section */}

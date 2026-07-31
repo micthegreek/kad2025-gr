@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "NACE Rev.2.1: Η Ευρωπαϊκή Ταξινόμηση που Άλλαξε τους ΚΑΔ στην Ελλάδα",
+  title: "NACE Rev.2.1: Η Ταξινόμηση πίσω από τους ΚΑΔ",
   description:
     "Τι είναι το NACE Rev.2.1, γιατί η Eurostat το εισήγαγε, πώς εφαρμόστηκε στην Ελλάδα ως ΚΑΔ 2025 και τι σημαίνει πρακτικά για επιχειρήσεις και λογιστές.",
   alternates: { canonical: "https://www.kad2025.gr/blog/nace-rev21-explainer" },

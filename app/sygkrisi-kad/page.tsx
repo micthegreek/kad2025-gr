@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import ClassCompare from "@/components/ClassCompare";
 
 export const metadata: Metadata = {
-  title: "Σύγκριση Τάξεων ΚΑΔ/NACE: Δείτε 2 Κωδικούς Δίπλα-Δίπλα (55.20 vs 68.20 κ.ά.)",
+  title: "Σύγκριση Τάξεων ΚΑΔ: 55.20 vs 68.20 κ.ά.",
   description:
     "Συγκρίνετε δύο τάξεις NACE 2.1 πλάι-πλάι με τα επίσημα «Περιλαμβάνει / Δεν περιλαμβάνει» της ΕΛΣΤΑΤ — και λύστε τα κλασικά διλήμματα: Airbnb ή εκμίσθωση, custom λογισμικό ή εκδόσεις, γυμναστήριο ή personal trainer.",
   alternates: { canonical: "https://www.kad2025.gr/sygkrisi-kad" },
@@ -37,6 +37,8 @@ export default function Page() {
         <Link href="/blog/parexigimenes-taksinomiseis-kad">Οι 10 παρεξηγημένες ταξινομήσεις</Link> ·{" "}
         <Link href="/kad-2025">Αναζήτηση ΚΑΔ 2025</Link>
       </p>
-    </main>
+    
+      <p style={{ marginTop: "1.25rem", padding: "0.6rem 0.9rem", border: "1px dashed var(--border)", borderRadius: 8, fontSize: "0.85rem" }}>💡 Για σύγκριση δύο συγκεκριμένων 8ψήφιων κωδικών και των αντιστοιχίσεών τους: <Link href="/sygkrisi">Σύγκριση ΚΑΔ</Link>.</p>
+</main>
   );
 }

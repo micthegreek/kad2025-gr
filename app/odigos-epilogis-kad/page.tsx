@@ -3,7 +3,7 @@ import Link from "next/link";
 import KadWizard from "@/components/KadWizard";
 
 export const metadata: Metadata = {
-  title: "Οδηγός Επιλογής ΚΑΔ 2026: Βρείτε τον Σωστό Κωδικό σε 3 Ερωτήσεις",
+  title: "Οδηγός Επιλογής ΚΑΔ 2026 σε 3 Ερωτήσεις",
   description:
     "Διαδραστικός οδηγός: απαντήστε 2-3 απλές ερωτήσεις για τη δραστηριότητά σας και δείτε τις σωστές τάξεις NACE 2.1 — με εξήγηση, παγίδες και σύνδεση στους 8ψήφιους ΚΑΔ.",
   alternates: { canonical: "https://www.kad2025.gr/odigos-epilogis-kad" },
@@ -48,6 +48,8 @@ export default function Page() {
           επιδοτήσεων</Link> · <Link href="/epaggelma">ΚΑΔ ανά επάγγελμα</Link>
         </p>
       </section>
-    </main>
+    
+      <p style={{ marginTop: "1.25rem", padding: "0.6rem 0.9rem", border: "1px dashed var(--border)", borderRadius: 8, fontSize: "0.85rem" }}>💡 Προτιμάτε ερωτήσεις για συγκεκριμένο 8ψήφιο κωδικό; Δείτε και τον <Link href="/wizard">βήμα-βήμα οδηγό εύρεσης ΚΑΔ</Link>.</p>
+</main>
   );
 }

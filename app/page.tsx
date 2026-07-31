@@ -6,7 +6,7 @@ import CountdownBanner from "@/components/CountdownBanner";
 import PopularKad from "@/components/PopularKad";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ 2025 ΑΑΔΕ: Αντιστοίχιση 2008→2025, Αναζήτηση & Δωρεάν Excel",
+  title: "ΚΑΔ 2025 ΑΑΔΕ: Αντιστοίχιση 2008→2025 & Δωρεάν Excel",
   description: "Βρείτε τον νέο ΚΑΔ 2025 άμεσα. Πλήρης αντιστοίχιση ΚΑΔ 2008→2025 βάσει ΑΑΔΕ Α.1004/2026. Εργαλεία, Excel εξαγωγή, AI εύρεση ΚΑΔ.",
   keywords: ["καδ", "καδ 2025", "καδ 2026", "νέοι καδ", "νέοι καδ 2025", "νέοι καδ 2026", "αντιστοίχιση καδ", "λίστα καδ", "ευρετήριο καδ", "καδ 2025 excel", "καδ 2026 excel", "καδ 2025 ααδε", "καδ 2026 ααδε", "κωδικοί δραστηριότητας 2025"],
   alternates: { canonical: "https://www.kad2025.gr/", languages: { el: "https://www.kad2025.gr/", en: "https://www.kad2025.gr/en", "x-default": "https://www.kad2025.gr/" } },

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ερωτήσεις & Απαντήσεις για τους ΚΑΔ 2025/2026 — Ό,τι Ρωτούν οι Επιχειρήσεις",
+  title: "Ερωτήσεις & Απαντήσεις για τους ΚΑΔ 2025/2026",
   description:
     "Απαντήσεις στις πιο συχνές πραγματικές ερωτήσεις για τους νέους ΚΑΔ 2025/2026: αντιστοίχιση, προθεσμία 30/10/2026, Excel, myAADE, επιδοτήσεις, επαγγέλματα. Βασισμένο σε πραγματικές αναζητήσεις.",
   alternates: { canonical: "https://www.kad2025.gr/erotiseis", languages: { el: "https://www.kad2025.gr/erotiseis", en: "https://www.kad2025.gr/en/faq", "x-default": "https://www.kad2025.gr/erotiseis" } },

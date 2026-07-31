@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ΚΑΔ για Νέα Επιχείρηση 2026 — Πώς να Επιλέξετε τον Σωστό Κωδικό",
+  title: "ΚΑΔ για Νέα Επιχείρηση 2026: Πώς Επιλέγετε Σωστά",
   description:
     "Αναλυτικός οδηγός για νέους επιχειρηματίες: πώς επιλέγετε τον σωστό ΚΑΔ 2025 κατά την έναρξη επιχείρησης, ποιες παγίδες να αποφύγετε και πώς επηρεάζει μελλοντικές επιδοτήσεις.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kad-gia-nea-epixeirisi" },
@@ -30,7 +30,7 @@ export default function KadGiaNeoEpixeiriPage() {
         <span>📅 25 Μαρτίου 2026</span><span>·</span><span>✍️ Ομάδα kad2025.gr</span><span>·</span><span>⏱️ 7 λεπτά ανάγνωση</span><span>·</span><span>🎯 Για νέες επιχειρήσεις</span>
       </div>
       <h1 style={{ marginBottom: "1rem", fontSize: "clamp(1.4rem, 3vw, 2rem)", lineHeight: 1.3 }}>
-        ΚΑΔ για Νέα Επιχείρηση 2026 — Πώς να Επιλέξετε τον Σωστό Κωδικό
+        ΚΑΔ για Νέα Επιχείρηση 2026: Πώς Επιλέγετε Σωστά
       </h1>
       <p style={{ fontSize: "1rem", lineHeight: 1.8, color: "var(--text-muted)", marginBottom: "2rem", borderLeft: "3px solid var(--primary)", paddingLeft: "1rem" }}>
         Αν ξεκινάτε νέα επιχείρηση ή ανοίγετε βιβλία το 2026, πρέπει να δηλώσετε απευθείας στο

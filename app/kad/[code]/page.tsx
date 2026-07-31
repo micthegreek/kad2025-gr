@@ -425,7 +425,7 @@ export async function generateMetadata({
   const naceTitle = nace?.class_?.title ?? nace?.group?.title ?? "";
   const naceSnippet = naceTitle ? ` ${naceTitle}.` : "";
 
-  // Title: max ~60 chars (template adds " | kad2025.gr")
+  // Title: max ~60 chars (template adds "")
   let pageTitle: string;
   let metaDesc: string;
   let ogDesc: string;
@@ -438,7 +438,7 @@ export async function generateMetadata({
   } else if (!changed) {
     // v95: αμετάβλητος κωδικός — διαφοροποιημένος τίτλος (το ⇒ "A → A" μπέρδευε)
     const titlePrefix = `ΚΑΔ ${record.kad2008} Αμετάβλητος | `;
-    const maxDescLen = Math.max(20, 60 - titlePrefix.length);
+    const maxDescLen = Math.max(20, 52 - titlePrefix.length);
     const titleDesc = record.desc2008.length > maxDescLen
       ? record.desc2008.slice(0, maxDescLen - 1) + "…"
       : record.desc2008;
@@ -447,7 +447,7 @@ export async function generateMetadata({
     ogDesc = `${record.desc2008} — αμετάβλητος στους ΚΑΔ 2025. Κλάδος: ${section.name}.${naceSnippet}`;
   } else {
     const titlePrefix = `ΚΑΔ ${record.kad2008} → ${record.kad2025} | `;
-    const maxDescLen = Math.max(20, 60 - titlePrefix.length);
+    const maxDescLen = Math.max(20, 52 - titlePrefix.length);
     const titleDesc = record.desc2008.length > maxDescLen
       ? record.desc2008.slice(0, maxDescLen - 1) + "…"
       : record.desc2008;
@@ -521,7 +521,7 @@ export default async function KadDetailPage({
     {
       q: `Σε ποιον νέο ΚΑΔ 2025 αντιστοιχεί ο ΚΑΔ ${r.kad2008};`,
       a: allMappings.length > 0
-        ? `Ο ΚΑΔ ${r.kad2008} (${r.desc2008}) αντιστοιχεί σε ${allMappings.length + 1} νέους ΚΑΔ 2025: κυρίως στον ${r.kad2025} (${r.desc2025})${allMappings.map((m) => `, αλλά και στον ${m.kad2025} (${m.desc2025})`).join("")}. Ελέγξτε ποιος ταιριάζει στη δραστηριότητά σας.`
+        ? `Ο ΚΑΔ ${r.kad2008} (${r.desc2008}) αντιστοιχεί σε ${allMappings.length + 1} νέους ΚΑΔ 2025: κυρίως στον ${r.kad2025} (${r.desc2025})${allMappings.slice(0, 4).map((m) => `, αλλά και στον ${m.kad2025} (${m.desc2025})`).join("")}${allMappings.length > 4 ? ` — και ${allMappings.length - 4} ακόμη επιλογές (πλήρης λίστα στη σελίδα)` : ""}. Ελέγξτε ποιος ταιριάζει στη δραστηριότητά σας.`
         : `Ο ΚΑΔ ${r.kad2008} (${r.desc2008}) αντιστοιχεί στον νέο ΚΑΔ ${r.kad2025} (${r.desc2025}). ${changed ? "Ο κωδικός άλλαξε με την εφαρμογή της NACE Rev.2.1." : "Ο κωδικός παρέμεινε αμετάβλητος."}`,
     },
     {

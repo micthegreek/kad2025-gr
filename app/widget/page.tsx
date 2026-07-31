@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Δωρεάν Widget Ελέγχου ΚΑΔ για το Site σας | kad2025.gr",
+  title: "Δωρεάν Widget Ελέγχου ΚΑΔ για το Site σας",
   description:
     "Προσθέστε δωρεάν widget ελέγχου ΚΑΔ 2008 → 2025 στο site του λογιστικού σας γραφείου: ένα copy-paste snippet, χωρίς cookies, χωρίς συντήρηση. Επίσημα δεδομένα ΑΑΔΕ.",
   alternates: { canonical: "https://www.kad2025.gr/widget" },

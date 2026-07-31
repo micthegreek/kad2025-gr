@@ -110,7 +110,7 @@ export default function LathosAntistoixisiPage() {
       <section className="card" style={{ marginBottom: "2rem", borderLeft: "3px solid var(--success)" }}>
         <h2 style={{ fontSize: "1rem", marginBottom: "0.75rem" }}>✅ Πότε ΔΕΝ χρειάζεται να κάνετε τίποτα</h2>
         <div style={{ fontSize: "0.875rem", lineHeight: 1.8, color: "var(--text-muted)" }}>
-          <p>Δεν χρειάζεται ενέργεια εάν:</p>
+          <p>Δεν χρειάζεται ενέργεια εάν: Δείτε και τον αναλυτικό οδηγό <Link href="/blog/lathos-kad-prostima">«Λάθος ΚΑΔ: Πρόστιμα & Συνέπειες»</Link> με όλα τα ρίσκα και τα βήματα.</p>
           <ul style={{ paddingLeft: "1.5rem", marginTop: "0.5rem" }}>
             <li>Ο νέος ΚΑΔ 2025 που σας αντιστοιχίστηκε καλύπτει επαρκώς τη δραστηριότητά σας</li>
             <li>Ο παλιός ΚΑΔ 2008 παρέμεινε αμετάβλητος (3.683 ΚΑΔ δεν άλλαξαν)</li>

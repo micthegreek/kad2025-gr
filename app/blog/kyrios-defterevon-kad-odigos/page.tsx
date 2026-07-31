@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Κύριος και Δευτερεύων ΚΑΔ: Ο Πλήρης Οδηγός 2026 — Διαφορές, Επιλογή, Αλλαγή",
+  title: "Κύριος & Δευτερεύων ΚΑΔ: Πλήρης Οδηγός 2026",
   description:
     "Τι είναι ο κύριος ΚΑΔ, πόσους δευτερεύοντες μπορείτε να έχετε, πώς επηρεάζουν φορολογία και επιδοτήσεις, και πότε/πώς αλλάζετε τη σειρά τους στο myAADE.",
   alternates: { canonical: "https://www.kad2025.gr/blog/kyrios-defterevon-kad-odigos" },

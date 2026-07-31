@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Just Transition Fund Greece (ESDIM) 2026: Eligible Activity Codes for the 4 New Actions",
+  title: "Just Transition Fund Greece: Eligible KAD 2026",
   description:
     "Four active Greek Just Transition Fund actions (Reg. EU 2021/1056) support investment plans of SMEs and large enterprises in ESDIM transition regions. Full list of the 4,144 eligible KAD activity codes, sector profile, and how to check yours.",
   alternates: {

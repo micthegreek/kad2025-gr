@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "5 Συχνά Λάθη στην Αντιστοίχιση ΚΑΔ 2008→2025 — Πώς να τα Αποφύγετε",
+  title: "5 Συχνά Λάθη στην Αντιστοίχιση ΚΑΔ",
   description:
     "Τα 5 πιο συχνά λάθη που κάνουν επιχειρήσεις και λογιστές στην αντιστοίχιση ΚΑΔ 2008→2025 και πώς να τα εντοπίσετε πριν την προθεσμία της 30ής Οκτωβρίου 2026.",
   alternates: { canonical: "https://www.kad2025.gr/blog/syxna-lathi-antistoixisis" },
