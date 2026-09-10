@@ -231,3 +231,22 @@ details.nace-expand[open] summary .lbl-less { display: inline; }
 .recent-slot { min-height: 0; }
 .has-recent .recent-slot { min-height: 56px; }
 .recent-slot--filled { min-height: 56px; box-sizing: border-box; }
+
+/* ═══ v130: Διαφημιστική θέση ═══ */
+.adslot-label{display:inline-block;background:var(--primary);color:#fff;font-size:.63rem;font-weight:800;
+  letter-spacing:.11em;text-transform:uppercase;padding:.3rem .7rem;border-radius:6px}
+.adslot-cta{padding:.72rem 1.3rem;border-radius:9px;background:var(--primary);color:#fff;font-weight:800;font-size:.92rem}
+.adslot-box{border:2px dashed var(--primary);border-radius:14px;background:var(--bg-card);
+  transition:box-shadow .25s,transform .2s}
+.adslot-box:hover{box-shadow:0 6px 22px rgba(0,0,0,.1);transform:translateY(-2px)}
+.adslot-footer{display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;
+  padding:.85rem 1rem;margin:1.5rem 0 0;border:2px dashed var(--primary);border-radius:10px;
+  font-size:.87rem;text-decoration:none;color:var(--text)}
+/* Δεξιά στήλη — μόνο σε ευρείες οθόνες */
+.adslot-rail{display:none}
+@media (min-width:1400px){
+  .adslot-rail{display:block;position:fixed;top:110px;right:max(16px,calc((100vw - 1100px)/2 - 300px));
+    width:270px;z-index:20}
+  .adslot-rail .adslot-box{padding:1.1rem 1.2rem}
+  .adslot-inline{display:none}
+}

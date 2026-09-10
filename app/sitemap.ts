@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/epaggelma`, lastModified: LAST_UPDATED, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${base}/kad-2025-excel`, lastModified: LAST_UPDATED, changeFrequency: "weekly" as const, priority: 0.92 },
     { url: `${base}/diafimisi`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.5 },
+    { url: `${base}/diafimisi/paradeigma`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.3 },
     { url: `${base}/widget`, lastModified: LAST_UPDATED, changeFrequency: "monthly" as const, priority: 0.6 },
     { url: `${base}/programma`, lastModified: LAST_UPDATED, changeFrequency: "weekly" as const, priority: 0.9 },
     ...PROGRAM_SLUGS.map((slug) => ({ url: `${base}/programma/${slug}`, lastModified: LAST_UPDATED, changeFrequency: "weekly" as const, priority: 0.88 })),
