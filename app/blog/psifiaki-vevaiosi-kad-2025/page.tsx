@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Ψηφιακή Βεβαίωση ΚΑΔ 2025: Τι Ισχύει",
@@ -108,6 +109,8 @@ export default function PsifiaikiVevaiosiPage() {
           των επιχειρήσεων και ότι <strong>εφόσον απαιτηθεί, θα δώσει επιπλέον χρόνο</strong> για
           τον έλεγχο της αυτόματης μετάπτωσης.
         </p>
+
+        <AdSlotBanner variant="compact" />
         <p style={{ lineHeight: 1.8 }}>
           Αυτό σημαίνει ότι η προθεσμία της <strong>30ής Οκτωβρίου 2026</strong> ενδέχεται να παραταθεί.
           Ωστόσο, συνιστούμε να <strong>μην υπολογίζετε σε παράταση</strong> και να ελέγξετε τον ΚΑΔ

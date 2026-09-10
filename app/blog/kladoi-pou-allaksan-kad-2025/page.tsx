@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "ΚΑΔ 2025: Οι Κλάδοι που Άλλαξαν 100%",
@@ -63,6 +64,8 @@ export default function Post() {
         αξίζει να ελέγξετε αν ο αυτόματος νέος είναι ο σωστός για εσάς, με προθεσμία διόρθωσης την{" "}
         <strong>30ή Οκτωβρίου 2026</strong>.
       </p>
+
+      <AdSlotBanner variant="compact" />
 
       <h2>🟢 Οι τρεις «άθικτοι» κλάδοι (0% αλλαγή)</h2>
       <p>

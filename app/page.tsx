@@ -1,4 +1,5 @@
 import DeadlineChip from "@/components/DeadlineChip";
+import AdSlotBanner from "@/components/AdSlotBanner";
 import type { Metadata } from "next";
 import { RecentKadChips } from "@/components/RecentKad";
 import Link from "next/link";
@@ -254,6 +255,8 @@ export default function HomePage() {
           <Link href="/sygkrisi-kad" className="tool-card" style={{ padding: "0.8rem 1rem" }}>⚖️ <strong>Σύγκριση Τάξεων</strong> — 55.20 vs 68.20 δίπλα-δίπλα</Link>
         </div>
       </section>
+      <section style={{ maxWidth: 1100, margin: "1.5rem auto 0", padding: "0 1rem" }}><AdSlotBanner variant="compact" /></section>
+
       <section style={{ maxWidth: 1100, margin: "1.5rem auto 0", padding: "0 1rem" }}>
         <h2 style={{ fontSize: "1.15rem", marginBottom: "0.6rem" }}>📰 Τελευταίοι Οδηγοί</h2>
         <div style={{ display: "grid", gap: "0.5rem" }}>

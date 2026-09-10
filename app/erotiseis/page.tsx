@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AdSlotBanner from "@/components/AdSlotBanner";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -155,6 +156,7 @@ export default function ErotiseisPage() {
           <Link href="/faq">γενικό FAQ</Link>, ή τους <Link href="/odigoi">αναλυτικούς οδηγούς</Link>.
         </p>
       </section>
+      <AdSlotBanner variant="compact" />
     </div>
   );
 }

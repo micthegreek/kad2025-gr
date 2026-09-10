@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AdSlotBanner from "@/components/AdSlotBanner";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -107,6 +108,7 @@ export default function FaqPage() {
         <p style={{ marginTop: "2rem", fontSize: "0.75rem", color: "var(--text-muted)", textAlign: "center" }}>
           Πηγή: ΑΑΔΕ – «Συχνές ερωτήσεις – απαντήσεις για την αντιστοίχιση ΚΑΔ 2025», Αθήνα, 1η Μαρτίου 2026. Οι απαντήσεις παρατίθενται με βάση το επίσημο κείμενο της ΑΑΔΕ.
         </p>
+        <AdSlotBanner variant="compact" />
       </div>
     </>
   );

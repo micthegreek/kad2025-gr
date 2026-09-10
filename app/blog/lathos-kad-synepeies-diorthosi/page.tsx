@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Λάθος ΚΑΔ: 6 Συνέπειες & Διόρθωση έως 30/10",
@@ -60,6 +61,8 @@ export default function Post() {
         <Link href="/pos-allazw-kad">αναλυτικού οδηγού</Link>. Σύνολο: ένα τέταρτο που μπορεί να σας γλιτώσει
         μια απορριφθείσα αίτηση ή έναν άβολο έλεγχο.
       </p>
+
+      <AdSlotBanner variant="compact" />
     </article>
   );
 }

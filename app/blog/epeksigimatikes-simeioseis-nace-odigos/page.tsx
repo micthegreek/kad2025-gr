@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Τι Περιλαμβάνει ο ΚΑΔ σας: Επεξηγήσεις NACE",
@@ -82,6 +83,8 @@ export default function Post() {
         τις συγγενείς δραστηριότητες που <em>μοιάζουν</em> αλλά ταξινομούνται αλλού, πάντα με παραπομπή
         («βλέπε XX.XX»). Οι 2.262 τέτοιες παραπομπές είναι ο επίσημος χάρτης των ορίων κάθε κωδικού.
       </p>
+
+      <AdSlotBanner variant="compact" />
 
       <h2>Πού τις βρίσκετε στο kad2025.gr</h2>
       <p>

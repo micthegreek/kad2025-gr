@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "NACE Rev.2.1: Η Ταξινόμηση πίσω από τους ΚΑΔ",
@@ -55,6 +56,8 @@ export default function NaceRev21Page() {
           Η ίδια λογική ισχύει σε άλλες χώρες με διαφορετικά ονόματα: SIC στη Βρετανία, WZ στη
           Γερμανία, NAF στη Γαλλία. Όλα βασίζονται στο ίδιο ευρωπαϊκό πρότυπο.
         </p>
+
+        <AdSlotBanner variant="compact" />
       </section>
 
       <section className="card" style={{ marginBottom: "1.5rem" }}>

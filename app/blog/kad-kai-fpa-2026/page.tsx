@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "ΚΑΔ 2025 & ΦΠΑ: Τι Αλλάζει το 2026",
@@ -58,6 +59,8 @@ export default function KadFpaPage() {
           Συνεπώς, αν ο νέος ΚΑΔ 2025 περιγράφει διαφορετική δραστηριότητα από την πραγματική σας,
           μπορεί να εφαρμόζεται λανθασμένος συντελεστής ΦΠΑ — χωρίς να το αντιληφθείτε άμεσα.
         </p>
+
+        <AdSlotBanner variant="compact" />
         <p style={{ lineHeight: 1.8 }}>
           Αυτό έχει πρακτικές συνέπειες: αν η ΑΑΔΕ εντοπίσει ασυμφωνία μεταξύ ΚΑΔ, τιμολογίων
           και δηλωμένου ΦΠΑ, μπορεί να υπάρχουν φορολογικές επιπλοκές. Γι' αυτό η ορθότητα του

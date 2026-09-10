@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import GlobalAdRail from "@/components/GlobalAdRail";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -218,6 +219,7 @@ gtag('config','G-BSSB8F33SV',{anonymize_ip:true});
 
         <Navbar />
         <main style={{ minHeight: "calc(100vh - 200px)" }}><main id="main-content">{children}</main></main>
+        <GlobalAdRail />
         <Footer />
 
       </body>

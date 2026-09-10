@@ -368,12 +368,7 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
         </div>
       )}
 
-      {results.length > 0 && (
-        <>
-          <AdSlotBanner variant="rail" />
-          <AdSlotBanner variant="inline" />
-        </>
-      )}
+      {results.length > 0 && <AdSlotBanner variant="inline" />}
     </div>
   );
 }

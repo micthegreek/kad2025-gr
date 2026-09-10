@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "ΚΑΔ για Freelancers 2026: Οι 12 Τάξεις",
@@ -67,6 +68,8 @@ export default function Post() {
         <Link href="/blog/kyrios-defterevon-kad-odigos">κύριου/δευτερεύοντος</Link> και τα{" "}
         <Link href="/epaggelma">έτοιμα πακέτα ΚΑΔ ανά επάγγελμα</Link>.
       </p>
+
+      <AdSlotBanner variant="compact" />
     </article>
   );
 }

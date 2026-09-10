@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Μεθοδολογία Δεδομένων: Πώς Επεξεργαζόμαστε τα ΚΑΔ",
@@ -107,6 +108,8 @@ export default function MetodologiaPage() {
           Επειδή τα στρογγυλεμένα ποσοστά συχνά παραπλανούν, δημοσιεύουμε τα ακριβή μεγέθη
           της βάσης όπως προκύπτουν από τον πίνακα Α.1004/2026:
         </p>
+
+        <AdSlotBanner variant="compact" />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "0.75rem", marginBottom: "1rem" }}>
           {[
             { num: "10.923", label: "Εγγραφές αντιστοίχισης" },

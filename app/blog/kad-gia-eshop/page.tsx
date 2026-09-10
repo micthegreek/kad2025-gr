@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 import professionsRaw from "@/public/data/professions.json";
 
 interface ProfCode { c: string; d08: string; n: string; d25: string; ch: boolean; idx: boolean }
@@ -107,6 +108,8 @@ export default function KadGiaEshopPage() {
           Ο πίνακας δείχνει τους πιο διαδεδομένους κωδικούς 47.91.x του 2008 και την κύρια
           αντιστοίχισή τους στους ΚΑΔ 2025, όπως προκύπτει από τον επίσημο πίνακα:
         </p>
+
+        <AdSlotBanner variant="compact" />
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
           {ESHOP.codes.map((c) => (
             <Link key={c.c} href={`/kad/${c.c}`} style={{ textDecoration: "none" }}>

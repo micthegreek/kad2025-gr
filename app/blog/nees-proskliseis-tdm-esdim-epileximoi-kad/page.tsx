@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Δίκαιη Μετάβαση 2026: 4.144 Επιλέξιμοι ΚΑΔ",
@@ -88,6 +89,8 @@ export default function Post() {
         Υπενθύμιση: ο επιλέξιμος ΚΑΔ είναι <em>αναγκαία, όχι επαρκής</em> προϋπόθεση — κάθε πρόσκληση ορίζει
         επιπλέον κριτήρια (τόπος υλοποίησης, μέγεθος, προϋπολογισμός).
       </p>
+
+      <AdSlotBanner variant="compact" />
 
       <h2>Συχνές ερωτήσεις</h2>
       {faqItems.map((f, i) => (

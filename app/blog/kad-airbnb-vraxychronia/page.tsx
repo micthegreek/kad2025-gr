@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 import professionsRaw from "@/public/data/professions.json";
 
 interface ProfCode { c: string; d08: string; n: string; d25: string; ch: boolean; idx: boolean }
@@ -122,6 +123,8 @@ export default function KadAirbnbPage() {
           NACE Rev.2.1 χωρίς αναταράξεις. Ο πίνακας δείχνει τους 8ψήφιους κωδικούς και την
           κατάστασή τους στον επίσημο πίνακα αντιστοίχισης:
         </p>
+
+        <AdSlotBanner variant="compact" />
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
           {AIRBNB.codes.map((c) => (
             <Link key={c.c} href={`/kad/${c.c}`} style={{ textDecoration: "none" }}>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "ΚΑΔ 2008 vs 2025: Τι Άλλαξε — Σύγκριση",
@@ -115,6 +116,8 @@ export default function Kad2008vs2025Page() {
           πραγματοποίησε αυτόματη αντιστοίχιση όλων των μητρώων στις 9 Μαρτίου 2026, ενώ με
           την Α.1113/2026 η προθεσμία διόρθωσης παρατάθηκε έως τις 30 Οκτωβρίου 2026.
         </p>
+
+        <AdSlotBanner variant="compact" />
       </section>
 
       <section id="s2" className="card" style={{ marginBottom: "1.5rem" }}>

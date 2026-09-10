@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "ΚΑΔ & ΕΣΠΑ 2026: Πώς Αλλάζει η Επιλεξιμότητά σας",
@@ -62,6 +63,8 @@ export default function KadKaiEpidotiseisPage() {
           <strong> αποκλειστείτε από επιλέξιμο πρόγραμμα</strong>, ακόμα κι αν η πραγματική
           δραστηριότητά σας θα ήταν κανονικά επιλέξιμη.
         </p>
+
+        <AdSlotBanner variant="compact" />
         <p style={{ lineHeight: 1.8 }}>
           Αντίστροφα, αν ο ΚΑΔ σας αντιστοιχίστηκε σε κωδικό που <em>δεν αντικατοπτρίζει</em> την
           πραγματική σας δραστηριότητα, μπορεί να φαίνεστε επιλέξιμοι ενώ στην πράξη δεν είστε —

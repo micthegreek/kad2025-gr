@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "ΚΑΔ για Airbnb 2026: 55.20 ή 68.20;",
@@ -56,6 +57,8 @@ export default function Post() {
         δύο κωδικούς — δείτε τον οδηγό{" "}
         <Link href="/blog/kyrios-defterevon-kad-odigos">κύριου/δευτερεύοντος ΚΑΔ</Link>.
       </p>
+
+      <AdSlotBanner variant="compact" />
 
       <h2>Συχνές ερωτήσεις</h2>
       {faq.map((f, i) => (

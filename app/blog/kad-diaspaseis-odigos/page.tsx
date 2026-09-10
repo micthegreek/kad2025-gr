@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Διασπάσεις ΚΑΔ 2025: 1 Κωδικός → έως 52 Νέοι",
@@ -57,6 +58,8 @@ export default function Post() {
         <Link href="/maziki-2008">εργαλείο μαζικής αντιστοίχισης</Link> εντοπίζει όλες τις διασπάσεις ενός
         χαρτοφυλακίου με μία επικόλληση.
       </p>
+
+      <AdSlotBanner variant="compact" />
 
       <h2>Συχνές ερωτήσεις</h2>
       {faq.map((f, i) => (

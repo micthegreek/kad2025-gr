@@ -373,6 +373,9 @@ export default function Navbar() {
         nav a:hover { opacity: 1; background: rgba(255,255,255,0.1) !important; color: white !important; }
       `}</style>
             <LangSwitcher />
+
+      <Link href="/diafimisi" style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", padding: "0.3rem 0.6rem", borderRadius: 8, fontSize: "0.72rem", fontWeight: 700, color: "var(--ad-accent)", border: "1px solid var(--ad-accent)", textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0 }} title="Διαφημιστείτε στο kad2025.gr">📢 Διαφημιστείτε</Link>
+
       </nav>
   );
 }

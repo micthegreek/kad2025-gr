@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Ανοιχτά Προγράμματα Επιδότησης 2026 & ΚΑΔ",
@@ -147,6 +148,8 @@ export default function AnoixtaProgrammataPage() {
           σε ποια από τα πέντε προγράμματα είναι επιλέξιμος ο ΚΑΔ 2025 σας. Εισάγετε τον κωδικό
           και το σύστημα ελέγχει αυτόματα και τα πέντε προγράμματα ταυτόχρονα.
         </p>
+
+        <AdSlotBanner variant="compact" />
         <Link href="/kad-epidotisi-espa" className="btn btn-primary">
           💰 Έλεγχος Επιλεξιμότητας ΚΑΔ →
         </Link>
