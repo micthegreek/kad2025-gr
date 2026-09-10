@@ -31,14 +31,20 @@ const PACKS = [
     tag: "Η πιο αποδοτική",
     price: "150",
     feat: true,
+    color: "#1d4ed8",
+    tint: "#eff6ff",
+    anchor: "kyria",
     where: "Αμέσως μετά τα αποτελέσματα αναζήτησης, στις 4 σελίδες με τη μεγαλύτερη κίνηση: Αντιστοίχιση, ΚΑΔ 2025, Αντιστοίχιση 2025 και Αρχική. Σε ευρείες οθόνες εμφανίζεται και ως σταθερή δεξιά στήλη.",
     imp: "≈ 20.000 εμφανίσεις/μήνα",
   },
   {
     name: "Θέση περιεχομένου",
-    tag: "",
+    tag: "Ισορροπία",
     price: "100",
     feat: false,
+    color: "#0d9488",
+    tint: "#f0fdfa",
+    anchor: "periexomenou",
     where: "Στις 63 σελίδες κλάδων και στους 24 οδηγούς του blog — εκεί όπου ο επισκέπτης διαβάζει, δεν αναζητά μόνο.",
     imp: "≈ 4.000 εμφανίσεις/μήνα",
   },
@@ -47,6 +53,9 @@ const PACKS = [
     tag: "Είσοδος",
     price: "60",
     feat: false,
+    color: "#d97706",
+    tint: "#fffbeb",
+    anchor: "yposelidou",
     where: "Διακριτική γραμμή σε κάθε σελίδα του site — συμπεριλαμβανομένων και των 9.400 σελίδων ΚΑΔ.",
     imp: "σε όλες τις σελίδες",
   },
@@ -152,7 +161,8 @@ export default function Page() {
             style={{
               ...CARD,
               padding: "1.2rem 1.4rem",
-              border: p.feat ? "2px solid var(--primary)" : "1px solid var(--border)",
+              border: `3px solid ${p.color}`,
+              borderLeft: `9px solid ${p.color}`,
             }}
           >
             <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "1rem", alignItems: "start" }}>
@@ -161,11 +171,11 @@ export default function Page() {
                   <h3 style={{ fontSize: "1.08rem", margin: 0 }}>{p.name}</h3>
                   {p.tag && (
                     <span style={{ fontSize: "0.68rem", fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase",
-                      padding: "0.18rem 0.55rem", borderRadius: 20, background: "var(--primary)", color: "#fff" }}>{p.tag}</span>
+                      padding: "0.18rem 0.55rem", borderRadius: 20, background: p.color, color: "#fff" }}>{p.tag}</span>
                   )}
                 </div>
                 <p style={{ margin: "0.4rem 0 0", fontSize: "0.9rem", color: "var(--text-muted)", lineHeight: 1.55 }}>{p.where}</p>
-                <p style={{ margin: "0.45rem 0 0", fontSize: "0.82rem", fontWeight: 800, color: "var(--primary)" }}>{p.imp}</p>
+                <p style={{ margin: "0.45rem 0 0", fontSize: "0.82rem", fontWeight: 800, color: p.color }}>{p.imp}</p>
               </div>
               <div style={{ textAlign: "right", whiteSpace: "nowrap" }}>
                 <div style={{ fontSize: "1.7rem", fontWeight: 800, letterSpacing: "-0.02em" }}>€{p.price}</div>
@@ -173,14 +183,15 @@ export default function Page() {
               </div>
             </div>
             <Link
-              href="/diafimisi/paradeigma"
+              href={`/diafimisi/paradeigma#thesi-${p.anchor}`}
               style={{
-                display: "inline-flex", alignItems: "center", gap: "0.4rem", marginTop: "0.9rem",
-                paddingTop: "0.8rem", borderTop: "1px dashed var(--border)", width: "100%",
-                fontSize: "0.88rem", fontWeight: 700, textDecoration: "none",
+                display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem",
+                marginTop: "1rem", padding: "0.75rem 1rem", borderRadius: 10,
+                background: p.color, color: "#fff", fontSize: "0.9rem", fontWeight: 800,
+                textDecoration: "none", textAlign: "center",
               }}
             >
-              👁 Δείτε παράδειγμα: πώς θα εμφανίζεται η διαφήμισή σας σε αυτή τη θέση →
+              👁 Δείτε πραγματικό παράδειγμα σε αυτή τη θέση →
             </Link>
           </div>
         ))}
