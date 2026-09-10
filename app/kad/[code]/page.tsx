@@ -358,27 +358,19 @@ function seeHref(code: string, valid: Set<string>): string {
               {nn.n.inc.length > 0 && (<>
                 <h3 style={{ fontSize: "0.85rem", color: "var(--success)", margin: "0 0 0.3rem" }}>✅ Περιλαμβάνει</h3>
                 <ul style={{ margin: "0 0 0.7rem", paddingLeft: "1.2rem", fontSize: "0.88rem", display: "grid", gap: "0.18rem" }}>
-                  {nn.n.inc.slice(0, 8).map((x, k) => <li key={k}>{x}</li>)}
+                  {nn.n.inc.map((x, k) => <li key={k}>{x}</li>)}
                 </ul>
-                {nn.n.inc.length > 8 && (
-                  <details style={{ margin: "-0.4rem 0 0.7rem" }}>
-                    <summary style={{ cursor: "pointer", fontSize: "0.8rem", color: "var(--text-muted)" }}>+ {nn.n.inc.length - 8} ακόμη δραστηριότητες</summary>
-                    <ul style={{ margin: "0.3rem 0 0", paddingLeft: "1.2rem", fontSize: "0.88rem", display: "grid", gap: "0.18rem" }}>
-                      {nn.n.inc.slice(8).map((x, k) => <li key={k}>{x}</li>)}
-                    </ul>
-                  </details>
-                )}
               </>)}
               {nn.n.also.length > 0 && (<>
                 <h3 style={{ fontSize: "0.85rem", color: "var(--primary)", margin: "0 0 0.3rem" }}>➕ Περιλαμβάνει επίσης</h3>
                 <ul style={{ margin: "0 0 0.7rem", paddingLeft: "1.2rem", fontSize: "0.88rem", display: "grid", gap: "0.18rem" }}>
-                  {nn.n.also.slice(0, 5).map((x, k) => <li key={k}>{x}</li>)}
+                  {nn.n.also.map((x, k) => <li key={k}>{x}</li>)}
                 </ul>
               </>)}
               {nn.n.exc.length > 0 && (<>
                 <h3 style={{ fontSize: "0.85rem", color: "var(--acc-red, #d9534f)", margin: "0 0 0.3rem" }}>🚫 Δεν περιλαμβάνει — ταξινομείται αλλού</h3>
                 <ul style={{ margin: "0 0 0.7rem", paddingLeft: "1.2rem", fontSize: "0.88rem", display: "grid", gap: "0.22rem" }}>
-                  {nn.n.exc.slice(0, 8).map((e, k) => (
+                  {nn.n.exc.map((e, k) => (
                     <li key={k}>{e.x}{e.see.map((c) => <Link key={c} href={seeHref(c, NACE_VALID)} style={{ marginLeft: "0.4rem", fontSize: "0.8rem", whiteSpace: "nowrap" }}>→ {c}</Link>)}</li>
                   ))}
                 </ul>

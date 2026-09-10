@@ -1,5 +1,6 @@
 "use client";
 import NaceNotesPanel from "./NaceNotesPanel";
+import AdSlotBanner from "./AdSlotBanner";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { trackKadSearch, trackCsvExport, trackExcelExport } from "@/lib/ga4";
@@ -49,26 +50,27 @@ function copyToClipboard(text: string, setCopied: (v: string) => void) {
   navigator.clipboard.writeText(text).then(() => { setCopied(text); setTimeout(() => setCopied(""), 2000); });
 }
 
-function exportCSV(results: KadRecord[], mode: string) {
+function exportCSV(results: KadRecord[], mode: string, dots: boolean) {
+  const F = (c: string) => formatKAD(c, dots);
   let rows: (string | undefined)[][];
   if (mode === "kad2008") {
     rows = [
       ["ΚΑΔ 2008", "Περιγραφή ΚΑΔ 2008"],
-      ...results.map((r) => [r.kad2008, r.desc2008]),
+      ...results.map((r) => [F(r.kad2008), r.desc2008]),
       [],
       ["Πηγή: www.kad2025.gr — Δεδομένα ΑΑΔΕ Α.1003/2026 & Α.1004/2026"],
     ];
   } else if (mode === "kad2025") {
     rows = [
       ["ΚΑΔ 2025", "Περιγραφή ΚΑΔ 2025"],
-      ...results.map((r) => [r.kad2025, r.desc2025]),
+      ...results.map((r) => [F(r.kad2025), r.desc2025]),
       [],
       ["Πηγή: www.kad2025.gr — Δεδομένα ΑΑΔΕ Α.1003/2026 & Α.1004/2026"],
     ];
   } else {
     rows = [
       ["ΚΑΔ 2008", "Περιγραφή ΚΑΔ 2008", "ΚΑΔ 2025", "Περιγραφή ΚΑΔ 2025", "Κατάσταση"],
-      ...results.map((r) => [r.kad2008, r.desc2008, r.kad2025, r.desc2025, r.kad2008 === r.kad2025 ? "Αμετάβλητος" : "Άλλαξε"]),
+      ...results.map((r) => [F(r.kad2008), r.desc2008, F(r.kad2025), r.desc2025, r.kad2008 === r.kad2025 ? "Αμετάβλητος" : "Άλλαξε"]),
       [],
       ["Πηγή: www.kad2025.gr — Αντιστοίχιση ΚΑΔ 2008 & 2025 | Δεδομένα ΑΑΔΕ Α.1003/2026 & Α.1004/2026"],
     ];
@@ -78,14 +80,15 @@ function exportCSV(results: KadRecord[], mode: string) {
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "kad-kad2025gr.csv"; a.click();
 }
 
-async function exportExcel(results: KadRecord[], mode: string) {
+async function exportExcel(results: KadRecord[], mode: string, dots: boolean) {
+  const F = (c: string) => formatKAD(c, dots);
   const XLSX = await import("xlsx");
   let wsData: (string | undefined)[][];
   let filename: string;
   if (mode === "kad2008") {
     wsData = [
       ["ΚΑΔ 2008", "Περιγραφή ΚΑΔ 2008"],
-      ...results.map((r) => [r.kad2008, r.desc2008]),
+      ...results.map((r) => [F(r.kad2008), r.desc2008]),
       [],
       ["Πηγή: www.kad2025.gr"],
       ["Δεδομένα ΑΑΔΕ Α.1003/2026 & Α.1004/2026"],
@@ -94,7 +97,7 @@ async function exportExcel(results: KadRecord[], mode: string) {
   } else if (mode === "kad2025") {
     wsData = [
       ["ΚΑΔ 2025", "Περιγραφή ΚΑΔ 2025"],
-      ...results.map((r) => [r.kad2025, r.desc2025]),
+      ...results.map((r) => [F(r.kad2025), r.desc2025]),
       [],
       ["Πηγή: www.kad2025.gr"],
       ["Δεδομένα ΑΑΔΕ Α.1003/2026 & Α.1004/2026"],
@@ -103,7 +106,7 @@ async function exportExcel(results: KadRecord[], mode: string) {
   } else {
     wsData = [
       ["ΚΑΔ 2008", "Περιγραφή ΚΑΔ 2008", "ΚΑΔ 2025", "Περιγραφή ΚΑΔ 2025", "Κατάσταση"],
-      ...results.map((r) => [r.kad2008, r.desc2008, r.kad2025, r.desc2025, r.kad2008 === r.kad2025 ? "Αμετάβλητος" : "Άλλαξε"]),
+      ...results.map((r) => [F(r.kad2008), r.desc2008, F(r.kad2025), r.desc2025, r.kad2008 === r.kad2025 ? "Αμετάβλητος" : "Άλλαξε"]),
       [],
       ["Πηγή: www.kad2025.gr — Αντιστοίχιση ΚΑΔ 2008 & 2025"],
       ["Δεδομένα ΑΑΔΕ Α.1003/2026 & Α.1004/2026"],
@@ -335,8 +338,8 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
                 Εμφάνιση Αποτελεσμάτων με τελείες (πχ 55.20)
               </label>
               <button onClick={() => window.print()} className="btn btn-ghost" style={{ fontSize: "0.8rem" }}>🖨️</button>
-              <button onClick={() => { exportExcel(results, mode); trackExcelExport(results.length, mode); }} className="btn btn-ghost" style={{ fontSize: "0.8rem" }}>📊 Excel</button>
-              <button onClick={() => { exportCSV(results, mode); trackCsvExport(results.length, mode); }} className="btn btn-ghost" style={{ fontSize: "0.8rem" }}>📥 CSV</button>
+              <button onClick={() => { exportExcel(results, mode, showDots); trackExcelExport(results.length, mode); }} className="btn btn-ghost" style={{ fontSize: "0.8rem" }}>📊 Excel</button>
+              <button onClick={() => { exportCSV(results, mode, showDots); trackCsvExport(results.length, mode); }} className="btn btn-ghost" style={{ fontSize: "0.8rem" }}>📥 CSV</button>
             </div>
           )}
         </div>
@@ -354,7 +357,7 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
         {paginated.map((r, i) => (
           <div key={`${r.kad2008}-${r.kad2025}-${i}`}>
             <ResultCard record={r} mode={mode} query={query} copied={copied} setCopied={setCopied} showDots={showDots} ssgCodes={ssgCodes} />
-            <NaceNotesPanel code2025={r.kad2025} defaultOpen={i === 0} onSeeRef={(q) => setQuery(q)} />
+            <NaceNotesPanel code2025={r.kad2025} defaultOpen={false} onSeeRef={(q) => setQuery(q)} />
           </div>
         ))}
       </div>
@@ -364,6 +367,8 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
           <button className="btn btn-primary" onClick={() => setPage((p) => p + 1)}>Φόρτωση περισσότερων ({results.length - paginated.length} ακόμα)</button>
         </div>
       )}
+
+      {results.length > 0 && <AdSlotBanner variant="inline" />}
     </div>
   );
 }

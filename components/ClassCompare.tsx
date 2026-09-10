@@ -44,19 +44,19 @@ function Column({ code }: { code: string }) {
       {note.inc.length > 0 && (<>
         <div style={{ fontWeight: 700, color: "var(--success)", fontSize: "0.78rem" }}>✅ Περιλαμβάνει</div>
         <ul style={{ margin: "0.2rem 0 0.7rem", paddingLeft: "1.1rem", fontSize: "0.85rem", display: "grid", gap: "0.15rem" }}>
-          {note.inc.slice(0, 6).map((x, i) => <li key={i}>{x}</li>)}
+          {note.inc.map((x, i) => <li key={i}>{x}</li>)}
         </ul>
       </>)}
       {note.also.length > 0 && (<>
         <div style={{ fontWeight: 700, color: "var(--primary)", fontSize: "0.78rem" }}>➕ Επίσης</div>
         <ul style={{ margin: "0.2rem 0 0.7rem", paddingLeft: "1.1rem", fontSize: "0.85rem", display: "grid", gap: "0.15rem" }}>
-          {note.also.slice(0, 3).map((x, i) => <li key={i}>{x}</li>)}
+          {note.also.map((x, i) => <li key={i}>{x}</li>)}
         </ul>
       </>)}
       {note.exc.length > 0 && (<>
         <div style={{ fontWeight: 700, color: "var(--acc-red, #d9534f)", fontSize: "0.78rem" }}>🚫 Δεν περιλαμβάνει</div>
         <ul style={{ margin: "0.2rem 0 0.4rem", paddingLeft: "1.1rem", fontSize: "0.85rem", display: "grid", gap: "0.18rem" }}>
-          {note.exc.slice(0, 6).map((e, i) => <li key={i}>{e.x}{e.see.length > 0 && <span style={{ color: "var(--text-muted)" }}> → {e.see.join(", ")}</span>}</li>)}
+          {note.exc.map((e, i) => <li key={i}>{e.x}{e.see.length > 0 && <span style={{ color: "var(--text-muted)" }}> → {e.see.join(", ")}</span>}</li>)}
         </ul>
       </>)}
     </div>

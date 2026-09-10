@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AdSlotBanner from "./AdSlotBanner";
 
 export default function Footer() {
   return (
@@ -110,6 +111,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 1rem" }}><AdSlotBanner variant="footer" /></div>
     </footer>
   );
 }

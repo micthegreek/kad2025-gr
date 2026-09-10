@@ -88,27 +88,17 @@ export default function NaceNotesPanel({
           <div>
             <div style={{ fontWeight: 700, color: "var(--success)", fontSize: "0.78rem", marginBottom: "0.2rem" }}>✅ Περιλαμβάνει</div>
             <ul style={{ margin: 0, paddingLeft: "1.1rem", display: "grid", gap: "0.15rem" }}>
-              {note.inc.slice(0, 8).map((x, i) => (
+              {note.inc.map((x, i) => (
                 <li key={i}>{x}</li>
               ))}
             </ul>
-            {note.inc.length > 8 && (
-              <details style={{ marginTop: "0.2rem" }}>
-                <summary style={{ cursor: "pointer", fontSize: "0.78rem", color: "var(--text-muted)" }}>+ {note.inc.length - 8} ακόμη</summary>
-                <ul style={{ margin: "0.2rem 0 0", paddingLeft: "1.1rem", display: "grid", gap: "0.15rem" }}>
-                  {note.inc.slice(8).map((x, i) => (
-                    <li key={i}>{x}</li>
-                  ))}
-                </ul>
-              </details>
-            )}
           </div>
         )}
         {note.also.length > 0 && (
           <div>
             <div style={{ fontWeight: 700, color: "var(--primary)", fontSize: "0.78rem", marginBottom: "0.2rem" }}>➕ Περιλαμβάνει επίσης</div>
             <ul style={{ margin: 0, paddingLeft: "1.1rem", display: "grid", gap: "0.15rem" }}>
-              {note.also.slice(0, 6).map((x, i) => (
+              {note.also.map((x, i) => (
                 <li key={i}>{x}</li>
               ))}
             </ul>
@@ -118,7 +108,7 @@ export default function NaceNotesPanel({
           <div>
             <div style={{ fontWeight: 700, color: "var(--acc-red, #d9534f)", fontSize: "0.78rem", marginBottom: "0.2rem" }}>🚫 Δεν περιλαμβάνει (ταξινομείται αλλού)</div>
             <ul style={{ margin: 0, paddingLeft: "1.1rem", display: "grid", gap: "0.2rem" }}>
-              {note.exc.slice(0, 8).map((e, i) => (
+              {note.exc.map((e, i) => (
                 <li key={i}>
                   {e.x}
                   {e.see.map(chip)}

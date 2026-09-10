@@ -4,6 +4,7 @@ import canonicalRaw from "@/public/data/canonical_indexable_kads.json";
 import clsFbRaw from "@/lib/class_titles_fallback.json";
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlotBanner from "@/components/AdSlotBanner";
 import { notFound } from "next/navigation";
 import { getKadData } from "@/lib/kadData";
 import ssgCodesRaw from "@/public/data/ssg_codes.json";
@@ -393,6 +394,7 @@ export default async function KladosDetailPage({
           ))}
         </section>
 
+        <AdSlotBanner variant="compact" />
         <h2>Συχνές Ερωτήσεις — ΚΑΔ {def.name}</h2>
         {buildKladosFaq(def.name, SECTION_STATS[section] ?? { total: 0, changed: 0, pct: 0 }, (naceNotesFull as { divisions: Record<string, { inc: string[] }> }).divisions[section]?.inc?.[0]).map((f, i) => (
           <details key={i} style={{ margin: "0.5rem 0", padding: "0.5rem 0.75rem", border: "1px solid var(--border, #333)", borderRadius: "8px" }}>
