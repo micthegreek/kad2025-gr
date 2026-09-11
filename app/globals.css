@@ -267,3 +267,14 @@ details.nace-expand[open] summary .lbl-less { display: inline; }
   margin-left:.35rem;transition:background .2s,border-color .2s}
 .nav-ad-link:hover{background:rgba(217,119,6,.24);border-color:var(--ad-accent)}
 @media (max-width:1100px){.nav-ad-link{display:none}}
+
+/* v136: γραμμή διαφημιστικής προβολής κάτω από το navbar */
+.nav-ad-row{display:flex;justify-content:center;padding:.4rem 1rem;
+  background:linear-gradient(90deg,transparent,var(--ad-tint) 20%,var(--ad-tint) 80%,transparent);
+  border-top:1px solid var(--border)}
+.nav-ad-link{display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .9rem;border-radius:20px;
+  font-size:.78rem;font-weight:700;color:var(--ad-accent-dark);border:1.5px solid var(--ad-accent);
+  background:var(--bg-card);text-decoration:none;white-space:nowrap;transition:all .2s}
+.nav-ad-link:hover{background:var(--ad-accent);color:#fff;transform:translateY(-1px);
+  box-shadow:0 3px 10px rgba(217,119,6,.3)}
+@media (max-width:620px){.nav-ad-link{font-size:.72rem;padding:.3rem .7rem}}
