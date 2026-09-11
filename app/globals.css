@@ -235,7 +235,7 @@ details.nace-expand[open] summary .lbl-less { display: inline; }
 /* ═══ v131: Διαφημιστική θέση — amber, υψηλή ορατότητα ═══ */
 :root{--ad-accent:#d97706;--ad-accent-dark:#b45309;--ad-tint:#fffbf3}
 [data-theme="dark"]{--ad-tint:rgba(217,119,6,.08)}
-.adslot-label{display:inline-block;background:var(--ad-accent);color:#fff;font-size:.63rem;font-weight:800;
+.adslot-label{display:inline-flex;align-items:center;gap:.35rem;background:var(--ad-accent);color:#fff;font-size:.63rem;font-weight:800;
   letter-spacing:.11em;text-transform:uppercase;padding:.3rem .7rem;border-radius:6px}
 .adslot-cta{padding:.72rem 1.3rem;border-radius:9px;background:var(--ad-accent);color:#fff;font-weight:800;
   font-size:.92rem;transition:background .2s}
@@ -248,13 +248,22 @@ details.nace-expand[open] summary .lbl-less { display: inline; }
   font-size:.87rem;text-decoration:none;color:var(--text);background:var(--ad-tint)}
 /* Δεξιά στήλη — μόνο σε ευρείες οθόνες, στο ύψος των αποτελεσμάτων */
 .adslot-rail{display:none}
-@media (min-width:1400px){
-  .adslot-rail{display:block;position:fixed;top:355px;right:max(16px,calc((100vw - 1100px)/2 - 300px));
-    width:270px;z-index:20}
-  .adslot-rail .adslot-box{padding:1.1rem 1.2rem}
+/* Container 1200px κεντραρισμένο. Το rail χωράει μόνο όταν:
+   (100vw-1200)/2 >= 240(rail) + 20(gap) + 12(margin)  →  100vw >= 1744px */
+@media (min-width:1750px){
+  .adslot-rail{display:block;position:fixed;top:355px;right:calc(50vw - 860px);
+    width:240px;z-index:20}
+  .adslot-rail .adslot-box{padding:1rem 1.1rem}
   .adslot-inline{display:none}
 }
-@media (min-width:1400px) and (max-height:820px){
+@media (min-width:1750px) and (max-height:820px){
   .adslot-rail{top:230px}
 }
 
+
+.nav-ad-link{display:inline-flex;align-items:center;gap:.3rem;padding:.32rem .7rem;border-radius:8px;
+  font-size:.74rem;font-weight:700;color:var(--ad-accent);background:rgba(217,119,6,.12);
+  border:1px solid rgba(217,119,6,.45);text-decoration:none;white-space:nowrap;flex-shrink:0;
+  margin-left:.35rem;transition:background .2s,border-color .2s}
+.nav-ad-link:hover{background:rgba(217,119,6,.24);border-color:var(--ad-accent)}
+@media (max-width:1100px){.nav-ad-link{display:none}}

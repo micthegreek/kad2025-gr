@@ -106,7 +106,7 @@ export default function Page() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.2rem" }}>
           <div>
             <p style={{ margin: "0 0 0.5rem", fontWeight: 800, fontSize: "0.97rem" }}>
-              ✅ Ιδανικό για λογιστές &amp; φοροτεχνικούς
+              {<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, verticalAlign: "-2px" }} aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>}{" "}Ιδανικό για λογιστές &amp; φοροτεχνικούς
             </p>
             <p style={{ margin: 0, fontSize: "0.9rem", color: "var(--text-muted)", lineHeight: 1.6 }}>
               που αναζητούν νέους πελάτες, τη στιγμή που άλλοι επαγγελματίες και επιχειρήσεις
@@ -115,7 +115,7 @@ export default function Page() {
           </div>
           <div>
             <p style={{ margin: "0 0 0.5rem", fontWeight: 800, fontSize: "0.97rem" }}>
-              ✅ Ιδανικό για επιχειρήσεις που απευθύνονται σε επαγγελματίες &amp; ΜμΕ
+              {<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, verticalAlign: "-2px" }} aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>}{" "}Ιδανικό για επιχειρήσεις που απευθύνονται σε επαγγελματίες &amp; ΜμΕ
             </p>
             <ul style={{ margin: 0, paddingLeft: "1.1rem", fontSize: "0.88rem", color: "var(--text-muted)",
               lineHeight: 1.7, columns: 1 }}>
@@ -235,7 +235,8 @@ export default function Page() {
                 textDecoration: "none", textAlign: "center",
               }}
             >
-              👁 Δείτε πραγματικό παράδειγμα σε αυτή τη θέση →
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }} aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.8"/></svg>
+              Δείτε πραγματικό παράδειγμα σε αυτή τη θέση →
             </Link>
           </div>
         ))}
@@ -248,7 +249,7 @@ export default function Page() {
 
       <div style={{ ...CARD, marginTop: "1.2rem", padding: "1.3rem 1.5rem", border: "2px solid var(--ad-accent)" }}>
         <h3 style={{ fontSize: "1.05rem", margin: "0 0 0.9rem", letterSpacing: "0.02em" }}>
-          🎯 Έκπτωση μακροχρόνιας συνεργασίας
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, verticalAlign: "-2px" }} aria-hidden="true"><path d="M20.6 13.4 12 22l-9-9V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.4" fill="currentColor"/></svg> Έκπτωση μακροχρόνιας συνεργασίας
         </h3>
         <div style={{ display: "grid", gap: "0.6rem" }}>
           {[

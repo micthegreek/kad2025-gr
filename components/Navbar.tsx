@@ -265,6 +265,17 @@ export default function Navbar() {
               </div>
             )}
           </div>
+
+          <Link href="/diafimisi" className="nav-ad-link" title="Διαφημιστείτε στο kad2025.gr">
+
+
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h2l3.5 4.5a1 1 0 0 0 1.8-.6V6.1a1 1 0 0 0-1.8-.6L6 10H4a1 1 0 0 0-1 1Z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6.5a8 8 0 0 1 0 11"/></svg>
+
+
+            Διαφημιστείτε
+
+
+          </Link>
         </div>
 
         {/* Right side: site search + dark mode + mobile */}
@@ -373,8 +384,6 @@ export default function Navbar() {
         nav a:hover { opacity: 1; background: rgba(255,255,255,0.1) !important; color: white !important; }
       `}</style>
             <LangSwitcher />
-
-      <Link href="/diafimisi" style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", padding: "0.3rem 0.6rem", borderRadius: 8, fontSize: "0.72rem", fontWeight: 700, color: "var(--ad-accent)", border: "1px solid var(--ad-accent)", textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0 }} title="Διαφημιστείτε στο kad2025.gr">📢 Διαφημιστείτε</Link>
 
       </nav>
   );

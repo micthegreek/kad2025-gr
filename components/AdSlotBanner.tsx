@@ -14,7 +14,12 @@ export default function AdSlotBanner({ variant = "inline" }: { variant?: "inline
       (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "adslot_click", { variant });
   };
 
-  const LABEL = <span className="adslot-label">Διαθέσιμη διαφημιστική θέση</span>;
+  const LABEL = (
+    <span className="adslot-label">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }} aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h2l3.5 4.5a1 1 0 0 0 1.8-.6V6.1a1 1 0 0 0-1.8-.6L6 10H4a1 1 0 0 0-1 1Z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6.5a8 8 0 0 1 0 11"/></svg>
+      Διαθέσιμη διαφημιστική θέση
+    </span>
+  );
   const TITLE = "Θέλετε να προβληθείτε εδώ;";
   const SUB = "Στοχευμένη επικοινωνία με επιχειρηματικό κοινό.";
   const BODY = "Το kad2025.gr προσφέρει περιορισμένες θέσεις προβολής για επιχειρήσεις που απευθύνονται σε λογιστές, επιχειρήσεις, νέους επιχειρηματίες, συμβούλους επιχειρήσεων κ.ά.";
