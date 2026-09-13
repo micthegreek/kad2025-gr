@@ -17,7 +17,7 @@ export default function TermsPage() {
 
       <h1 style={{ marginBottom: "0.4rem" }}>Όροι Χρήσης</h1>
       <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "2rem" }}>
-        Τελευταία ενημέρωση: <strong>Απρίλιος 2026</strong> · Ισχύει για: <strong>www.kad2025.gr</strong>
+        Τελευταία ενημέρωση: <strong>Σεπτέμβριος 2026</strong> · Ισχύει για: <strong>www.kad2025.gr</strong>
       </p>
 
       <div style={{ background: "var(--info-bg)", border: "1px solid var(--info-border)", borderRadius: "var(--radius)", padding: "1rem", marginBottom: "2rem", fontSize: "0.875rem", lineHeight: 1.7, color: "var(--info-text)" }}>

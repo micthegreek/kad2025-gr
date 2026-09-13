@@ -53,14 +53,14 @@ export default function ProthesmiaPage() {
         ⏰ Κρίσιμη προθεσμία: <strong>30 Οκτωβρίου 2026</strong> — μετά ισχύουν κυρώσεις
       </div>
 
-      {/* Extension banner Α.1113/2026 */}
+      {/* Extension banner Α.1118/2026 */}
       <div style={{ background: "var(--success-bg)", border: "2px solid var(--success)", borderRadius: "var(--radius)", padding: "1rem 1.25rem", marginBottom: "1.5rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.4rem" }}>
           <span style={{ fontSize: "1.1rem" }}>🟢</span>
-          <strong style={{ color: "#15803d" }}>Νέα: Παράταση έως 30 Οκτωβρίου 2026 — ΑΑΔΕ Α.1113/2026</strong>
+          <strong style={{ color: "#15803d" }}>Νέα: Παράταση έως 30 Οκτωβρίου 2026 — ΑΑΔΕ Α.1118/2026</strong>
         </div>
         <p style={{ fontSize: "0.875rem", lineHeight: 1.7, color: "var(--success-strong)", margin: "0 0 0.4rem" }}>
-          Με την απόφαση <strong>Α.1113/2026</strong> του Διοικητή ΑΑΔΕ, η προθεσμία χωρίς πρόστιμο μετατέθηκε
+          Με την απόφαση <strong>Α.1118/2026</strong> του Διοικητή ΑΑΔΕ, η προθεσμία χωρίς πρόστιμο μετατέθηκε
           από την 1η Ιουνίου στις <strong>30 Οκτωβρίου 2026</strong>.
           Ισχύει υπό την προϋπόθεση ότι δεν έχει υποβληθεί δήλωση μεταβολής ΚΑΔ για έδρα
           ή υποκατάστημα μετά την 1/3/2026.

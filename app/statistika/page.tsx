@@ -108,7 +108,7 @@ export default function StatistikaPage() {
           </div>
         </div>
         <p style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
-          Από τους {data.length.toLocaleString("el-GR")} συνολικούς κωδικούς, οι{" "}
+          Από τις {data.length.toLocaleString("el-GR")} συνολικές εγγραφές αντιστοίχισης, οι{" "}
           <strong>{changed.toLocaleString("el-GR")}</strong> ({changePercent}%) αντιστοιχίστηκαν σε νέο κωδικό,
           ενώ οι <strong>{unchanged.toLocaleString("el-GR")}</strong> παρέμειναν αμετάβλητοι.
         </p>

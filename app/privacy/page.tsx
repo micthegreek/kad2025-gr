@@ -30,7 +30,7 @@ export default function PrivacyPage() {
 
       <h1 style={{ marginBottom: "0.4rem" }}>Πολιτική Απορρήτου & Cookies</h1>
       <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "0.5rem" }}>
-        Τελευταία ενημέρωση: <strong>Απρίλιος 2026</strong>
+        Τελευταία ενημέρωση: <strong>Σεπτέμβριος 2026</strong>
       </p>
       <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "2rem" }}>
         Ισχύει για: <strong>www.kad2025.gr</strong>
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
         <ul style={{ fontSize: "0.88rem", lineHeight: 1.8, color: "var(--info-text)", paddingLeft: "1.25rem" }}>
           <li>Δεν συλλέγουμε ονόματα, email ή άλλα προσωπικά δεδομένα κατά τη χρήση των εργαλείων μας.</li>
           <li>Χρησιμοποιούμε <strong>Google Analytics</strong> για ανώνυμα στατιστικά επισκεψιμότητας.</li>
-          <li>Χρησιμοποιούμε <strong>Google AdSense</strong> για εμφάνιση διαφημίσεων — η Google ενδέχεται να χρησιμοποιεί cookies για εξατομίκευση.</li>
+          <li><strong>Δεν προβάλλονται αυτή τη στιγμή διαφημίσεις Google AdSense.</strong> Εφόσον εγκριθεί η σχετική αίτηση, ενδέχεται να ενεργοποιηθούν κατόπιν της απαιτούμενης συναίνεσής σας.</li>
           <li>Μπορείτε να αρνηθείτε τα διαφημιστικά cookies οποτεδήποτε.</li>
           <li>Δεν πωλούμε δεδομένα σε τρίτους.</li>
         </ul>

@@ -65,7 +65,7 @@ export default function TiEinaiKadPage() {
         <p style={{ fontSize: "0.875rem", lineHeight: 1.8, color: "var(--text-muted)" }}>
           Φανταστείτε τον ΚΑΔ ως τη <strong>«ταυτότητα δραστηριότητας»</strong> της επιχείρησής σας.
           Όταν κάνετε έναρξη στην εφορία, δηλώνετε τον ΚΑΔ που περιγράφει τι πουλάτε ή τι υπηρεσίες παρέχετε.
-          Για παράδειγμα, ένα εστιατόριο έχει ΚΑΔ <strong>56101000</strong>, ένα κομμωτήριο <strong>96021000</strong>.
+          Για παράδειγμα, ένα εστιατόριο έχει ΚΑΔ <strong>56110000</strong>, ένα κομμωτήριο <strong>96021000</strong>.
         </p>
       </section>
 
@@ -77,7 +77,7 @@ export default function TiEinaiKadPage() {
             { digits: "2 ψηφία", example: "56", desc: "Τομέας (π.χ. Εστίαση)" },
             { digits: "4 ψηφία", example: "5610", desc: "Κλάδος (π.χ. Εστιατόρια)" },
             { digits: "6 ψηφία", example: "561010", desc: "Ομάδα" },
-            { digits: "8 ψηφία", example: "56101000", desc: "Πλήρης ΚΑΔ (μοναδικός)" },
+            { digits: "8 ψηφία", example: "56110000", desc: "Πλήρης ΚΑΔ (μοναδικός)" },
           ].map((s) => (
             <div key={s.digits} className="card" style={{ textAlign: "center" }}>
               <div style={{ fontFamily: "monospace", fontSize: "1.3rem", fontWeight: 800, color: "var(--primary)", marginBottom: "0.25rem" }}>{s.example}</div>

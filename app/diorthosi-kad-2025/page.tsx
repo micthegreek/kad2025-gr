@@ -28,7 +28,7 @@ const jsonLd = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "Μέχρι πότε μπορώ να διορθώσω χωρίς πρόστιμο;", acceptedAnswer: { "@type": "Answer", text: "Έως 30 Οκτωβρίου 2026 (Α.1113/2026), μέσω Μεταβολής Εργασιών στο myaade.gov.gr." } },
+        { "@type": "Question", name: "Μέχρι πότε μπορώ να διορθώσω χωρίς πρόστιμο;", acceptedAnswer: { "@type": "Answer", text: "Έως 30 Οκτωβρίου 2026 (Α.1118/2026), μέσω Μεταβολής Εργασιών στο myaade.gov.gr." } },
         { "@type": "Question", name: "Πόσο κοστίζει η διόρθωση ΚΑΔ;", acceptedAnswer: { "@type": "Answer", text: "Η ίδια η διαδικασία μέσω myAADE είναι δωρεάν. Το κόστος λογιστή (αν χρησιμοποιήσετε) ποικίλει." } },
       ],
     },
@@ -58,7 +58,7 @@ export default function DiorthosiKad2025Page() {
       </h1>
 
       <p style={{ fontSize: "1rem", lineHeight: 1.8, color: "var(--text-muted)", marginBottom: "2rem", borderLeft: "3px solid var(--primary)", paddingLeft: "1rem" }}>
-        Η ΑΑΔΕ έδωσε προθεσμία έως <strong>30 Οκτωβρίου 2026 (Α.1113/2026)</strong> για διόρθωση λανθασμένης
+        Η ΑΑΔΕ έδωσε προθεσμία έως <strong>30 Οκτωβρίου 2026 (Α.1118/2026)</strong> για διόρθωση λανθασμένης
         αντιστοίχισης ΚΑΔ χωρίς πρόστιμο. Ορίστε πότε χρειάζεται και πώς γίνεται η διαδικασία.
       </p>
 
@@ -66,7 +66,7 @@ export default function DiorthosiKad2025Page() {
       <div style={{ background: "var(--warn-bg)", border: "2px solid var(--warn-border)", borderRadius: "var(--radius)", padding: "1rem 1.25rem", marginBottom: "1.5rem", display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
         <span style={{ fontSize: "1.5rem", flexShrink: 0 }}>⏰</span>
         <div>
-          <div style={{ fontWeight: 700, color: "var(--warn-strong)", marginBottom: "0.25rem" }}>Προθεσμία: 30 Οκτωβρίου 2026 (Α.1113/2026)</div>
+          <div style={{ fontWeight: 700, color: "var(--warn-strong)", marginBottom: "0.25rem" }}>Προθεσμία: 30 Οκτωβρίου 2026 (Α.1118/2026)</div>
           <div style={{ fontSize: "0.875rem", color: "var(--warn-text)", lineHeight: 1.6 }}>
             Η διόρθωση ΚΑΔ χωρίς πρόστιμο ισχύει μέχρι αυτή την ημερομηνία.
             Μετά εφαρμόζονται κυρώσεις για εκπρόθεσμη μεταβολή εργασιών.

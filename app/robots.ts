@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/data/", "/antistoixisi?*", "/antistoixisi-2025?*", "/kad-2008?*", "/kad-2025?*"],
+        disallow: ["/api/", "/data/"],
       },
       // Explicitly allow all AI crawlers (override Cloudflare managed block)
       { userAgent: "GPTBot", allow: "/" },

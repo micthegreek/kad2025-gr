@@ -76,7 +76,7 @@ export default function SygkrisiClient() {
     return () => clearTimeout(t);
   }, [codeB, lookup]);
 
-  const sameKlados = resultA && resultB && resultA.kad2025.slice(0, 2) === resultB.kad2025.slice(0, 2);
+  const sameKlados = resultA && resultB && resultA.kad2025.padStart(8, "0").slice(0, 2) === resultB.kad2025.padStart(8, "0").slice(0, 2);
 
   return (
     <div>

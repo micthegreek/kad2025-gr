@@ -5,7 +5,7 @@ import AdSlotBanner from "@/components/AdSlotBanner";
 export const metadata: Metadata = {
   title: "Πώς Διορθώνω τον ΚΑΔ μου στο myAADE 2026",
   description:
-    "Αναλυτικός οδηγός για τη διόρθωση λανθασμένου ΚΑΔ 2025 στο myAADE: ηλεκτρονικά μέσω Μεταβολής Εργασιών ή με έντυπο Δ211. Προθεσμία 30 Οκτωβρίου 2026 (Α.1113/2026).",
+    "Αναλυτικός οδηγός για τη διόρθωση λανθασμένου ΚΑΔ 2025 στο myAADE: ηλεκτρονικά μέσω Μεταβολής Εργασιών ή με έντυπο Δ211. Προθεσμία 30 Οκτωβρίου 2026 (Α.1118/2026).",
   alternates: { canonical: "https://www.kad2025.gr/blog/pos-na-diorthoso-kad-myaade" },
 };
 
@@ -35,7 +35,7 @@ export default function PosNaDiorthosoKadPage() {
       </h1>
 
       <div style={{ background: "var(--warn-bg)", border: "1px solid var(--warn-border)", borderRadius: "var(--radius)", padding: "1rem", marginBottom: "1.5rem" }}>
-        <strong style={{ color: "var(--warn-strong)" }}>📅 Προθεσμία: 30 Οκτωβρίου 2026 (Α.1113/2026)</strong>
+        <strong style={{ color: "var(--warn-strong)" }}>📅 Προθεσμία: 30 Οκτωβρίου 2026 (Α.1118/2026)</strong>
         <p style={{ fontSize: "0.875rem", color: "var(--warn-text)", lineHeight: 1.7, margin: "0.25rem 0 0" }}>
           Έως αυτή την ημερομηνία μπορείτε να διορθώσετε τον ΚΑΔ σας χωρίς πρόστιμο. Μετά, η
           διόρθωση παραμένει δυνατή αλλά με επιβολή προστίμου εκπρόθεσμης μεταβολής.

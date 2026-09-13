@@ -60,7 +60,7 @@ export default function AboutPage() {
 
       <h1 style={{ marginBottom: "0.4rem" }}>Σχετικά με το kad2025.gr</h1>
       <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "2rem" }}>
-        Τελευταία ενημέρωση: Απρίλιος 2026
+        Τελευταία ενημέρωση: Σεπτέμβριος 2026
       </p>
 
       {/* Mission statement */}

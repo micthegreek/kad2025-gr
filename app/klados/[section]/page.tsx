@@ -140,7 +140,7 @@ const FULL_LADDER: Record<string, { cls: string; title: string; codes: string[] 
 
 function buildKladosFaq(name: string, st: { total: number; changed: number; pct: number }, offIntro?: string) {
   return [
-    { q: `Πόσοι ΚΑΔ άλλαξαν στον κλάδο ${name} το 2025;`, a: `Στον κλάδο ${name} άλλαξαν ${st.changed} από τους ${st.total} κωδικούς (${st.pct}%), βάσει της αντιστοίχισης ΚΑΔ 2008 → 2025 της ΑΑΔΕ (Α.1003/2026, NACE Rev.2.1).` },
+    { q: `Πόσοι ΚΑΔ άλλαξαν στον κλάδο ${name} το 2025;`, a: `Στον κλάδο ${name} άλλαξαν ${st.changed} από τους ${st.total} παλαιούς ΚΑΔ 2008 (${st.pct}%), βάσει της αντιστοίχισης ΚΑΔ 2008 → 2025 της ΑΑΔΕ (Α.1003/2026, NACE Rev.2.1).` },
     { q: `Τι πρέπει να κάνω αν η επιχείρησή μου έχει ΚΑΔ του κλάδου ${name};`, a: `Ελέγξτε την αντιστοίχιση του κωδικού σας στη λίστα αυτής της σελίδας ή στο εργαλείο αντιστοίχισης. Οι νέοι ΚΑΔ 2025 ισχύουν από 1/3/2026, ενώ διορθώσεις στο μητρώο μπορούν να γίνουν έως 30/10/2026 μέσω myAADE.` },
     { q: `Ισχύουν ακόμα οι παλιοί ΚΑΔ 2008 του κλάδου ${name};`, a: `Οι παλιοί κωδικοί 2008 αντικαταστάθηκαν από τους ΚΑΔ 2025. Για όσους δεν έγινε χειροκίνητη μετάβαση, πραγματοποιήθηκε αυτόματη αντιστοίχιση στις 9/3/2026 — καλό είναι όμως να επιβεβαιώσετε ότι ο νέος κωδικός περιγράφει σωστά τη δραστηριότητά σας.` },
     { q: `Πού βλέπω όλους τους νέους ΚΑΔ του κλάδου ${name};`, a: `Σε αυτή τη σελίδα εμφανίζεται η πλήρης λίστα αντιστοίχισης του κλάδου. Μπορείτε επίσης να κατεβάσετε τον πλήρη πίνακα σε Excel ή να αναζητήσετε συγκεκριμένο κωδικό.` },
@@ -298,7 +298,7 @@ export default async function KladosDetailPage({
 
       {/* KAD list - ALL codes, grouped by changed/unchanged */}
       <h2 style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
-        ΚΑΔ — {def.name} ({uniqueList.length.toLocaleString("el-GR")} κωδικοί)
+        ΚΑΔ — {def.name} ({uniqueList.length.toLocaleString("el-GR")} ενεργοί ΚΑΔ 2025)
       </h2>
 
       {/* Changed KADs - first 200 for SEO internal linking */}
@@ -376,7 +376,7 @@ export default async function KladosDetailPage({
         <section className="card" style={{ marginTop: "1.25rem", padding: "1rem 1.15rem" }}>
           <h2 style={{ fontSize: "1.05rem", margin: "0 0 0.5rem" }}>📚 Πλήρης λίστα ΚΑΔ του κλάδου — ανά τάξη</h2>
           <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", margin: "0 0 0.7rem" }}>
-            Όλοι οι {(FULL_LADDER[section] ?? []).reduce((a, g) => a + g.codes.length, 0).toLocaleString("el-GR")} ενεργοί κωδικοί του κλάδου, οργανωμένοι στις τάξεις NACE 2.1.
+            Όλοι οι {(FULL_LADDER[section] ?? []).reduce((a, g) => a + g.codes.length, 0).toLocaleString("el-GR")} ενεργοί ΚΑΔ 2025 του κλάδου, οργανωμένοι στις τάξεις NACE 2.1.
           </p>
           {(FULL_LADDER[section] ?? []).map((g) => (
             <details key={g.cls} style={{ margin: "0.35rem 0", border: "1px solid var(--border)", borderRadius: 8, padding: "0.45rem 0.75rem" }}>

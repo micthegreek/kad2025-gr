@@ -123,14 +123,14 @@ export default function PosNaVroPage() {
         <h2 style={{ fontSize: "1.1rem", marginBottom: "0.75rem" }}>Παραδείγματα συνηθισμένων δραστηριοτήτων</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "0.5rem" }}>
           {[
-            { act: "Εστιατόριο", kad: "56101000" },
+            { act: "Εστιατόριο", kad: "56110000" },
             { act: "Κομμωτήριο", kad: "96020000" },
             { act: "Ηλεκτρολόγος", kad: "43210000" },
             { act: "Λογιστής", kad: "69201000" },
-            { act: "Ανάπτυξη λογισμικού", kad: "62010000" },
+            { act: "Ανάπτυξη λογισμικού", kad: "62100000" },
             { act: "Λιανικό e-shop", kad: "47910000" },
             { act: "Φυσιοθεραπεία", kad: "86901000" },
-            { act: "Κατασκευή κτιρίων", kad: "41200000" },
+            { act: "Κατασκευή κτιρίων", kad: "41000000" },
           ].map((ex) => (
             <Link key={ex.kad} href={`/kad/${ex.kad}`} style={{ textDecoration: "none" }}>
               <div style={{ padding: "0.6rem 0.9rem", background: "var(--bg)", border: "1px solid var(--border)", borderRadius: 8, fontSize: "0.85rem", transition: "border-color 0.2s" }}>

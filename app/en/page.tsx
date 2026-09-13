@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const faq = [
   { q: "What is a KAD code?", a: "KAD (Κωδικός Αριθμός Δραστηριότητας) is Greece's official business activity classification, the national extension of the EU's NACE system. Every Greek company and freelancer is registered under one primary and optional secondary KAD codes in the AADE tax registry." },
   { q: "What changed in 2026?", a: "On March 1, 2026 Greece adopted KAD 2025, based on NACE Rev.2.1 (AADE decisions A.1003/2026 and A.1004/2026). 66.3% of the 10,923 mapping entries received a new code number; the tax authority migrated all registrations automatically on March 9, 2026." },
-  { q: "Is there a deadline?", a: "Yes. Businesses can review and correct their automatically assigned codes free of charge until October 30, 2026 (decision A.1113/2026), via the myAADE portal." },
+  { q: "Is there a deadline?", a: "Yes. Businesses can review and correct their automatically assigned codes free of charge until October 30, 2026 (decision A.1118/2026), via the myAADE portal." },
   { q: "Can I use this site in English?", a: "The interactive tools display official Greek code descriptions, but the search works with plain code numbers — type any old 8-digit KAD into the mapping tool to see its 2025 equivalent instantly. The full table is also available as a free Excel download." },
 ];
 
@@ -78,7 +78,7 @@ export default function EnglishPage() {
           <Link href="/maziki-2008" className="btn btn-ghost" style={{ fontSize: "0.88rem" }}>📦 Bulk mapping (paste a list)</Link>
         </div>
         <p style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "0.75rem", lineHeight: 1.6 }}>
-          Tip: paste the 8-digit code without dots (e.g. 62010000). Descriptions are shown in
+          Tip: paste the 8-digit code without dots (e.g. 62100000). Descriptions are shown in
           Greek, as published by the tax authority.
         </p>
       </div>
@@ -96,7 +96,7 @@ export default function EnglishPage() {
       </div>
 
       <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", lineHeight: 1.7 }}>
-        Sources: AADE decisions A.1003/2026, A.1004/2026 and A.1113/2026. This page is informational
+        Sources: AADE decisions A.1003/2026, A.1004/2026 and A.1118/2026. This page is informational
         and not legal or tax advice. Ελληνική έκδοση: <Link href="/" style={{ color: "var(--primary)" }}>kad2025.gr</Link>
       </p>
 

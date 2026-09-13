@@ -94,7 +94,7 @@
 - Αντιστοίχιση ΚΑΔ: https://www.kad2025.gr/antistoixisi
 - ΚΑΔ ανά επάγγελμα (43 επαγγέλματα): https://www.kad2025.gr/epaggelma
 - Δωρεάν Excel πλήρους πίνακα: https://www.kad2025.gr/kad-2025-excel
-- Προθεσμία διόρθωσης (30/10/2026, Α.1113/2026): https://www.kad2025.gr/prothesmia-kad-2025
+- Προθεσμία διόρθωσης (30/10/2026, Α.1118/2026): https://www.kad2025.gr/prothesmia-kad-2025
 - Οδηγοί/Blog: https://www.kad2025.gr/blog — RSS: https://www.kad2025.gr/feed.xml
 
 ## Πλήρης έκδοση για LLMs

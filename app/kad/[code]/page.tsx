@@ -78,7 +78,7 @@ for (const r of DATA) {
   const stripped = r.kad2008.replace(/^0+/, "");
   if (!BY_STRIPPED_2008_FIRST.has(stripped)) BY_STRIPPED_2008_FIRST.set(stripped, r);
 
-  const p4 = r.kad2025.slice(0, 4);
+  const p4 = r.kad2025.padStart(8, "0").slice(0, 4);
   const ap4 = BY_PREFIX4_2025.get(p4);
   if (ap4) ap4.push(r); else BY_PREFIX4_2025.set(p4, [r]);
 
@@ -275,7 +275,7 @@ function generateUniqueParagraphs(
       );
     } else {
       paragraphs.push(
-        `Ο ΚΑΔ ${r.kad2008} (${r.desc2008}) παρέμεινε αμετάβλητος στη νέα ονοματολογία ΚΑΔ 2025, σύμφωνα με την απόφαση ΑΑΔΕ Α.1003/2026 που ισχύει από την 1η Μαρτίου 2026. Εφόσον η ΑΑΔΕ επιβεβαίωσε τον ίδιο κωδικό κατά την αυτόματη αντιστοίχιση, δεν απαιτείται καμία ενέργεια από τις επιχειρήσεις που τον χρησιμοποιούν — ούτε μεταβολή στο Μητρώο ούτε ενημέρωση παραστατικών.`
+        `Ο ΚΑΔ ${r.kad2008} (${r.desc2008}) παρέμεινε αμετάβλητος στη νέα ονοματολογία ΚΑΔ 2025, σύμφωνα με την απόφαση ΑΑΔΕ Α.1003/2026 που ισχύει από την 1η Μαρτίου 2026. Εφόσον η ΑΑΔΕ επιβεβαίωσε τον ίδιο κωδικό κατά την αυτόματη αντιστοίχιση, δεν προκύπτει αλλαγή αντιστοίχισης για τον συγκεκριμένο κωδικό — ελέγξτε ωστόσο τη συνολική εικόνα Μητρώου και τους υπόλοιπους ΚΑΔ σας στο myAADE από τις επιχειρήσεις που τον χρησιμοποιούν — ούτε μεταβολή στο Μητρώο ούτε ενημέρωση παραστατικών.`
       );
     }
   }
@@ -310,7 +310,7 @@ function generateUniqueParagraphs(
   // Παράγραφος 4 — πρακτική καθοδήγηση ανάλογα με την περίπτωση
   if (changed) {
     paragraphs.push(
-      `Τι πρέπει να κάνετε: συνδεθείτε στο myAADE (Μητρώο & Επικοινωνία → Βεβαιώσεις Μητρώου → Τρέχουσα Εικόνα Οντότητας) και επιβεβαιώστε ότι ο ΚΑΔ ${r.kad2025} αποδίδει σωστά τη δραστηριότητά σας. Αν χρειάζεται διόρθωση, υποβάλλεται μέσω της εφαρμογής «Μεταβολή Εργασιών» χωρίς πρόστιμο έως τις 30 Οκτωβρίου 2026 (απόφαση Α.1113/2026). Ενημερώστε επίσης λογιστή, τιμολογιακά προγράμματα και τυχόν μητρώα (ΓΕΜΗ, επιμελητήρια) ώστε όλα τα συστήματα να αναφέρουν τον ίδιο κωδικό.`
+      `Τι πρέπει να κάνετε: συνδεθείτε στο myAADE (Μητρώο & Επικοινωνία → Βεβαιώσεις Μητρώου → Τρέχουσα Εικόνα Οντότητας) και επιβεβαιώστε ότι ο ΚΑΔ ${r.kad2025} αποδίδει σωστά τη δραστηριότητά σας. Αν χρειάζεται διόρθωση, υποβάλλεται μέσω της εφαρμογής «Μεταβολή Εργασιών» χωρίς πρόστιμο έως τις 30 Οκτωβρίου 2026 (απόφαση Α.1118/2026). Ενημερώστε επίσης λογιστή, τιμολογιακά προγράμματα και τυχόν μητρώα (ΓΕΜΗ, επιμελητήρια) ώστε όλα τα συστήματα να αναφέρουν τον ίδιο κωδικό.`
     );
   }
 
@@ -486,16 +486,30 @@ export default async function KadDetailPage({
   const relatedOld = (BY_2025_ALL.get(r.kad2025) ?? []).filter(
     (x) => x.kad2008 !== r.kad2008 && SSG_CODES.has(x.kad2008)
   );
-  const prefix4 = r.kad2025.slice(0, 4);
+  const prefix4 = r.kad2025.padStart(8, "0").slice(0, 4);
   // Use kad2008 prefix for sector (not kad2025) — prevents cross-sector contamination
   const prefix2 = r.kad2008.padStart(8, "0").slice(0, 2);
   // Same 4-digit prefix of new KAD (closely related activity)
+  const seenRelNew = new Set<string>();
   const relatedNew = (BY_PREFIX4_2025.get(prefix4) ?? [])
-    .filter((x) => x.kad2025 !== r.kad2025 && SSG_CODES.has(x.kad2025))
+    .filter((x) => {
+      if (x.kad2025 === r.kad2025 || !SSG_CODES.has(x.kad2025)) return false;
+      if (seenRelNew.has(x.kad2025)) return false;
+      seenRelNew.add(x.kad2025);
+      return true;
+    })
     .slice(0, 5);
   // Same 2-digit prefix of OLD KAD (same sector) — strict sector match, changed codes only
+  // Ενιαίο seen-set για ΟΛΑ τα εμφανιζόμενα URLs (relatedNew δείχνει kad2025,
+  // relatedSector δείχνει kad2008 — μπορούν να συμπέσουν σε αμετάβλητους κωδικούς)
+  const shownHrefs = new Set<string>([r.kad2008, r.kad2025, ...relatedNew.map((x) => x.kad2025)]);
   const relatedSector = (CHANGED_BY_PREFIX2_2008.get(prefix2) ?? [])
-    .filter((x) => x.kad2008 !== r.kad2008 && !relatedNew.find((n) => n.kad2025 === x.kad2025) && SSG_CODES.has(x.kad2008))
+    .filter((x) => {
+      if (!SSG_CODES.has(x.kad2008)) return false;
+      if (shownHrefs.has(x.kad2008)) return false;
+      shownHrefs.add(x.kad2008);
+      return true;
+    })
     .slice(0, Math.max(0, 8 - relatedNew.length));
 
   // v95: program eligibility (lookup keyed by ΚΑΔ 2025) + rich unique content
@@ -526,7 +540,7 @@ export default async function KadDetailPage({
     },
     {
       q: "Μέχρι πότε μπορώ να διορθώσω τον ΚΑΔ μου χωρίς πρόστιμο;",
-      a: "Έως 30 Οκτωβρίου 2026 (απόφαση Α.1113/2026), μέσω της εφαρμογής Μεταβολή Εργασιών στο myAADE ή μέσω Τα Αιτήματά μου με έντυπο Δ211.",
+      a: "Έως 30 Οκτωβρίου 2026 (απόφαση Α.1118/2026), μέσω της εφαρμογής Μεταβολή Εργασιών στο myAADE ή μέσω Τα Αιτήματά μου με έντυπο Δ211.",
     },
   ];
 
@@ -795,7 +809,7 @@ export default async function KadDetailPage({
             })}
           </div>
           <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "0.75rem", lineHeight: 1.6 }}>
-            Ο νέος ΚΑΔ {r.kad2025} περιλαμβάνεται στις λίστες επιλέξιμων κωδικών των παρακάτω ενεργών προγραμμάτων:
+            Ο νέος ΚΑΔ {r.kad2025} περιλαμβάνεται στις λίστες επιλέξιμων κωδικών των παρακάτω προγραμμάτων:
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginBottom: "0.85rem" }}>
             {eligiblePrograms.map((p) => {

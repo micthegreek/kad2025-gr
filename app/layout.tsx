@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import GlobalAdRail from "@/components/GlobalAdRail";
+import QueryNoindex from "@/components/QueryNoindex";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -201,7 +202,7 @@ gtag('config','G-BSSB8F33SV',{anonymize_ip:true});
           >
             <span>📅</span>
             <span>
-              Υπενθύμιση: Ελέγξτε εγκαίρως την αντιστοίχιση ΚΑΔ σας σύμφωνα με τις{" "}
+              Ελέγξτε την αντιστοίχιση ΚΑΔ σας σύμφωνα με τις{" "}
               <a
                 href="https://myaade.gov.gr"
                 target="_blank"
@@ -211,7 +212,7 @@ gtag('config','G-BSSB8F33SV',{anonymize_ip:true});
                 επίσημες οδηγίες ΑΑΔΕ
               </a>{" "}
               έως{" "}
-              <strong style={{ color: "white" }}>30 Οκτωβρίου 2026</strong>
+              <strong style={{ color: "white" }}>30 Οκτωβρίου 2026</strong> — υπό τις προϋποθέσεις της Α.1118/2026
 .
             </span>
           </div>
@@ -219,6 +220,7 @@ gtag('config','G-BSSB8F33SV',{anonymize_ip:true});
 
         <Navbar />
         <main style={{ minHeight: "calc(100vh - 200px)" }}><main id="main-content">{children}</main></main>
+        <QueryNoindex />
         <GlobalAdRail />
         <Footer />
 

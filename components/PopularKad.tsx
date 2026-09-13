@@ -1,16 +1,17 @@
 import Link from "next/link";
 
-// v56: All codes verified to be in public/data/ssg_codes.json (pre-rendered)
-// Previous version had 6 codes that returned 404. Fixed by using closest SSG-valid alternatives.
+// v140: ΟΛΟΙ οι κωδικοί επαληθευμένοι ότι ανήκουν στο canonical ΚΑΔ 2025 set (9.422)
+// ΚΑΙ στο ssg_codes.json. Πριν εμφανίζονταν 6 κωδικοί ΚΑΔ 2008 (π.χ. 62100000)
+// κάτω από τον τίτλο «Δημοφιλείς ΚΑΔ 2025» — taxonomy version leakage.
 const popular = [
-  { code: "56101000", desc: "Εστιατόρια & Εστίαση", emoji: "🍽️" },
+  { code: "56110000", desc: "Εστιατόρια & Εστίαση", emoji: "🍽️" },
   { code: "47710000", desc: "Ένδυση & Παπούτσια", emoji: "👗" },
-  { code: "62010000", desc: "Ανάπτυξη λογισμικού", emoji: "💻" },
-  { code: "69101000", desc: "Νομικές υπηρεσίες", emoji: "⚖️" },
-  { code: "41200000", desc: "Κατασκευή κτιρίων", emoji: "🏗️" },
+  { code: "62100000", desc: "Ανάπτυξη λογισμικού", emoji: "💻" },
+  { code: "69100000", desc: "Νομικές υπηρεσίες", emoji: "⚖️" },
+  { code: "41000000", desc: "Κατασκευή κτιρίων", emoji: "🏗️" },
   { code: "47910000", desc: "Ηλεκτρονικό εμπόριο", emoji: "🛒" },
-  { code: "86211000", desc: "Γενική ιατρική", emoji: "🏥" },
-  { code: "55101000", desc: "Ξενοδοχεία & Καταλύματα", emoji: "🏨" },
+  { code: "86210000", desc: "Γενική ιατρική", emoji: "🏥" },
+  { code: "55100000", desc: "Ξενοδοχεία & Καταλύματα", emoji: "🏨" },
   { code: "49410000", desc: "Οδικές μεταφορές", emoji: "🚛" },
   { code: "68200000", desc: "Ενοικίαση ακινήτων", emoji: "🏠" },
 ];

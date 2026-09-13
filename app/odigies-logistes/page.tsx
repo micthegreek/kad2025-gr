@@ -1,5 +1,43 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import kadRaw from "@/public/data/kad.json";
+
+/**
+ * v139 — Τα ποσοστά αλλαγής υπολογίζονται ΔΥΝΑΜΙΚΑ από το ίδιο dataset
+ * με τη σελίδα /statistika. Πριν ήταν hardcoded και απέκλιναν έως 40 μονάδες
+ * (π.χ. Γεωργία 85% ενώ το πραγματικό είναι 45%).
+ */
+const SECTOR_NAMES: Record<string, string> = {
+  "01": "Γεωργία & Κτηνοτροφία", "10": "Βιομηχανία Τροφίμων", "14": "Ένδυση",
+  "25": "Μεταλλικά Προϊόντα", "31": "Έπιπλα", "41": "Κατασκευές Κτιρίων",
+  "43": "Εξειδικευμένες Κατασκευές", "45": "Εμπόριο Οχημάτων", "46": "Χονδρικό Εμπόριο",
+  "47": "Λιανικό Εμπόριο", "49": "Μεταφορές", "55": "Ξενοδοχεία", "56": "Εστίαση",
+  "62": "Πληροφορική", "68": "Ακίνητα", "69": "Λογιστικά & Νομικά",
+  "86": "Υγεία", "90": "Τέχνες", "96": "Προσωπικές Υπηρεσίες",
+};
+
+const TOP_SECTORS = (() => {
+  const acc = new Map<string, { total: Set<string>; changed: Set<string> }>();
+  for (const r of kadRaw as { kad2008: string; kad2025: string }[]) {
+    const s2 = r.kad2008.padStart(8, "0").slice(0, 2);
+    if (!SECTOR_NAMES[s2]) continue;
+    const e = acc.get(s2) ?? { total: new Set<string>(), changed: new Set<string>() };
+    e.total.add(r.kad2008);
+    if (r.kad2008 !== r.kad2025) e.changed.add(r.kad2008);
+    acc.set(s2, e);
+  }
+  return [...acc.entries()]
+    .filter(([, v]) => v.total.size >= 40)
+    .map(([k, v]) => ({
+      name: SECTOR_NAMES[k],
+      pct: Math.round((v.changed.size / v.total.size) * 100),
+      total: v.total.size,
+    }))
+    .sort((a, b) => b.pct - a.pct || b.total - a.total)
+    .slice(0, 6);
+})();
+
+const pctColor = (p: number) => (p >= 90 ? "#ef4444" : p >= 70 ? "#f97316" : p >= 50 ? "#eab308" : "#84cc16");
 
 export const metadata: Metadata = {
   title: "Οδηγός ΚΑΔ 2025 για Λογιστές",
@@ -31,7 +69,7 @@ const STEPS = [
   {
     n: "4",
     title: "Εντοπίστε τις περιπτώσεις που χρειάζονται διόρθωση",
-    desc: "Εστιάστε στους κλάδους με τα υψηλότερα ποσοστά αλλαγής: Λιανικό Εμπόριο (98%), Χονδρικό (87%), Γεωργία (85%). Εκεί είναι πιο πιθανό να χρειαστεί επίβλεψη.",
+    desc: "Εστιάστε στους κλάδους με τα υψηλότερα ποσοστά αλλαγής — δείτε τον πίνακα παρακάτω, που ενημερώνεται αυτόματα από τα επίσημα δεδομένα. Εκεί είναι πιο πιθανό να χρειαστεί επίβλεψη.",
   },
   {
     n: "5",
@@ -135,18 +173,11 @@ export default function OdigiesLogistesPage() {
           Δώστε προτεραιότητα στους πελάτες αυτών των κλάδων — έχουν τα υψηλότερα ποσοστά αλλαγής ΚΑΔ:
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "0.5rem" }}>
-          {[
-            { name: "Λιανικό Εμπόριο", pct: "98%", color: "#ef4444" },
-            { name: "Χονδρικό Εμπόριο", pct: "87%", color: "#f97316" },
-            { name: "Γεωργία & Κτηνοτροφία", pct: "85%", color: "#f97316" },
-            { name: "Κατασκευές", pct: "72%", color: "#eab308" },
-            { name: "Μεταφορές", pct: "65%", color: "#eab308" },
-            { name: "Εστίαση", pct: "61%", color: "#84cc16" },
-          ].map((s) => (
+          {TOP_SECTORS.map((s) => (
             <div key={s.name} style={{ padding: "0.6rem 0.75rem", background: "var(--bg)", border: "1px solid var(--border)", borderRadius: 8 }}>
               <div style={{ fontWeight: 700, fontSize: "0.9rem" }}>{s.name}</div>
-              <div style={{ fontSize: "1.1rem", fontWeight: 800, color: s.color }}>{s.pct}</div>
-              <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>ποσοστό αλλαγής</div>
+              <div style={{ fontSize: "1.1rem", fontWeight: 800, color: pctColor(s.pct) }}>{s.pct}%</div>
+              <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{s.total.toLocaleString("el-GR")} κωδικοί στον κλάδο</div>
             </div>
           ))}
         </div>

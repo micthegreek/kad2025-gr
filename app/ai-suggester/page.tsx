@@ -26,7 +26,7 @@ export default function AISuggesterPage() {
 
       <h1 style={{ marginBottom: "0.5rem" }}>AI Εύρεση ΚΑΔ 2025</h1>
       <p style={{ color: "var(--text-muted)", marginBottom: "2rem", lineHeight: 1.7 }}>
-        Περιγράψτε στα ελληνικά τι κάνει η επιχείρησή σας και το AI θα σας προτείνει τους πιο κατάλληλους <strong>ΚΑΔ 2025</strong> με ποσοστό βεβαιότητας.
+        Περιγράψτε στα ελληνικά τι κάνει η επιχείρησή σας και το AI θα σας προτείνει τους πιο κατάλληλους <strong>ΚΑΔ 2025</strong> με ένδειξη συνάφειας.
       </p>
 
       <AISuggesterClient />

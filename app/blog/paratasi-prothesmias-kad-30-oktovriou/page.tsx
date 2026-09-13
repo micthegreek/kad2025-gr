@@ -6,11 +6,11 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Παράταση Προθεσμίας ΚΑΔ: Έως 30 Οκτωβρίου 2026",
   description:
-    "Νέα απόφαση ΑΑΔΕ Α.1113/2026: η προθεσμία για την επικαιροποίηση των ΚΑΔ 2025 παρατείνεται έως 30 Οκτωβρίου 2026. Τι ισχύει, ποιους αφορά και πώς να κάνετε τη μεταβολή.",
+    "Νέα απόφαση ΑΑΔΕ Α.1118/2026: η προθεσμία για την επικαιροποίηση των ΚΑΔ 2025 παρατείνεται έως 30 Οκτωβρίου 2026. Τι ισχύει, ποιους αφορά και πώς να κάνετε τη μεταβολή.",
   alternates: { canonical: "https://www.kad2025.gr/blog/paratasi-prothesmias-kad-30-oktovriou" },
   openGraph: {
     title: "Παράταση ΚΑΔ: Νέα Προθεσμία 30 Οκτωβρίου 2026",
-    description: "Με απόφαση Α.1113/2026, η ΑΑΔΕ παρατείνει την προθεσμία επικαιροποίησης ΚΑΔ 2025 έως 30/10/2026 χωρίς πρόστιμο.",
+    description: "Με απόφαση Α.1118/2026, η ΑΑΔΕ παρατείνει την προθεσμία επικαιροποίησης ΚΑΔ 2025 έως 30/10/2026 χωρίς πρόστιμο.",
     images: [{ url: "https://www.kad2025.gr/blog-paratasi-kad-2026.svg", width: 1200, height: 630 }],
     type: "article",
     publishedTime: "2026-06-04",
@@ -25,7 +25,7 @@ const jsonLd = {
   headline: "Παράταση Προθεσμίας ΚΑΔ: Έως 30 Οκτωβρίου 2026",
   datePublished: "2026-06-04",
   dateModified: "2026-06-04",
-  description: "Νέα απόφαση ΑΑΔΕ Α.1113/2026 παρατείνει την προθεσμία επικαιροποίησης ΚΑΔ 2025 από 1η Ιουνίου στις 30 Οκτωβρίου 2026.",
+  description: "Νέα απόφαση ΑΑΔΕ Α.1118/2026 παρατείνει την προθεσμία επικαιροποίησης ΚΑΔ 2025 από 1η Ιουνίου στις 30 Οκτωβρίου 2026.",
   author: { "@type": "Organization", name: "kad2025.gr" },
   publisher: { "@type": "Organization", name: "kad2025.gr", url: "https://www.kad2025.gr" },
   image: "https://www.kad2025.gr/blog-paratasi-kad-2026.svg",
@@ -65,7 +65,7 @@ export default function ParatasiProthesmiaPage() {
       <div style={{ marginBottom: "1.75rem", borderRadius: 12, overflow: "hidden", border: "1px solid var(--border)" }}>
         <img
           src="/blog-paratasi-kad-2026.svg"
-          alt="Παράταση προθεσμίας επικαιροποίησης ΚΑΔ 2025 έως 30 Οκτωβρίου 2026 — ΑΑΔΕ Α.1113/2026"
+          alt="Παράταση προθεσμίας επικαιροποίησης ΚΑΔ 2025 έως 30 Οκτωβρίου 2026 — ΑΑΔΕ Α.1118/2026"
           style={{ width: "100%", display: "block" }}
         />
       </div>
@@ -77,7 +77,7 @@ export default function ParatasiProthesmiaPage() {
           <strong style={{ color: "#15803d", fontSize: "1.05rem" }}>Σε μία γραμμή</strong>
         </div>
         <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: 1.7, color: "var(--success-strong)" }}>
-          Με νέα απόφαση του Διοικητή ΑΑΔΕ (<strong>Α.1113/2026</strong>), η προθεσμία για την επισκόπηση
+          Με νέα απόφαση του Διοικητή ΑΑΔΕ (<strong>Α.1118/2026</strong>), η προθεσμία για την επισκόπηση
           και επικαιροποίηση των ΚΑΔ 2025 μετατίθεται από την <s>1η Ιουνίου</s> στις{" "}
           <strong>30 Οκτωβρίου 2026</strong> — χωρίς πρόστιμο.
         </p>
@@ -87,7 +87,7 @@ export default function ParatasiProthesmiaPage() {
       <section className="card" style={{ marginBottom: "1.5rem", borderLeft: "4px solid var(--primary)" }}>
         <h2 style={{ fontSize: "1.15rem", marginBottom: "0.75rem" }}>Τι ακριβώς αποφάσισε η ΑΑΔΕ</h2>
         <p style={{ lineHeight: 1.8, marginBottom: "0.75rem" }}>
-          Η απόφαση <strong>Α.1113/2026</strong> του Διοικητή της Ανεξάρτητης Αρχής Δημοσίων Εσόδων
+          Η απόφαση <strong>Α.1118/2026</strong> του Διοικητή της Ανεξάρτητης Αρχής Δημοσίων Εσόδων
           εκδόθηκε στα τέλη Μαΐου 2026 και τροποποιεί την αρχική προθεσμία που είχε τεθεί με
           την εγκύκλιο για τους νέους ΚΑΔ 2025.
         </p>
@@ -216,7 +216,7 @@ export default function ParatasiProthesmiaPage() {
       </div>
 
       <div style={{ background: "var(--warn-bg)", border: "1px solid var(--warn-border)", borderRadius: 8, padding: "0.75rem 1rem", fontSize: "0.82rem", color: "var(--warn-text)" }}>
-        📋 <strong>Πηγή:</strong> Απόφαση Διοικητή ΑΑΔΕ Α.1113/2026 — Δελτίο Τύπου ΑΑΔΕ 29/5/2026.
+        📋 <strong>Πηγή:</strong> Απόφαση Διοικητή ΑΑΔΕ Α.1118/2026 — Δελτίο Τύπου ΑΑΔΕ 29/5/2026.
         Το περιεχόμενο είναι ενημερωτικό. Για επίσημη ενημέρωση απευθυνθείτε στο myaade.gov.gr ή στο 1521.
       </div>
     </div>
