@@ -303,7 +303,7 @@ export default async function KladosDetailPage({
 
       {/* Changed KADs - first 200 for SEO internal linking */}
       <h3 style={{ fontSize: "0.95rem", color: "var(--accent)", marginBottom: "0.5rem", marginTop: "1rem" }}>
-        🔄 Αλλαγμένοι ΚΑΔ ({uniqueList.filter((r) => r.kad2008 !== r.kad2025).length})
+        🔄 Ενεργοί ΚΑΔ 2025 που προέκυψαν από αλλαγή ({uniqueList.filter((r) => r.kad2008 !== r.kad2025).length})
       </h3>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginBottom: "1rem" }}>
         {uniqueList.filter((r) => r.kad2008 !== r.kad2025).slice(0, 200).map((r) => (

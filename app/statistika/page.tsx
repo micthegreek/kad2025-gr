@@ -42,16 +42,21 @@ export default function StatistikaPage() {
     .slice(0, 20);
 
   // Stats by section
-  const sectionStats: Record<string, { total: number; changed: number; name: string }> = {};
-  data.forEach((r) => {
+    // v141: ΜΟΝΑΔΙΚΟΙ ΚΑΔ 2008 ανά κλάδο (ίδια μετρική με τον Οδηγό Λογιστών).
+  // Πριν μετρούσε ΕΓΓΡΑΦΕΣ, οπότε ένας κωδικός που διασπάστηκε σε 3 μετρούσε 3 φορές
+  // και τα ποσοστά διέφεραν μεταξύ σελίδων (π.χ. Λιανικό 98% εδώ, 100% στον οδηγό).
+  const sectionAcc: Record<string, { total: Set<string>; changed: Set<string>; name: string }> = {};
+  for (const r of data) {
     const prefix = r.kad2008.padStart(8, "0").slice(0, 2);
-    if (SECTION_NAMES[prefix]) {
-      if (!sectionStats[prefix]) sectionStats[prefix] = { total: 0, changed: 0, name: SECTION_NAMES[prefix] };
-      sectionStats[prefix].total++;
-      if (r.kad2008 !== r.kad2025) sectionStats[prefix].changed++;
-    }
-  });
-
+    if (!SECTION_NAMES[prefix]) continue;
+    if (!sectionAcc[prefix]) sectionAcc[prefix] = { total: new Set(), changed: new Set(), name: SECTION_NAMES[prefix] };
+    sectionAcc[prefix].total.add(r.kad2008);
+    if (r.kad2008 !== r.kad2025) sectionAcc[prefix].changed.add(r.kad2008);
+  }
+  const sectionStats: Record<string, { total: number; changed: number; name: string }> = {};
+  for (const [k, v] of Object.entries(sectionAcc)) {
+    sectionStats[k] = { total: v.total.size, changed: v.changed.size, name: v.name };
+  }
   const sectionsSorted = Object.entries(sectionStats).sort((a, b) => b[1].total - a[1].total);
 
   return (

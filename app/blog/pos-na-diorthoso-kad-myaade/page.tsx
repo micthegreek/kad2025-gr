@@ -37,7 +37,7 @@ export default function PosNaDiorthosoKadPage() {
       <div style={{ background: "var(--warn-bg)", border: "1px solid var(--warn-border)", borderRadius: "var(--radius)", padding: "1rem", marginBottom: "1.5rem" }}>
         <strong style={{ color: "var(--warn-strong)" }}>📅 Προθεσμία: 30 Οκτωβρίου 2026 (Α.1118/2026)</strong>
         <p style={{ fontSize: "0.875rem", color: "var(--warn-text)", lineHeight: 1.7, margin: "0.25rem 0 0" }}>
-          Έως αυτή την ημερομηνία μπορείτε να διορθώσετε τον ΚΑΔ σας χωρίς πρόστιμο. Μετά, η
+          Έως αυτή την ημερομηνία μπορείτε να διορθώσετε τον ΚΑΔ σας χωρίς πρόστιμο (εφόσον δεν έχει προηγηθεί δήλωση μεταβολής ΚΑΔ για την έδρα ή υποκατάστημα μετά την 1/3/2026, βάσει Α.1118/2026). Μετά, η
           διόρθωση παραμένει δυνατή αλλά με επιβολή προστίμου εκπρόθεσμης μεταβολής.
         </p>
       </div>

@@ -48,7 +48,7 @@ export default function CountdownBanner() {
     <div style={{ background: "linear-gradient(135deg, #7c2d12, #dc2626)", color: "white", borderRadius: "var(--radius)", padding: "1.25rem 1.5rem", display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap", marginBottom: "2rem" }}>
       <div style={{ flex: 1, minWidth: 200 }}>
         <div style={{ fontWeight: 800, fontSize: "1.1rem", marginBottom: "0.2rem" }}>⏰ Προθεσμία: 30 Οκτωβρίου 2026</div>
-        <div style={{ opacity: 0.9, fontSize: "0.85rem" }}>Διορθώστε τον ΚΑΔ σας έως τότε <strong>χωρίς πρόστιμο</strong>.</div>
+        <div style={{ opacity: 0.9, fontSize: "0.85rem" }}>Διορθώστε τον ΚΑΔ σας έως τότε <strong>χωρίς πρόστιμο (εφόσον δεν έχει προηγηθεί δήλωση μεταβολής ΚΑΔ για την έδρα ή υποκατάστημα μετά την 1/3/2026, βάσει Α.1118/2026)</strong>.</div>
       </div>
       <div style={{ display: "flex", gap: "0.6rem", alignItems: "center", background: "rgba(0,0,0,0.25)", borderRadius: 10, padding: "0.6rem 0.9rem" }}>
         <Box val={time.days} label="Μέρες" />
