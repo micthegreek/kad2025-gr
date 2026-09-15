@@ -45,9 +45,6 @@ const faqs = [
 export default function HomePage() {
   return (
     <>
-      <link rel="alternate" hrefLang="el" href="https://www.kad2025.gr/" />
-      <link rel="alternate" hrefLang="en" href="https://www.kad2025.gr/en" />
-      <link rel="alternate" hrefLang="x-default" href="https://www.kad2025.gr/" />
       <div>
       {/* Hero */}
       <section style={{ background: "linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%)", color: "white", padding: "3rem 1rem", textAlign: "center" }}>

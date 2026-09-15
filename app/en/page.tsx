@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const faq = [
   { q: "What is a KAD code?", a: "KAD (Κωδικός Αριθμός Δραστηριότητας) is Greece's official business activity classification, the national extension of the EU's NACE system. Every Greek company and freelancer is registered under one primary and optional secondary KAD codes in the AADE tax registry." },
   { q: "What changed in 2026?", a: "On March 1, 2026 Greece adopted KAD 2025, based on NACE Rev.2.1 (AADE decisions A.1003/2026 and A.1004/2026). 66.3% of the 10,923 mapping entries received a new code number; the tax authority migrated all registrations automatically on March 9, 2026." },
-  { q: "Is there a deadline?", a: "Yes. Businesses can review and correct their automatically assigned codes free of charge until October 30, 2026 (decision A.1118/2026), via the myAADE portal." },
+  { q: "Is there a deadline?", a: "Yes. Businesses can review and correct their automatically assigned codes free of charge (provided no KAD change declaration has been filed for the registered seat or a branch after 1 March 2026, under decision Α.1118/2026) until October 30, 2026 (decision A.1118/2026), via the myAADE portal." },
   { q: "Can I use this site in English?", a: "The interactive tools display official Greek code descriptions, but the search works with plain code numbers — type any old 8-digit KAD into the mapping tool to see its 2025 equivalent instantly. The full table is also available as a free Excel download." },
 ];
 
@@ -41,9 +41,6 @@ export default function EnglishPage() {
   return (
     <div style={{ maxWidth: 820, margin: "0 auto", padding: "2rem 1rem" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <link rel="alternate" hrefLang="el" href="https://www.kad2025.gr/" />
-      <link rel="alternate" hrefLang="en" href="https://www.kad2025.gr/en" />
-      <link rel="alternate" hrefLang="x-default" href="https://www.kad2025.gr/" />
 
       <h1 style={{ marginBottom: "0.5rem", fontSize: "clamp(1.4rem, 3vw, 2rem)" }}>
         Greek Activity Codes (KAD) 2026: The 2008 → 2025 Transition, Explained

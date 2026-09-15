@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import GlobalAdRail from "@/components/GlobalAdRail";
 import QueryNoindex from "@/components/QueryNoindex";
+import HtmlLang from "@/components/HtmlLang";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -148,6 +149,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
+/* v144 — Επαναφορά κατόπιν ρητής απόφασης του ιδιοκτήτη του site.
+   Το site δεν εμφανίζει επί του παρόντος banner συναίνεσης και δεν προβάλλει
+   διαφημίσεις. Τα analytics λειτουργούν πλήρως.
+   ΠΡΟΣΟΧΗ πριν από ενεργοποίηση AdSense σε κίνηση ΕΟΧ/ΗΒ/Ελβετίας: απαιτείται
+   πιστοποιημένο CMP και denied defaults, αλλιώς σερβίρονται μόνο limited ads. */
 gtag('consent','default',{
   ad_storage:'granted',
   ad_user_data:'granted',
@@ -220,6 +226,7 @@ gtag('config','G-BSSB8F33SV',{anonymize_ip:true});
 
         <Navbar />
         <main style={{ minHeight: "calc(100vh - 200px)" }}><main id="main-content">{children}</main></main>
+        <HtmlLang />
         <QueryNoindex />
         <GlobalAdRail />
         <Footer />

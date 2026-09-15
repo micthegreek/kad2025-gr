@@ -36,12 +36,12 @@ const steps = [
 
 const suggestions: Record<string, { label: string; search: string }[]> = {
   "emporio-physical-b2c": [{ label: "Λιανικό εμπόριο (47)", search: "47" }, { label: "Πωλήσεις σε κατάστημα", search: "4711" }],
-  "emporio-online-b2c": [{ label: "Ηλεκτρονικό εμπόριο (47910)", search: "47910" }, { label: "Λιανικό e-shop", search: "47911" }],
+  "emporio-online-b2c": [{ label: "Πουλάω δικά μου προϊόντα → ανά κατηγορία προϊόντος (47)", search: "47" }, { label: "Λειτουργώ ως marketplace / διαμεσολαβητής (47.9)", search: "479" }],
   "emporio-online-b2b": [{ label: "Χονδρεμπόριο online (46)", search: "46" }],
-  "estiasi-physical-b2c": [{ label: "Εστιατόρια (56101)", search: "56101" }, { label: "Καφετέριες (56301)", search: "56301" }],
-  "estiasi-mixed-b2c": [{ label: "Εστίαση με delivery (56101)", search: "56101" }, { label: "Catering (56210)", search: "56210" }],
+  "estiasi-physical-b2c": [{ label: "Εστιατόρια (56.11)", search: "5611" }, { label: "Καφετέριες & μπαρ (56.30)", search: "5630" }],
+  "estiasi-mixed-b2c": [{ label: "Εστίαση με delivery (56.11)", search: "5611" }, { label: "Catering (56210)", search: "56210" }],
   "ypiresies-physical-b2b": [{ label: "Επαγγελματικές υπηρεσίες (69-74)", search: "69" }, { label: "Λογιστικές (6920)", search: "6920" }],
-  "ypiresies-online-b2b": [{ label: "IT & Τεχνολογία (62)", search: "62" }, { label: "Σύμβουλοι (7022)", search: "7022" }],
+  "ypiresies-online-b2b": [{ label: "IT & Τεχνολογία (62)", search: "62" }, { label: "Επιχειρηματικοί σύμβουλοι (70.20)", search: "7020" }],
   "kataskeyes-physical-b2c": [{ label: "Κατασκευές (41-43)", search: "41" }],
   "paragogi-physical-b2b": [{ label: "Μεταποίηση (10-33)", search: "10" }],
   "agrotika-physical-b2c": [{ label: "Γεωργία (01)", search: "01" }, { label: "Αλιεία (03)", search: "03" }],

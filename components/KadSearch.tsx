@@ -178,10 +178,22 @@ export default function KadSearch({ mode, initialQuery = "", initialData }: Sear
     const lower = normalizeStr(q);
     const numeric = isNumericQuery(q);
     // For numeric queries: use startsWith when useStartsWith=true, otherwise includes
+    // v143 (D02) — ισοδυναμία μορφών κωδικού.
+    // Το dataset κρατά κωδικούς όπως δημοσιεύονται από την ΑΑΔΕ (π.χ. "1118300" χωρίς
+    // αρχικό μηδενικό). Ο χρήστης όμως πληκτρολογεί συχνά την πλήρη επίσημη μορφή
+    // ("01118300") ή με τελείες ("01.11.83.00"). Συγκρίνουμε και τις δύο μορφές,
+    // ώστε και οι τρεις γραφές να επιστρέφουν το ίδιο αποτέλεσμα.
+    const qPadded = lower.length > 0 && lower.length <= 8 ? lower.padStart(8, "0") : lower;
     const matchCode = (code: string): boolean => {
       const clean = code.replace(/\./g, "");
-      if (numeric && useStartsWith) return clean.startsWith(lower);
-      return clean.includes(lower);
+      const padded = clean.padStart(8, "0");
+      if (numeric && useStartsWith) {
+        // Πλήρης 8ψήφιος: ακριβής αντιστοιχία σε κανονικοποιημένη μορφή
+        if (lower.length === 8 && padded === qPadded) return true;
+        // Πρόθεμα: δοκιμάζονται και οι δύο γραφές (με και χωρίς αρχικά μηδενικά)
+        return clean.startsWith(lower) || padded.startsWith(lower);
+      }
+      return clean.includes(lower) || padded.includes(lower);
     };
     // When startsWithMode: only match by code prefix, skip description matching
     const matchRecord = (code: string, desc: string): boolean => {
