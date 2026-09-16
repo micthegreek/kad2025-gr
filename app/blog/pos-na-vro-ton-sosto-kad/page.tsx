@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Πώς Βρίσκετε τον Σωστό ΚΑΔ 2025: 3 Μέθοδοι",
@@ -56,8 +55,6 @@ export default function PosNaVroPage() {
           Αν η δραστηριότητα είναι εξειδικευμένη, δοκιμάστε και αγγλικούς όρους ή επίσημες
           ονομασίες (π.χ. «cloud computing», «cybersecurity», «drone services»).
         </p>
-
-        <AdSlotBanner variant="compact" />
         <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: 8, padding: "0.75rem 1rem" }}>
           <div style={{ fontWeight: 700, fontSize: "0.82rem", color: "var(--text-muted)", marginBottom: "0.3rem" }}>Κατάλληλη για:</div>
           <div style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>Δραστηριότητες με σαφή, κοινή ονομασία — κατάλληλη για την πλειοψηφία των περιπτώσεων</div>

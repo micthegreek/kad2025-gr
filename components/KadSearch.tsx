@@ -19,7 +19,7 @@ interface SearchProps {
 }
 
 // Normalize: remove Greek accents + dots + lowercase so "εστιατόριο" matches "ΕΣΤΙΑΤΟΡΙΟ"
-// v126: memoized normalization — το NFD σε 10.923 περιγραφές ανά keystroke προκαλούσε INP ~840ms
+// v126: memoized normalization — το NFD σε 10.925 περιγραφές ανά keystroke προκαλούσε INP ~840ms
 const _normCache = new Map<string, string>();
 function normalizeStr(str: string): string {
   const hit = _normCache.get(str);

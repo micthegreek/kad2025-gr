@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -102,8 +101,6 @@ export default function ParatasiProthesmiaPage() {
           διόρθωσης — ιδίως για λογιστές και φοροτεχνικούς που διαχειρίζονται μεγάλο αριθμό
           πελατών.
         </p>
-
-        <AdSlotBanner variant="compact" />
       </section>
 
       {/* Section 2 */}

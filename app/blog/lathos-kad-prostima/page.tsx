@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Λάθος ΚΑΔ 2026: Πρόστιμα, Συνέπειες & Διόρθωση",
@@ -109,8 +108,6 @@ export default function LathosKadProstimaPage() {
           περιστάσεις της κάθε περίπτωσης. Για οριστική εικόνα στη δική σας υπόθεση, επιβεβαιώστε με
           τον λογιστή σας — το παρόν άρθρο δίνει το γενικό πλαίσιο και δεν αποτελεί φορολογική συμβουλή.
         </p>
-
-        <AdSlotBanner variant="compact" />
       </section>
 
       <section id="s3" className="card" style={{ marginBottom: "1.5rem", borderLeft: "4px solid var(--danger, #dc2626)" }}>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 import professionsRaw from "@/public/data/professions.json";
 
 interface ProfCode { c: string; d08: string; n: string; d25: string; ch: boolean; idx: boolean }
@@ -105,11 +104,16 @@ export default function KadGiaEshopPage() {
       <section id="s2" className="card" style={{ marginBottom: "1.5rem" }}>
         <h2 style={{ fontSize: "1.1rem", marginBottom: "0.85rem" }}>Οι βασικοί παλιοί κωδικοί e-shop και πού οδηγούν</h2>
         <p style={{ lineHeight: 1.8, marginBottom: "0.85rem", fontSize: "0.9rem" }}>
-          Ο πίνακας δείχνει τους πιο διαδεδομένους κωδικούς 47.91.x του 2008 και την κύρια
-          αντιστοίχισή τους στους ΚΑΔ 2025, όπως προκύπτει από τον επίσημο πίνακα:
+          Ο πίνακας δείχνει τους πιο διαδεδομένους κωδικούς 47.91.x του 2008 και πού
+          οδηγούν στους ΚΑΔ 2025, σύμφωνα με τον επίσημο πίνακα αντιστοίχισης (Α.1004/2026).
         </p>
-
-        <AdSlotBanner variant="compact" />
+        <p style={{ lineHeight: 1.8, marginBottom: "0.85rem", fontSize: "0.9rem", padding: "0.75rem 0.9rem", border: "1px solid var(--border)", borderLeft: "3px solid var(--warning, #d97706)", borderRadius: 8, background: "var(--bg-card)" }}>
+          <strong>Προσοχή στην ανάγνωση:</strong> όταν ένας παλαιός κωδικός αντιστοιχεί σε
+          περισσότερους από έναν νέους, ο επίσημος πίνακας <em>δεν ορίζει «κύριο»</em> — τις
+          παραθέτει όλες ως εναλλακτικές. Ποια ταιριάζει εξαρτάται από τη δραστηριότητα που
+          ασκείτε πραγματικά. Επίσης, ο «κύριος ΚΑΔ» της επιχείρησής σας στο Μητρώο είναι
+          διαφορετική έννοια από την πρώτη γραμμή ενός πίνακα αντιστοίχισης.
+        </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
           {ESHOP.codes.map((c) => (
             <Link key={c.c} href={`/kad/${c.c}`} style={{ textDecoration: "none" }}>

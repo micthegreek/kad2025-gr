@@ -22,7 +22,7 @@ const jsonLd = {
 
 export default function Page() {
   return (
-    <main className="container" style={{ maxWidth: 1000, margin: "0 auto", padding: "1.5rem 1rem" }}>
+    <div className="container" style={{ maxWidth: 1000, margin: "0 auto", padding: "1.5rem 1rem" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdApp) }} />
       <h1 style={{ fontSize: "1.5rem", marginBottom: "0.4rem" }}>⚖️ Σύγκριση Τάξεων ΚΑΔ</h1>
@@ -39,6 +39,6 @@ export default function Page() {
       </p>
     
       <p style={{ marginTop: "1.25rem", padding: "0.6rem 0.9rem", border: "1px dashed var(--border)", borderRadius: 8, fontSize: "0.85rem" }}>💡 Για σύγκριση δύο συγκεκριμένων 8ψήφιων κωδικών και των αντιστοιχίσεών τους: <Link href="/sygkrisi">Σύγκριση ΚΑΔ</Link>.</p>
-</main>
+</div>
   );
 }

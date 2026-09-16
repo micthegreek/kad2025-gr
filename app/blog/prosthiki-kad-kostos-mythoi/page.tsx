@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Πόσο Κοστίζει η Προσθήκη ΚΑΔ; 5 Μύθοι",
@@ -56,8 +55,6 @@ export default function Post() {
         <Link href="/kad-2025">εργαλείο ΚΑΔ 2025</Link> — και για τη διαδικασία,{" "}
         <Link href="/pos-allazw-kad">ο οδηγός μεταβολής στο myAADE</Link>.
       </p>
-
-      <AdSlotBanner variant="compact" />
     </article>
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Μεθοδολογία Δεδομένων: Πώς Επεξεργαζόμαστε τα ΚΑΔ",
@@ -91,7 +90,7 @@ export default function MetodologiaPage() {
         </p>
         <ul style={{ paddingLeft: "1.25rem", lineHeight: 2 }}>
           <li><strong>Α.1003/2026:</strong> Ορίζει τους νέους κωδικούς ΚΑΔ 2025 βάσει NACE Rev.2.1</li>
-          <li><strong>Α.1004/2026:</strong> Επίσημος πίνακας αντιστοίχισης ΚΑΔ 2008 → ΚΑΔ 2025 (10.923 εγγραφές)</li>
+          <li><strong>Α.1004/2026:</strong> Επίσημος πίνακας αντιστοίχισης ΚΑΔ 2008 → ΚΑΔ 2025 (10.925 εγγραφές)</li>
           <li><strong>Α.1118/2026:</strong> Παράταση προθεσμίας διόρθωσης ΚΑΔ έως 30 Οκτωβρίου 2026</li>
         </ul>
         <p style={{ lineHeight: 1.8, marginTop: "0.75rem", fontSize: "0.875rem", color: "var(--text-muted)" }}>
@@ -108,13 +107,11 @@ export default function MetodologiaPage() {
           Επειδή τα στρογγυλεμένα ποσοστά συχνά παραπλανούν, δημοσιεύουμε τα ακριβή μεγέθη
           της βάσης όπως προκύπτουν από τον πίνακα Α.1004/2026:
         </p>
-
-        <AdSlotBanner variant="compact" />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "0.75rem", marginBottom: "1rem" }}>
           {[
-            { num: "10.923", label: "Εγγραφές αντιστοίχισης" },
+            { num: "10.925", label: "Εγγραφές αντιστοίχισης" },
             { num: "9.717", label: "Μοναδικοί ΚΑΔ 2008" },
-            { num: "9.422", label: "Μοναδικοί ΚΑΔ 2025" },
+            { num: "9.424", label: "Μοναδικοί ΚΑΔ 2025" },
             { num: "7.240", label: "Εγγραφές με αλλαγή κωδικού (66,3%)" },
             { num: "3.683", label: "Εγγραφές με ίδιο κωδικό (33,7%)" },
             { num: "685", label: "ΚΑΔ 2008 με πολλαπλές αντιστοιχίσεις" },

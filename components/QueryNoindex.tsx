@@ -1,13 +1,14 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 
 /**
- * v137 — Search-state URLs (?q=…) δεν πρέπει να ανταγωνίζονται τις canonical landing pages.
- * Προσθέτει δυναμικά noindex,follow + καθαρό canonical όταν υπάρχει query parameter.
- * Λειτουργεί επειδή η Google εκτελεί JavaScript· το robots.txt disallow ΔΕΝ θα δούλευε,
- * γιατί τότε ο crawler δεν θα έβλεπε ποτέ το noindex.
+ * v148 (S02) — Search-state URLs (?q=…) δεν πρέπει να ανταγωνίζονται τις canonical σελίδες.
+ *
+ * ΠΡΟΣΟΧΗ (διόρθωση v143): η προηγούμενη υλοποίηση ΠΡΟΣΘΕΤΕ δεύτερο <meta name="robots">,
+ * με αποτέλεσμα στο DOM να συνυπάρχουν "index,follow" και "noindex,follow" — αντιφατικές
+ * δηλώσεις που ο crawler δεν μπορεί να ερμηνεύσει αξιόπιστα.
+ * Τώρα ΑΝΤΙΚΑΘΙΣΤΑΤΑΙ το περιεχόμενο του υπάρχοντος tag και επαναφέρεται όταν φύγει το query.
  */
 function QueryNoindexInner() {
   const pathname = usePathname();
@@ -15,26 +16,30 @@ function QueryNoindexInner() {
 
   useEffect(() => {
     const hasQuery = Boolean(sp.get("q"));
-    const ID = "dyn-robots-noindex";
-    const existing = document.getElementById(ID);
+    const head = document.head;
 
-    if (hasQuery) {
-      if (!existing) {
-        const m = document.createElement("meta");
-        m.id = ID;
-        m.name = "robots";
-        m.content = "noindex,follow";
-        document.head.appendChild(m);
-      }
-      const canon = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-      if (canon) {
-        canon.dataset.orig = canon.dataset.orig || canon.href;
-        canon.href = `https://www.kad2025.gr${pathname}`;
-      }
-    } else {
-      existing?.remove();
-      const canon = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-      if (canon?.dataset.orig) canon.href = canon.dataset.orig;
+    // Ένα και μόνο robots meta ανά έγγραφο
+    let tag = head.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if (!tag) {
+      tag = document.createElement("meta");
+      tag.name = "robots";
+      tag.dataset.dyn = "1";
+      head.appendChild(tag);
+    }
+    if (tag.dataset.orig === undefined) tag.dataset.orig = tag.content || "index,follow";
+
+    tag.content = hasQuery ? "noindex,follow" : tag.dataset.orig;
+
+    // Καθαρισμός τυχόν διπλών tags από προηγούμενες εκδόσεις
+    head.querySelectorAll('meta[name="robots"]').forEach((el) => {
+      if (el !== tag) el.remove();
+    });
+
+    // Canonical πάντα στη σελίδα χωρίς query
+    const canon = head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (canon) {
+      if (canon.dataset.orig === undefined) canon.dataset.orig = canon.href;
+      canon.href = hasQuery ? `https://www.kad2025.gr${pathname}` : canon.dataset.orig;
     }
   }, [pathname, sp]);
 

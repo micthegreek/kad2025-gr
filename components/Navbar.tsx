@@ -6,8 +6,8 @@ import { useState, useEffect, useMemo, useRef } from "react";
 
 const allLinks = [
   { href: "/", label: "Αρχική" },
-  { href: "/kad-2008", label: "Λίστα ΚΑΔ 2008" },
-  { href: "/kad-2025", label: "Λίστα ΚΑΔ 2025" },
+  { href: "/kad-2008", label: "ΚΑΔ 2008" },
+  { href: "/kad-2025", label: "ΚΑΔ 2025" },
   { href: "/antistoixisi", label: "Αντιστοίχιση 08→25" },
   { href: "/antistoixisi-2025", label: "Αντιστοίχιση 25→08" },
   { href: "/maziki-2008", label: "Μαζική 08→25" },
@@ -18,10 +18,10 @@ const allLinks = [
 
 const toolsLinks: Array<{ href?: string; label?: string; isHeader?: boolean; badge?: string; divider?: boolean }> = [
   { href: "/blog", label: "📖 Οδηγοί — Όλα τα Άρθρα  ·  4 Ιουνίου '26", isHeader: true },
-  { href: "/ai-suggester", label: "✨ AI Εύρεση ΚΑΔ" },
-  { href: "/wizard", label: "🧭 Οδηγός Επιλογής" },
-  { href: "/kad-epidotisi-espa", label: "💰 Επιλεξιμότητα Επιδοτήσεων" },
-  { href: "/sygkrisi", label: "⚖️ Σύγκριση ΚΑΔ" },
+  { href: "/ai-suggester", label: "✨ Περιγράφω τη δραστηριότητα — AI πρόταση" },
+  { href: "/wizard", label: "🧭 Διαλέγω δραστηριότητα βήμα-βήμα" },
+  { href: "/kad-epidotisi-espa", label: "💰 Ελέγχω επιλεξιμότητα σε προγράμματα" },
+  { href: "/sygkrisi", label: "⚖️ Συγκρίνω δύο κωδικούς" },
   { href: "/statistika", label: "📊 Στατιστικά" },
   { href: "/saved", label: "★ Αποθηκευμένα" },
 ];
@@ -33,10 +33,12 @@ const SITE_PAGES = [
   { href: "/kad-2008", label: "Αναζήτηση ΚΑΔ 2008", keywords: "παλιοί κωδικοί" },
   { href: "/kad-2025", label: "Αναζήτηση ΚΑΔ 2025", keywords: "νέοι κωδικοί" },
   { href: "/ai-suggester", label: "AI Εύρεση ΚΑΔ", keywords: "τεχνητή νοημοσύνη πρόταση δραστηριότητα" },
-  { href: "/wizard", label: "Οδηγός Επιλογής ΚΑΔ", keywords: "wizard βήμα βήμα" },
+  { href: "/wizard", label: "Οδηγός Επιλογής — διαλέγω δραστηριότητα", keywords: "wizard βήμα βήμα δεν ξέρω κωδικό" },
+  { href: "/odigos-epilogis-kad", label: "Οδηγός Επιλογής — αναλυτικός με τάξεις NACE", keywords: "οδηγός τάξη nace επεξηγήσεις" },
   { href: "/maziki-2008", label: "Μαζική Αντιστοίχιση 2008→2025", keywords: "μαζική bulk excel" },
   { href: "/maziki-2025", label: "Μαζική Αντιστοίχιση 2025→2008", keywords: "μαζική bulk excel" },
-  { href: "/sygkrisi", label: "Σύγκριση ΚΑΔ", keywords: "σύγκριση compare" },
+  { href: "/sygkrisi", label: "Σύγκριση δύο κωδικών ΚΑΔ", keywords: "σύγκριση compare κωδικοί" },
+  { href: "/sygkrisi-kad", label: "Σύγκριση δύο τάξεων NACE", keywords: "σύγκριση τάξη nace περιλαμβάνει" },
   { href: "/klados", label: "ΚΑΔ ανά Κλάδο", keywords: "κλάδος κατηγορία τομέας" },
   { href: "/klados/56", label: "ΚΑΔ Εστίασης", keywords: "εστιατόριο καφέ ταβέρνα" },
   { href: "/klados/55", label: "ΚΑΔ Τουρισμού", keywords: "ξενοδοχείο κατάλυμα airbnb τουρισμός" },
@@ -366,10 +368,16 @@ export default function Navbar() {
       )}
 
       <style>{`
-        @media (max-width: 1000px) {
+        /* v148 (U01): το desktop μενού με 9 στοιχεία υπερχείλιζε ήδη στα ~1.360px
+           (κουμπί θέματος εκτός άκρου, EN σε δεύτερη γραμμή). Το κατώφλι ανέβηκε
+           ώστε να μη μένει «νεκρή ζώνη» όπου τα κουμπιά βγαίνουν εκτός οθόνης. */
+        @media (max-width: 1250px) {
           .desktop-links { display: none !important; }
           .mobile-btn { display: flex !important; }
         }
+        /* Ασφαλιστική δικλείδα: ποτέ οριζόντια υπερχείλιση στη γραμμή πλοήγησης */
+        nav > div:first-child { max-width: 100%; box-sizing: border-box; }
+        .desktop-links { min-width: 0; }
         nav a:hover { opacity: 1; background: rgba(255,255,255,0.1) !important; color: white !important; }
       `}</style>
             <LangSwitcher />

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   title: "Στατιστικά ΚΑΔ 2025: Το 66% Άλλαξε",
   description:
-    "Πλήρη στατιστικά αντιστοίχισης ΚΑΔ 2008 → 2025. 10.923 εγγραφές, 7.240 αλλαγές, ανάλυση συγχωνεύσεων ανά κλάδο. Δεδομένα ΑΑΔΕ Α.1004/2026.",
+    "Πλήρη στατιστικά αντιστοίχισης ΚΑΔ 2008 → 2025. 10.925 εγγραφές, 7.240 αλλαγές, ανάλυση συγχωνεύσεων ανά κλάδο. Δεδομένα ΑΑΔΕ Α.1004/2026.",
   alternates: { canonical: "https://www.kad2025.gr/statistika" },
 };
 
@@ -64,7 +64,7 @@ export default function StatistikaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "Dataset",
         name: "Αντιστοίχιση ΚΑΔ 2008 → ΚΑΔ 2025 (Ελλάδα)",
-        description: "Πλήρης πίνακας 10.923 αντιστοιχίσεων Κωδικών Αριθμών Δραστηριότητας (ΚΑΔ) 2008 προς 2025 βάσει ΑΑΔΕ Α.1003/2026 και NACE Rev.2.1, με περιγραφές δραστηριοτήτων.",
+        description: "Πλήρης πίνακας 10.925 αντιστοιχίσεων Κωδικών Αριθμών Δραστηριότητας (ΚΑΔ) 2008 προς 2025 βάσει ΑΑΔΕ Α.1003/2026 και NACE Rev.2.1, με περιγραφές δραστηριοτήτων.",
         url: "https://www.kad2025.gr/statistika", license: "https://creativecommons.org/licenses/by/4.0/",
         creator: { "@type": "Organization", name: "kad2025.gr" },
         keywords: ["ΚΑΔ 2025", "ΚΑΔ 2026", "NACE Rev 2.1", "αντιστοίχιση ΚΑΔ", "ΑΑΔΕ"],

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "NACE Rev.2.1: Η Ταξινόμηση πίσω από τους ΚΑΔ",
@@ -56,8 +55,6 @@ export default function NaceRev21Page() {
           Η ίδια λογική ισχύει σε άλλες χώρες με διαφορετικά ονόματα: SIC στη Βρετανία, WZ στη
           Γερμανία, NAF στη Γαλλία. Όλα βασίζονται στο ίδιο ευρωπαϊκό πρότυπο.
         </p>
-
-        <AdSlotBanner variant="compact" />
       </section>
 
       <section className="card" style={{ marginBottom: "1.5rem" }}>
@@ -87,7 +84,7 @@ export default function NaceRev21Page() {
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "1rem" }}>
           {[
-            { apof: "Α.1003/2026", desc: "Ορίζει το πλήρες σύστημα ΚΑΔ 2025 — 9.422 μοναδικούς κωδικούς βασισμένους στο NACE Rev.2.1. Ισχύει από 1η Μαρτίου 2026." },
+            { apof: "Α.1003/2026", desc: "Ορίζει το πλήρες σύστημα ΚΑΔ 2025 — 9.424 μοναδικούς κωδικούς βασισμένους στο NACE Rev.2.1. Ισχύει από 1η Μαρτίου 2026." },
             { apof: "Α.1004/2026", desc: "Περιέχει τον επίσημο πίνακα αντιστοίχισης ΚΑΔ 2008 → ΚΑΔ 2025 για κάθε υπάρχοντα κωδικό. Βάσει αυτού, η ΑΑΔΕ εκτέλεσε αυτόματη αντιστοίχιση για 1,9 εκατ. επιχειρήσεις." },
           ].map((a) => (
             <div key={a.apof} style={{ padding: "0.65rem 1rem", background: "var(--bg)", border: "1px solid var(--border)", borderLeft: "3px solid var(--primary)", borderRadius: 8 }}>

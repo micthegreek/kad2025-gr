@@ -26,7 +26,7 @@ const jsonLd = {
 
 export default function Page() {
   return (
-    <main className="container" style={{ maxWidth: 900, margin: "0 auto", padding: "1.5rem 1rem" }}>
+    <div className="container" style={{ maxWidth: 900, margin: "0 auto", padding: "1.5rem 1rem" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <h1 style={{ fontSize: "1.5rem", marginBottom: "0.4rem" }}>🧭 Οδηγός Επιλογής ΚΑΔ</h1>
       <p style={{ color: "var(--text-muted)", marginBottom: "1.25rem" }}>
@@ -50,6 +50,6 @@ export default function Page() {
       </section>
     
       <p style={{ marginTop: "1.25rem", padding: "0.6rem 0.9rem", border: "1px dashed var(--border)", borderRadius: 8, fontSize: "0.85rem" }}>💡 Προτιμάτε ερωτήσεις για συγκεκριμένο 8ψήφιο κωδικό; Δείτε και τον <Link href="/wizard">βήμα-βήμα οδηγό εύρεσης ΚΑΔ</Link>.</p>
-</main>
+</div>
   );
 }

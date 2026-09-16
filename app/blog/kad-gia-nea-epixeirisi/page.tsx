@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "ΚΑΔ για Νέα Επιχείρηση 2026: Πώς Επιλέγετε Σωστά",
@@ -55,8 +54,6 @@ export default function KadGiaNeoEpixeiriPage() {
           Σε αντίθεση με τις υπάρχουσες επιχειρήσεις που πέρασαν από αυτόματη αντιστοίχιση, εσείς
           ξεκινάτε από μηδενική βάση και επιλέγετε τον ΚΑΔ σας απευθείας.
         </p>
-
-        <AdSlotBanner variant="compact" />
       </section>
 
       <section className="card" style={{ marginBottom: "1.5rem" }}>

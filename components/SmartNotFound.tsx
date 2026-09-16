@@ -24,7 +24,7 @@ export default function SmartNotFound() {
         </h1>
         <p style={{ color: "var(--text-muted)", lineHeight: 1.7, marginBottom: "0.5rem" }}>
           Οι μόνιμες σελίδες καλύπτουν τους 7.000 συχνότερους κωδικούς — η αναζήτηση όμως
-          καλύπτει <strong>και τις 10.923 αντιστοιχίσεις</strong> του επίσημου πίνακα ΑΑΔΕ.
+          καλύπτει <strong>και τις 10.925 αντιστοιχίσεις</strong> του επίσημου πίνακα ΑΑΔΕ.
         </p>
         <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "2rem" }}>
           Δείτε την αντιστοίχιση του κωδικού σας με ένα κλικ:
@@ -57,7 +57,7 @@ export default function SmartNotFound() {
         Ο σύνδεσμος που ακολουθήσατε δεν υπάρχει ή έχει αλλάξει.
       </p>
       <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "2rem" }}>
-        Αν ψάχνετε συγκεκριμένο ΚΑΔ, η αναζήτηση καλύπτει και τις 10.923 αντιστοιχίσεις:
+        Αν ψάχνετε συγκεκριμένο ΚΑΔ, η αναζήτηση καλύπτει και τις 10.925 αντιστοιχίσεις:
       </p>
       <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "1.5rem" }}>
         <Link href="/antistoixisi" className="btn btn-primary">🔍 Αναζήτηση ΚΑΔ</Link>

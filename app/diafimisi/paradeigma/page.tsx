@@ -116,7 +116,7 @@ const jsonLd = { "@context": "https://schema.org", "@type": "WebPage",
 
 export default function Page() {
   return (
-    <main className="container" style={{ maxWidth: 940, margin: "0 auto", padding: "1.5rem 1rem 3rem" }}>
+    <div className="container" style={{ maxWidth: 940, margin: "0 auto", padding: "1.5rem 1rem 3rem" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <p style={{ fontSize: "0.85rem", marginBottom: "0.8rem" }}>
@@ -231,6 +231,6 @@ export default function Page() {
       <p style={{ fontSize: "0.85rem", marginTop: "1.5rem" }}>
         <Link href="/diafimisi">← Επιστροφή στις διαφημιστικές θέσεις και τα στατιστικά</Link>
       </p>
-    </main>
+    </div>
   );
 }

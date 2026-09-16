@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Πώς Διορθώνω τον ΚΑΔ μου στο myAADE 2026",
@@ -90,8 +89,6 @@ export default function PosNaDiorthosoKadPage() {
           Αν η ηλεκτρονική μέθοδος δεν είναι εφικτή (π.χ. τεχνικό πρόβλημα στο myAADE,
           αντιρρήσεις ΔΟΥ, περίπλοκη μεταβολή), χρησιμοποιήστε το έντυπο Δ211:
         </p>
-
-        <AdSlotBanner variant="compact" />
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
           {[
             "Κατεβάστε ή ζητήστε το έντυπο Δ211 «Δήλωση Μεταβολής Εργασιών» από την αρμόδια ΔΟΥ σας",

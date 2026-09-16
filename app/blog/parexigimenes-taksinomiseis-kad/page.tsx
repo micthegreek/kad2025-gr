@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Οι 10 πιο Παρεξηγημένες Ταξινομήσεις ΚΑΔ",
@@ -71,8 +70,6 @@ export default function Post() {
             </Link>
           </p>
           <p style={{ margin: 0, fontSize: "0.88rem", color: "var(--text-muted)" }}>{c.note}</p>
-
-          <AdSlotBanner variant="compact" />
         </section>
       ))}
 

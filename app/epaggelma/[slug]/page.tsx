@@ -47,7 +47,7 @@ export default async function ProfessionPage({ params }: { params: Promise<{ slu
   const faqItems = [
     {
       q: `Ποιος είναι ο βασικός ΚΑΔ για ${prof.name.toLowerCase()};`,
-      a: `Ο πιο αντιπροσωπευτικός κωδικός είναι ο ΚΑΔ ${prof.codes[0].c} (${prof.codes[0].d08})${prof.codes[0].ch ? `, που στους ΚΑΔ 2025 αντιστοιχίζεται στον ${prof.codes[0].n}` : ", που παρέμεινε αμετάβλητος στους ΚΑΔ 2025"}. Ανάλογα με τις επιμέρους δραστηριότητες μπορεί να χρειάζονται και δευτερεύοντες κωδικοί από τη λίστα.`,
+      a: `Ο πιο αντιπροσωπευτικός ισχύων κωδικός είναι ο ΚΑΔ 2025 ${prof.codes[0].n} (${prof.codes[0].d25})${prof.codes[0].ch ? `, ο οποίος προέκυψε από τον παλαιό ΚΑΔ 2008 ${prof.codes[0].c}` : ` — ο αριθμός παρέμεινε ίδιος και στους ΚΑΔ 2008${prof.codes[0].d08 !== prof.codes[0].d25 ? `, αν και η επίσημη περιγραφή άλλαξε (πριν: ${prof.codes[0].d08})` : ""}`}. Ανάλογα με τις επιμέρους δραστηριότητες μπορεί να χρειάζονται και δευτερεύοντες κωδικοί από τη λίστα.`,
     },
     {
       q: `Άλλαξαν οι ΚΑΔ για ${prof.name.toLowerCase()} με τη μετάβαση του 2026;`,
@@ -96,7 +96,7 @@ export default async function ProfessionPage({ params }: { params: Promise<{ slu
         itemListElement: prof.codes.map((c, i) => ({
           "@type": "ListItem",
           position: i + 1,
-          name: `ΚΑΔ ${c.c} — ${c.d08}`,
+          name: `ΚΑΔ ${c.n} — ${c.d25}`,
           url: `https://www.kad2025.gr/kad/${c.c}`,
         })),
       },
@@ -133,7 +133,7 @@ export default async function ProfessionPage({ params }: { params: Promise<{ slu
       {/* TL;DR */}
       <div className="tldr">
         <strong style={{ color: "var(--primary)" }}>Σύντομη απάντηση:</strong>{" "}
-        Για {prof.name.toLowerCase()} οι βασικοί κωδικοί είναι {prof.codes.length}: {prof.codes.slice(0, 3).map((c) => c.c).join(", ")}{prof.codes.length > 3 ? " κ.ά." : ""}.{" "}
+        Για {prof.name.toLowerCase()} οι ισχύοντες ΚΑΔ 2025 είναι {prof.codes.length}: {[...new Set(prof.codes.slice(0, 3).map((c) => c.n))].join(", ")}{prof.codes.length > 3 ? " κ.ά." : ""}.{" "}
         {changedCodes.length > 0
           ? <>Από αυτούς, <strong>{changedCodes.length} άλλαξαν</strong> στους ΚΑΔ 2025 — ελέγξτε την αυτόματη αντιστοίχιση στο myAADE.</>
           : <>Όλοι παρέμειναν <strong>αμετάβλητοι</strong> στους ΚΑΔ 2025.</>}
@@ -146,12 +146,12 @@ export default async function ProfessionPage({ params }: { params: Promise<{ slu
         <h2 style={{ fontSize: "1.05rem", marginBottom: "0.85rem" }}>📋 Οι κωδικοί αναλυτικά (2008 → 2025)</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
           {prof.codes.map((c) => (
-            <Link key={c.c} href={`/kad/${c.c}`} style={{ textDecoration: "none" }}>
+            <Link key={c.n} href={`/kad/${c.c}`} style={{ textDecoration: "none" }}>
               <div style={{ display: "flex", gap: "0.6rem", alignItems: "center", padding: "0.6rem 0.8rem", background: "var(--bg)", border: "1px solid var(--border)", borderLeft: `3px solid ${c.ch ? "var(--accent)" : "var(--success)"}`, borderRadius: 8, flexWrap: "wrap" }}>
-                <span className="kad-badge kad-badge-2008" style={{ flexShrink: 0 }}>{c.c}</span>
+                <span className="kad-badge kad-badge-2025" style={{ flexShrink: 0 }}>{c.n}</span>
                 <span style={{ fontSize: "0.85rem", flex: "1 1 250px", color: "var(--text)" }}>{c.d08}</span>
                 <span style={{ fontSize: "0.78rem", fontWeight: 700, color: c.ch ? "var(--accent)" : "var(--success)", flexShrink: 0 }}>
-                  {c.ch ? `→ ${c.n}` : "≡ αμετάβλητος"}
+                  {c.ch ? `← από ΚΑΔ 2008 ${c.c}` : c.d08 !== c.d25 ? "≡ ίδιος αριθμός, νέα περιγραφή" : "≡ αμετάβλητος"}
                 </span>
               </div>
             </Link>

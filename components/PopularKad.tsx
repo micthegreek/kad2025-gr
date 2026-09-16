@@ -1,14 +1,16 @@
 import Link from "next/link";
 
-// v140: ΟΛΟΙ οι κωδικοί επαληθευμένοι ότι ανήκουν στο canonical ΚΑΔ 2025 set (9.422)
+// v150 (S01): οι σύνδεσμοι οδηγούν πλέον ΜΟΝΟ σε canonical, indexable σελίδες.
+// Πριν, 3 από 7 οδηγούσαν σε noindex σελίδες με H1 τον παλαιό κωδικό.
+// v140: ΟΛΟΙ οι κωδικοί επαληθευμένοι ότι ανήκουν στο canonical ΚΑΔ 2025 set (9.424)
 // ΚΑΙ στο ssg_codes.json. Πριν εμφανίζονταν 6 κωδικοί ΚΑΔ 2008 (π.χ. 62100000)
 // κάτω από τον τίτλο «Δημοφιλείς ΚΑΔ 2025» — taxonomy version leakage.
 const popular = [
-  { code: "56110000", desc: "Εστιατόρια & Εστίαση", emoji: "🍽️" },
+  { code: "56100000", desc: "Εστιατόρια & Εστίαση (νέος ΚΑΔ 56.11)", emoji: "🍽️" },
   { code: "47710000", desc: "Ένδυση & Παπούτσια", emoji: "👗" },
-  { code: "62100000", desc: "Ανάπτυξη λογισμικού", emoji: "💻" },
+  { code: "62010000", desc: "Ανάπτυξη λογισμικού (νέος ΚΑΔ 62.10)", emoji: "💻" },
   { code: "69100000", desc: "Νομικές υπηρεσίες", emoji: "⚖️" },
-  { code: "41000000", desc: "Κατασκευή κτιρίων", emoji: "🏗️" },
+  { code: "41200000", desc: "Κατασκευή κτιρίων (νέος ΚΑΔ 41.00)", emoji: "🏗️" },
   { code: "47910000", desc: "Διαμεσολάβηση λιανικού (marketplace)", emoji: "🛒" },
   { code: "86210000", desc: "Γενική ιατρική", emoji: "🏥" },
   { code: "55100000", desc: "Ξενοδοχεία & Καταλύματα", emoji: "🏨" },
@@ -19,7 +21,7 @@ const popular = [
 export default function PopularKad() {
   return (
     <div style={{ marginTop: "2.5rem", marginBottom: "2rem" }}>
-      <h2 style={{ marginBottom: "0.5rem" }}>🔥 Δημοφιλείς ΚΑΔ 2025</h2>
+      <h2 style={{ marginBottom: "0.5rem" }}>🔥 Δημοφιλείς αναζητήσεις ΚΑΔ</h2>
       <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "1rem" }}>
         Οι πιο συχνά αναζητούμενοι κωδικοί δραστηριότητας
       </p>

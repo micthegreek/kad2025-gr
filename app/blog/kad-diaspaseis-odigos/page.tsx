@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Διασπάσεις ΚΑΔ 2025: 1 Κωδικός → έως 52 Νέοι",
@@ -59,8 +58,6 @@ export default function Post() {
         χαρτοφυλακίου με μία επικόλληση.
       </p>
 
-      <AdSlotBanner variant="compact" />
-
       <h2>Συχνές ερωτήσεις</h2>
       {faq.map((f, i) => (
         <details key={i} style={{ margin: "0.5rem 0", padding: "0.5rem 0.8rem", border: "1px solid var(--border)", borderRadius: 8 }}>
@@ -70,7 +67,7 @@ export default function Post() {
       ))}
 
       <p style={{ fontSize: "0.78rem", color: "var(--text-muted)", marginTop: "1.5rem" }}>
-        Μεθοδολογία: ανάλυση 10.923 εγγραφών της επίσημης αντιστοίχισης ΑΑΔΕ (Α.1003/2026)· «διάσπαση» = παλιός
+        Μεθοδολογία: ανάλυση 10.925 εγγραφών της επίσημης αντιστοίχισης ΑΑΔΕ (Α.1003/2026)· «διάσπαση» = παλιός
         κωδικός με περισσότερους από έναν μοναδικούς νέους.
       </p>
     </article>

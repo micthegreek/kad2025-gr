@@ -4,7 +4,6 @@ import canonicalRaw from "@/public/data/canonical_indexable_kads.json";
 import clsFbRaw from "@/lib/class_titles_fallback.json";
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 import { notFound } from "next/navigation";
 import { getKadData } from "@/lib/kadData";
 import ssgCodesRaw from "@/public/data/ssg_codes.json";
@@ -303,7 +302,7 @@ export default async function KladosDetailPage({
 
       {/* Changed KADs - first 200 for SEO internal linking */}
       <h3 style={{ fontSize: "0.95rem", color: "var(--accent)", marginBottom: "0.5rem", marginTop: "1rem" }}>
-        🔄 Μοναδικοί ενεργοί ΚΑΔ 2025 ({uniqueList.filter((r) => r.kad2008 !== r.kad2025).length})
+        🔄 ΚΑΔ 2008 του κλάδου που άλλαξαν → νέος ΚΑΔ 2025 ({uniqueList.filter((r) => r.kad2008 !== r.kad2025).length})
       </h3>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginBottom: "1rem" }}>
         {uniqueList.filter((r) => r.kad2008 !== r.kad2025).slice(0, 200).map((r) => (
@@ -393,8 +392,6 @@ export default async function KladosDetailPage({
             </details>
           ))}
         </section>
-
-        <AdSlotBanner variant="compact" />
         <h2>Συχνές Ερωτήσεις — ΚΑΔ {def.name}</h2>
         {buildKladosFaq(def.name, SECTION_STATS[section] ?? { total: 0, changed: 0, pct: 0 }, (naceNotesFull as { divisions: Record<string, { inc: string[] }> }).divisions[section]?.inc?.[0]).map((f, i) => (
           <details key={i} style={{ margin: "0.5rem 0", padding: "0.5rem 0.75rem", border: "1px solid var(--border, #333)", borderRadius: "8px" }}>

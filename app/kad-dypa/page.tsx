@@ -81,7 +81,7 @@ export default function KadDypaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main style={{ maxWidth: 860, margin: "0 auto", padding: "2rem 1rem" }}>
+      <div style={{ maxWidth: 860, margin: "0 auto", padding: "2rem 1rem" }}>
         <nav style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "1.5rem" }}>
           <Link href="/" style={{ color: "var(--primary)", textDecoration: "none" }}>Αρχική</Link>
           {" → "}
@@ -165,7 +165,7 @@ export default function KadDypaPage() {
             </Link>
           ))}
         </div>
-      </main>
+      </div>
     </>
   );
 }

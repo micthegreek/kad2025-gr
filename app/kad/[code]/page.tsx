@@ -515,6 +515,12 @@ export default async function KadDetailPage({
   // Same 2-digit prefix of OLD KAD (same sector) — strict sector match, changed codes only
   // Ενιαίο seen-set για ΟΛΑ τα εμφανιζόμενα URLs (relatedNew δείχνει kad2025,
   // relatedSector δείχνει kad2008 — μπορούν να συμπέσουν σε αμετάβλητους κωδικούς)
+  // C04: συγκεκριμένα αντιπαραδείγματα αντί για ταυτολογία «δεν ταιριάζει αν είναι διαφορετική»
+  const pageExclusions: string[] = (getNaceNote(r.kad2025)?.n?.exc ?? [])
+    .map((e: unknown) => (typeof e === "string" ? e : (e as { x: string }).x))
+    .map((t: string) => t.replace(/^[-•]\s*/, "").trim())
+    .filter((t: string) => t.length > 8)
+    .map((t: string) => (t.length > 110 ? t.slice(0, 110) + "…" : t));
   const shownHrefs = new Set<string>([r.kad2008, r.kad2025, ...relatedNew.map((x) => x.kad2025)]);
   const relatedSector = (CHANGED_BY_PREFIX2_2008.get(prefix2) ?? [])
     .filter((x) => {
@@ -907,8 +913,11 @@ export default async function KadDetailPage({
               <strong>Πότε ταιριάζει ο ΚΑΔ {r.kad2025}:</strong> Αν η δραστηριότητά σας αφορά {r.desc2025.toLowerCase().slice(0, 80)}.
             </p>
             <p style={{ marginBottom: "0.5rem" }}>
-              <strong>Πότε ΔΕΝ ταιριάζει:</strong> Αν η δραστηριότητά σας είναι διαφορετική από αυτή που περιγράφει ο κωδικός.
-              {allMappings.length > 0 && ` Σε αυτή την περίπτωση, ελέγξτε τις ${allMappings.length} εναλλακτικές αντιστοιχίσεις παραπάνω.`}
+              <strong>Πότε ΔΕΝ ταιριάζει:</strong>{" "}
+              {pageExclusions.length > 0
+                ? <>Η επίσημη τάξη NACE εξαιρεί ρητά δραστηριότητες όπως: {pageExclusions.slice(0, 3).join(" · ")}{pageExclusions.length > 3 ? ` (και ${pageExclusions.length - 3} ακόμη — δείτε τις επίσημες επεξηγήσεις παραπάνω)` : ""}.</>
+                : <>Αν η δραστηριότητά σας δεν καλύπτεται από την παραπάνω περιγραφή. Συμβουλευτείτε τις επίσημες επεξηγήσεις της τάξης για τα ακριβή όρια.</>}
+              {allMappings.length > 0 && ` Εναλλακτικά, ελέγξτε τις ${allMappings.length} άλλες αντιστοιχίσεις παραπάνω.`}
             </p>
             <p style={{ marginBottom: "0.75rem" }}>
               <strong>Συχνό λάθος:</strong> Πολλές επιχειρήσεις αποδέχονται την αυτόματη αντιστοίχιση ΑΑΔΕ χωρίς έλεγχο. Αν ο νέος ΚΑΔ δεν αντιστοιχεί ακριβώς στη δραστηριότητά σας, μπορεί να επηρεάσει τα φορολογικά σας.

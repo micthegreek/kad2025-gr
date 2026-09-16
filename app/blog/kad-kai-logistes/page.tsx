@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Οδηγός ΚΑΔ 2025 για Λογιστές: Πολλοί Πελάτες",
@@ -55,8 +54,6 @@ export default function KadKaiLogistesPage() {
           Επιπλέον, πελάτες με λανθασμένο ΚΑΔ μπορεί να υποστούν διαφορετική φορολογική κατάταξη,
           επηρεάζοντας ΦΠΑ, ασφαλιστικές εισφορές ή κατηγορία βιβλίων.
         </p>
-
-        <AdSlotBanner variant="compact" />
       </section>
 
       <section className="card" style={{ marginBottom: "1.5rem" }}>

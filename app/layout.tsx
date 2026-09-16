@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     "google-adsense-account": "ca-pub-8450100137851566",
   },
   title: {
-    default: "ΚΑΔ 2025 ΑΑΔΕ: Αντιστοίχιση 2008→2025 & Δωρεάν Excel — 10.923 Κωδικοί",
+    default: "ΚΑΔ 2025 ΑΑΔΕ: Αντιστοίχιση 2008→2025 & Δωρεάν Excel — 10.925 Κωδικοί",
     template: "%s",
   },
   description:
-    "Πλήρης αντιστοίχιση ΚΑΔ 2008 με ΚΑΔ 2025. 10.923 εγγραφές αντιστοίχισης, αναζήτηση, εξαγωγή Excel & CSV. Επίσημα δεδομένα ΑΑΔΕ Α.1003/2026 & Α.1004/2026. Ισχύς από 1/3/2026.",
+    "Πλήρης αντιστοίχιση ΚΑΔ 2008 με ΚΑΔ 2025. 10.925 εγγραφές αντιστοίχισης, αναζήτηση, εξαγωγή Excel & CSV. Επίσημα δεδομένα ΑΑΔΕ Α.1003/2026 & Α.1004/2026. Ισχύς από 1/3/2026.",
   authors: [{ name: "kad2025.gr" }],
   creator: "kad2025.gr",
   publisher: "kad2025.gr",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     url: "https://www.kad2025.gr",
     siteName: "kad2025.gr",
     title: "ΚΑΔ 2025 - Πλήρης Αντιστοίχιση & Αναζήτηση",
-    description: "Αναζητήστε και συγκρίνετε 10.923 εγγραφές αντιστοίχισης ΚΑΔ. Εξαγωγή Excel & CSV. Επίσημα δεδομένα ΑΑΔΕ.",
+    description: "Αναζητήστε και συγκρίνετε 10.925 εγγραφές αντιστοίχισης ΚΑΔ. Εξαγωγή Excel & CSV. Επίσημα δεδομένα ΑΑΔΕ.",
     images: [
       {
         url: "https://www.kad2025.gr/og-image.png",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ΚΑΔ 2025 - Αντιστοίχιση & Αναζήτηση",
-    description: "Πλήρης αντιστοίχιση 10.923 ΚΑΔ. Ισχύς από 1/3/2026.",
+    description: "Πλήρης αντιστοίχιση 10.925 ΚΑΔ. Ισχύς από 1/3/2026.",
     images: [{ url: "https://www.kad2025.gr/og-image.png", width: 1200, height: 630, alt: "ΚΑΔ 2025 - Αντιστοίχιση ΚΑΔ" }],
   },
   // v95: root-level alternates removed — alternates.canonical here cascades the
@@ -225,7 +225,7 @@ gtag('config','G-BSSB8F33SV',{anonymize_ip:true});
         )}
 
         <Navbar />
-        <main style={{ minHeight: "calc(100vh - 200px)" }}><main id="main-content">{children}</main></main>
+        <main id="main-content" style={{ minHeight: "calc(100vh - 200px)" }}>{children}</main>
         <HtmlLang />
         <QueryNoindex />
         <GlobalAdRail />

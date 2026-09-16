@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AdSlotBanner from "@/components/AdSlotBanner";
 
 export const metadata: Metadata = {
   title: "Κύριος & Δευτερεύων ΚΑΔ: Πλήρης Οδηγός 2026",
@@ -57,8 +56,6 @@ export default function Post() {
         νέους ΚΑΔ 2025 — αν ο κωδικός σας <Link href="/blog/kad-diaspaseis-odigos">διασπάστηκε</Link>,
         συνδυάστε τους δύο ελέγχους σε μία μεταβολή.
       </p>
-
-      <AdSlotBanner variant="compact" />
 
       <h2>Συχνές ερωτήσεις</h2>
       {faq.map((f, i) => (

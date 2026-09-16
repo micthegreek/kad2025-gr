@@ -80,7 +80,7 @@ const CARD: React.CSSProperties = {
 
 export default function Page() {
   return (
-    <main className="container" style={{ maxWidth: 940, margin: "0 auto", padding: "1.5rem 1rem 3rem" }}>
+    <div className="container" style={{ maxWidth: 940, margin: "0 auto", padding: "1.5rem 1rem 3rem" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <p style={{ fontSize: "0.72rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--primary)" }}>
@@ -314,6 +314,6 @@ export default function Page() {
         Σχετικά: <Link href="/about">Ποιοι είμαστε</Link> · <Link href="/methodology">Μεθοδολογία</Link> ·{" "}
         <Link href="/statistika">Στατιστικά χρήσης</Link>
       </p>
-    </main>
+    </div>
   );
 }

@@ -56,7 +56,7 @@ export default function Kad2026Page() {
         name: 'Πώς βρίσκω σε ποιον ΚΑΔ 2026 αντιστοιχεί ο παλιός μου ΚΑΔ;',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Μπορείς να χρησιμοποιήσεις δωρεάν το εργαλείο αντιστοίχισης του kad2025.gr που έχει 10.923 εγγραφές αντιστοιχίας μεταξύ ΚΑΔ 2008 και ΚΑΔ 2025/2026.',
+          text: 'Μπορείς να χρησιμοποιήσεις δωρεάν το εργαλείο αντιστοίχισης του kad2025.gr που έχει 10.925 εγγραφές αντιστοιχίας μεταξύ ΚΑΔ 2008 και ΚΑΔ 2025/2026.',
         },
       },
       {
@@ -195,7 +195,7 @@ export default function Kad2026Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <main style={styles.container}>
+      <div style={styles.container}>
         <article>
           <h1 style={styles.h1}>
             ΚΑΔ 2026 — Ο Νέος Πίνακας ΚΑΔ σε Ισχύ από 1η Μαρτίου 2026
@@ -215,7 +215,7 @@ export default function Kad2026Page() {
               🔍 Βρες σε ποιον νέο ΚΑΔ αντιστοιχείς →
             </Link>
             <p style={styles.ctaSubtext}>
-              Δωρεάν εργαλείο · 10.923 αντιστοιχίες · Καμία εγγραφή
+              Δωρεάν εργαλείο · 10.925 αντιστοιχίες · Καμία εγγραφή
             </p>
           </div>
 
@@ -315,7 +315,7 @@ export default function Kad2026Page() {
           <div style={styles.finalCta}>
             <h3 style={styles.h3}>Έτοιμος να δεις τους νέους σου ΚΑΔ;</h3>
             <p style={styles.finalCtaText}>
-              Δωρεάν εργαλείο με 10.923 αντιστοιχίες ΚΑΔ 2008 → ΚΑΔ 2026.
+              Δωρεάν εργαλείο με 10.925 αντιστοιχίες ΚΑΔ 2008 → ΚΑΔ 2026.
             </p>
             <Link href="/antistoixisi" style={styles.ctaButton}>
               Ξεκίνα την αντιστοίχιση →
@@ -353,7 +353,7 @@ export default function Kad2026Page() {
             </ul>
           </nav>
         </article>
-      </main>
+      </div>
     </>
   );
 }
